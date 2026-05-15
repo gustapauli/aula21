@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Aula 21 — Ditadura Militar: 21 anos de fardas e porões</title>
+<style>
+  :root {
+    --bg: #F4EFE6;
+    --bg-deep: #1A1814;
+    --ink: #1A1814;
+    --ink-soft: #4A4640;
+    --paper: #FBF7EF;
+    --accent: #B8862F;
+    --accent-soft: #E8C77A;
+    --line: rgba(26,24,20,0.12);
+    --correct: #2E7D4F;
+    --wrong: #B5342B;
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .app {
+    position: fixed;
+    inset: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .progress {
+    position: absolute;
+    top: 10px; left: 12px; right: 12px;
+    height: 18px;
+    display: flex;
+    gap: 2px;
+    z-index: 50;
+    align-items: center;
+    cursor: pointer;
+  }
+  .seg {
+    flex: 1;
+    height: 3px;
+    background: rgba(26,24,20,0.12);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    transition: height 0.2s ease;
+  }
+  .seg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .seg.done::after { transform: scaleX(1); }
+  .seg.current::after { transform: scaleX(1); }
+  .seg.current { height: 4px; }
+
+  .header {
+    position: absolute;
+    top: 34px; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 40;
+    pointer-events: none;
+  }
+  .header span {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .slides { position: absolute; inset: 0; }
+  .slide {
+    position: absolute;
+    inset: 0;
+    padding: 80px 28px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+    overflow-y: auto;
+  }
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .slide.prev { transform: translateX(-40px); }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  h1 em, h2 em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(24px, 7vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+  }
+  h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  p {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  p + p { margin-top: 14px; }
+  .big {
+    font-family: var(--serif);
+    font-size: clamp(22px, 6.5vw, 28px);
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--ink);
+    border-left: 2px solid var(--accent);
+    padding-left: 18px;
+    margin: 8px 0;
+  }
+  .number {
+    font-family: var(--serif);
+    font-size: 88px;
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+  }
+  .label {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  .slide.active > * {
+    animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
+  }
+  .slide.active > *:nth-child(1) { animation-delay: 0.05s; }
+  .slide.active > *:nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > *:nth-child(3) { animation-delay: 0.31s; }
+  .slide.active > *:nth-child(4) { animation-delay: 0.44s; }
+  .slide.active > *:nth-child(5) { animation-delay: 0.57s; }
+  .slide.active > *:nth-child(6) { animation-delay: 0.70s; }
+  .slide.active > *:nth-child(7) { animation-delay: 0.83s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .tap-zone {
+    position: absolute;
+    top: 60px; bottom: 0;
+    width: 35%;
+    z-index: 30;
+    cursor: pointer;
+  }
+  .tap-zone.left { left: 0; }
+  .tap-zone.right { right: 0; }
+
+  .footer-hint {
+    position: absolute;
+    bottom: 18px; left: 0; right: 0;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    opacity: 0.6;
+    z-index: 20;
+    pointer-events: none;
+  }
+  .footer-hint .arrow {
+    display: inline-block;
+    animation: nudge 2s ease-in-out infinite;
+  }
+  @keyframes nudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+  }
+
+  .illu {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto 18px;
+    display: block;
+  }
+  .illu.sm { max-width: 180px; }
+  .illu.lg { max-width: 320px; }
+  .illu svg { width: 100%; height: auto; display: block; }
+
+  .draw path, .draw line, .draw circle, .draw rect, .draw polygon, .draw polyline {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 1.6s 0.3s cubic-bezier(0.5, 0, 0.2, 1) forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .pulse-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+
+  .cover {
+    background: var(--bg-deep);
+    color: var(--paper);
+  }
+  .cover h1 { color: var(--paper); }
+  .cover .eyebrow { color: var(--accent-soft); }
+  .cover p { color: rgba(251,247,239,0.7); }
+  .cover .footer-hint { color: rgba(251,247,239,0.5); }
+
+  .quiz-intro { text-align: center; }
+  .quiz-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--paper);
+    animation: popIn 0.6s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  }
+  @keyframes popIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .question-num {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .question {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .option:active { transform: scale(0.98); }
+  .option .letter {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 1px;
+    transition: all 0.2s ease;
+  }
+  .option.correct {
+    background: rgba(46, 125, 79, 0.08);
+    border-color: var(--correct);
+    color: var(--correct);
+  }
+  .option.correct .letter {
+    background: var(--correct);
+    color: white;
+    border-color: var(--correct);
+  }
+  .option.wrong {
+    background: rgba(181, 52, 43, 0.06);
+    border-color: var(--wrong);
+    color: var(--wrong);
+  }
+  .option.wrong .letter {
+    background: var(--wrong);
+    color: white;
+    border-color: var(--wrong);
+  }
+  .option.disabled { pointer-events: none; opacity: 0.55; }
+
+  .feedback {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 12px;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .feedback.show {
+    opacity: 1;
+    max-height: 500px;
+  }
+  .feedback.right {
+    background: rgba(46, 125, 79, 0.08);
+    color: var(--correct);
+    border: 1px solid rgba(46, 125, 79, 0.2);
+  }
+  .feedback.miss {
+    background: rgba(181, 52, 43, 0.06);
+    color: var(--ink);
+    border: 1px solid rgba(181, 52, 43, 0.2);
+  }
+  .feedback strong { font-weight: 700; }
+  .feedback .head {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 6px;
+    display: block;
+    font-weight: 600;
+  }
+
+  .end {
+    background: var(--bg-deep);
+    color: var(--paper);
+    text-align: center;
+  }
+  .end h2 { color: var(--paper); }
+  .end p { color: rgba(251,247,239,0.7); }
+  .end .score {
+    font-family: var(--serif);
+    font-size: 72px;
+    font-weight: 800;
+    color: var(--accent-soft);
+    line-height: 1;
+    margin: 20px 0;
+  }
+  .restart {
+    margin-top: 28px;
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .restart:active { transform: scale(0.96); }
+
+  .slide::-webkit-scrollbar { display: none; }
+  .slide { scrollbar-width: none; }
+
+  .card-soft {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .stamp {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .stamp.dark {
+    background: var(--bg-deep);
+    color: var(--accent-soft);
+  }
+  .stamp.red {
+    background: var(--wrong);
+    color: var(--paper);
+  }
+  .pres-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .pres-card .num {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .pres-card .body { flex: 1; }
+  .pres-card .name { font-family: var(--serif); font-size: 17px; font-weight: 700; }
+  .pres-card .yrs { font-size: 12px; color: var(--ink-soft); letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="progress" id="progress"></div>
+  <div class="header">
+    <span>Aula 21</span>
+    <span id="counter">1 / 1</span>
+  </div>
+
+  <div class="slides" id="slides">
+
+    <!-- ============== 1 — CAPA ============== -->
+    <section class="slide cover active">
+      <div class="eyebrow">História · Aula 21</div>
+      <h1>21 anos de <em>fardas</em>, porões e milagre.</h1>
+      <p style="margin-top: 16px;">Ditadura Militar no Brasil (1964–1985). A história inteira. Sem suavizar.</p>
+      <div class="illu" style="margin-top: 36px;">
+        <svg viewBox="0 0 240 140" class="draw" fill="none" stroke="#E8C77A" stroke-width="1.5">
+          <!-- quepe militar -->
+          <path d="M70 80 L170 80 L170 95 L70 95 Z"/>
+          <path d="M80 80 Q120 50 160 80"/>
+          <circle cx="120" cy="68" r="4" fill="#E8C77A"/>
+          <!-- linha do tempo -->
+          <path d="M40 120 L200 120" stroke-dasharray="2 3"/>
+          <circle cx="40" cy="120" r="3" fill="#E8C77A"/>
+          <circle cx="200" cy="120" r="3" fill="#E8C77A"/>
+          <text x="32" y="135" font-family="Georgia" font-size="9" fill="#E8C77A">1964</text>
+          <text x="190" y="135" font-family="Georgia" font-size="9" fill="#E8C77A">1985</text>
+        </svg>
+      </div>
+      <div class="footer-hint">toque na lateral pra avançar <span class="arrow">→</span></div>
+    </section>
+
+    <!-- ============== 2 ============== -->
+    <section class="slide">
+      <p class="big">Olha só.</p>
+      <p style="margin-top: 18px;">Tem uma frase que resume essa aula inteira.</p>
+      <p class="quote" style="margin-top: 14px; font-size: 19px;">"Não tem ditadura boa. Tem ditadura que te deixa em paz e ditadura que te pega."</p>
+      <p style="margin-top: 12px;">Segura essa.</p>
+    </section>
+
+    <!-- ============== 3 ============== -->
+    <section class="slide">
+      <div class="eyebrow">Antes do golpe</div>
+      <p>Lembra a última aula?</p>
+      <p style="margin-top: 12px;">Vargas tinha acabado de se matar.</p>
+      <p class="big" style="margin-top: 14px;">E o Brasil ficou com uma dúvida no ar.</p>
+      <p style="margin-top: 12px; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--accent);">Sem ele, quem manda agora?</p>
+    </section>
+
+    <!-- ============== 4 ============== -->
+    <section class="slide">
+      <p>A resposta demorou 10 anos pra chegar.</p>
+      <p class="big" style="margin-top: 14px;">E veio de farda.</p>
+      <div class="illu sm" style="margin: 22px auto;">
+        <svg viewBox="0 0 120 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <path d="M30 60 L90 60 L90 70 L30 70 Z"/>
+          <path d="M40 60 Q60 35 80 60"/>
+          <circle cx="60" cy="50" r="3" fill="#B8862F"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============== 5 — JK ============== -->
+    <section class="slide">
+      <div class="eyebrow">1956 · Quem entra</div>
+      <h2>Juscelino. <em>JK</em>.</h2>
+      <p style="margin-top: 12px;">Mineiro, médico, sorriso largo.</p>
+      <p style="margin-top: 10px;">Slogan da campanha:</p>
+      <p class="big" style="margin-top: 8px; color: var(--accent);">"50 anos em 5."</p>
+      <p style="margin-top: 12px;">Quer dizer: vou acelerar o Brasil. Vou fazer em 5 anos o que outros fariam em 50.</p>
+    </section>
+
+    <!-- ============== 6 ============== -->
+    <section class="slide">
+      <p>E ele acelerou mesmo.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Construiu <strong>Brasília</strong> em menos de 4 anos. No meio do nada.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Trouxe <strong>Volkswagen, Ford, GM</strong> pra montar carro aqui.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">PIB crescendo <strong>8% ao ano</strong>.</div>
+      </div>
+      <p style="margin-top: 14px; font-family: var(--serif); font-style: italic; color: var(--accent);">O Brasil tava no auge.</p>
+    </section>
+
+    <!-- ============== 7 ============== -->
+    <section class="slide">
+      <p class="big">Mas tinha um detalhe.</p>
+      <p style="margin-top: 14px;">JK pagou esse sonho todo no <strong>cartão de crédito</strong>.</p>
+      <p style="margin-top: 10px;">Inflação alta. Dívida externa explodindo.</p>
+      <p class="quote" style="margin-top: 14px; font-size: 18px;">Crescer no fiado sempre cobra a conta depois. E quem paga raramente é quem festejou.</p>
+    </section>
+
+    <!-- ============== 8 — Jânio ============== -->
+    <section class="slide">
+      <div class="eyebrow">1961 · O sucessor</div>
+      <h2>Jânio Quadros.</h2>
+      <p style="margin-top: 10px;">Símbolo de campanha:</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 80 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <rect x="35" y="20" width="10" height="60"/>
+          <path d="M25 80 L55 80 L50 95 L30 95 Z"/>
+          <path d="M28 85 L52 85 M28 89 L52 89 M28 93 L52 93"/>
+        </svg>
+      </div>
+      <p style="text-align: center; font-family: var(--serif); font-style: italic; font-size: 18px;">Uma vassoura.</p>
+      <p style="margin-top: 10px;">Promessa: varrer a corrupção.</p>
+    </section>
+
+    <!-- ============== 9 ============== -->
+    <section class="slide">
+      <p>Tomou posse em janeiro.</p>
+      <p style="margin-top: 10px;">Em <strong>agosto do mesmo ano</strong>…</p>
+      <p class="big" style="margin-top: 12px;">renunciou.</p>
+      <p style="margin-top: 14px;">Sete meses de mandato. Só isso.</p>
+    </section>
+
+    <!-- ============== 10 ============== -->
+    <section class="slide">
+      <p>Por quê?</p>
+      <p style="margin-top: 12px;">A versão mais aceita é que ele deu uma blefada.</p>
+      <p style="margin-top: 10px;">Achou que o Congresso ia implorar pra ele voltar, com mais poderes.</p>
+      <p class="big" style="margin-top: 12px;">O Congresso disse "tchau".</p>
+      <p style="margin-top: 10px; color: var(--ink-soft); font-style: italic;">Blefe que deu errado feio.</p>
+    </section>
+
+    <!-- ============== 11 — Jango ============== -->
+    <section class="slide">
+      <div class="eyebrow">E quem era o vice?</div>
+      <h2><em>João Goulart.</em> O Jango.</h2>
+      <p style="margin-top: 12px;">Gaúcho. Ligado aos sindicatos. Herdeiro político de Vargas.</p>
+      <p style="margin-top: 12px;">Detalhe que pegou mal:</p>
+      <p class="big" style="margin-top: 10px; color: var(--accent);">Tava na China comunista.</p>
+      <p style="margin-top: 10px;">Em viagem oficial. Bem na hora que o Jânio renunciou.</p>
+    </section>
+
+    <!-- ============== 12 ============== -->
+    <section class="slide">
+      <p>Os militares de direita olharam pra isso e travaram.</p>
+      <p style="margin-top: 12px;">"Esse cara é <strong>comunista</strong>. Não pode assumir."</p>
+      <div class="illu sm" style="margin: 18px auto;">
+        <svg viewBox="0 0 120 60" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <circle cx="60" cy="30" r="20"/>
+          <path d="M45 15 L75 45 M75 15 L45 45"/>
+        </svg>
+      </div>
+      <p>Os três ministros militares <strong>vetaram</strong> a posse.</p>
+    </section>
+
+    <!-- ============== 13 ============== -->
+    <section class="slide">
+      <p class="big">O Brasil quase entrou em guerra civil.</p>
+      <p style="margin-top: 14px;">No Rio Grande do Sul, o cunhado de Jango — <strong>Leonel Brizola</strong> — montou uma rede de rádios.</p>
+      <p style="margin-top: 10px;">Chamou de <em>Campanha da Legalidade</em>. Tropas dispostas a defender a Constituição na bala.</p>
+    </section>
+
+    <!-- ============== 14 ============== -->
+    <section class="slide">
+      <div class="eyebrow">Solução de meio-termo</div>
+      <p>Jango toma posse…</p>
+      <p class="big" style="margin-top: 12px;">…mas sem poder de verdade.</p>
+      <p style="margin-top: 12px;">Inventaram um <strong>parlamentarismo de gambiarra</strong>: ele era presidente, mas quem mandava era um primeiro-ministro.</p>
+      <p style="margin-top: 12px;">Em 1963, um plebiscito devolveu o poder pleno pra ele.</p>
+    </section>
+
+    <!-- ============== 15 ============== -->
+    <section class="slide">
+      <p>E aí o Jango pisou no acelerador.</p>
+      <p style="margin-top: 12px;">Em março de 1964, na Central do Brasil, no Rio, diante de <strong>150 mil pessoas</strong>, anunciou as…</p>
+      <p class="big" style="margin-top: 12px; color: var(--accent);">Reformas de Base.</p>
+    </section>
+
+    <!-- ============== 16 ============== -->
+    <section class="slide">
+      <div class="eyebrow">O pacote</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Agrária.</strong> Pegar terra improdutiva e redistribuir.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Urbana.</strong> Regularizar moradia.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Bancária.</strong> Nacionalizar bancos.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Educacional.</strong> Pra todos.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Tributária.</strong> Mexer nos impostos.</div>
+      </div>
+    </section>
+
+    <!-- ============== 17 ============== -->
+    <section class="slide">
+      <p>Pra esquerda, era o básico.</p>
+      <p style="margin-top: 12px;">Pra direita, classe média, Igreja, empresariado e militares…</p>
+      <p class="big" style="margin-top: 12px;">…era "Cuba no Brasil".</p>
+      <p style="margin-top: 12px; color: var(--ink-soft); font-style: italic;">Lembra: era plena Guerra Fria. Cuba tinha virado comunista cinco anos antes. Os EUA tavam paranoicos.</p>
+    </section>
+
+    <!-- ============== 18 ============== -->
+    <section class="slide">
+      <p>Seis dias depois do discurso do Jango…</p>
+      <p style="margin-top: 12px;">Em São Paulo, <strong>500 mil pessoas</strong> marcharam contra ele.</p>
+      <p style="margin-top: 10px;">Foi a <em>Marcha da Família com Deus pela Liberdade</em>.</p>
+      <p class="big" style="margin-top: 14px;">Pediram, abertamente:</p>
+      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--wrong);">"Militares, entrem."</p>
+    </section>
+
+    <!-- ============== 19 ============== -->
+    <section class="slide">
+      <p class="quote" style="font-size: 19px;">Quando os dois lados acham que estão prestes a perder tudo, ninguém negocia.</p>
+      <p style="margin-top: 14px;">Polarização extrema é antessala de ruptura.</p>
+      <p class="big" style="margin-top: 14px;">E a ruptura veio 12 dias depois.</p>
+    </section>
+
+    <!-- ============== 20 — GOLPE ============== -->
+    <section class="slide">
+      <div class="number" style="font-size: 64px;">31.03.1964</div>
+      <div class="label" style="margin-top: 10px;">A data</div>
+      <h2 style="margin-top: 14px;">O golpe.</h2>
+      <p style="margin-top: 14px;">À noite, um general de Minas — <strong>Olímpio Mourão</strong> — antecipou o movimento e marchou pro Rio.</p>
+      <p style="margin-top: 10px;">Outros comandos aderiram.</p>
+    </section>
+
+    <!-- ============== 21 ============== -->
+    <section class="slide">
+      <p class="big">Em 24 horas, tava tudo decidido.</p>
+      <p style="margin-top: 14px;">Jango fugiu pro Rio Grande, depois pro Uruguai.</p>
+      <p style="margin-top: 10px;">Brizola tentou resistir.</p>
+      <p style="margin-top: 8px; color: var(--ink-soft); font-style: italic;">Ninguém apareceu.</p>
+    </section>
+
+    <!-- ============== 22 ============== -->
+    <section class="slide">
+      <div class="eyebrow">Detalhe que ninguém pode esquecer</div>
+      <p>Os Estados Unidos <strong>apoiaram</strong>.</p>
+      <p style="margin-top: 12px;">Tinha uma esquadra americana posicionada no nosso litoral. Pronta pra dar apoio se precisasse.</p>
+      <p class="big" style="margin-top: 12px;">Chamava "Operação Brother Sam".</p>
+      <p style="margin-top: 10px;">Documentos abertos depois confirmaram tudo.</p>
+    </section>
+
+    <!-- ============== 23 — golpe ou revolução ============== -->
+    <section class="slide">
+      <p>Os militares chamaram de <em>"Revolução"</em> por 40 anos.</p>
+      <p class="big" style="margin-top: 12px;">Mas foi golpe.</p>
+      <p style="margin-top: 14px;">Revolução é quando muda a estrutura, derruba uma classe, sobe outra.</p>
+      <p style="margin-top: 10px;">Golpe é quando uma facção das Forças Armadas tira um presidente eleito.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--accent);">Foi exatamente isso.</p>
+    </section>
+
+    <!-- ============== 24 ============== -->
+    <section class="slide">
+      <div class="eyebrow">Quem apoiou (importante)</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Empresariado</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Mídia (Globo, Estadão, JB)</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Classe média</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Igreja católica conservadora</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Governadores (Lacerda, Magalhães, Ademar)</div>
+      </div>
+      <p style="margin-top: 14px; font-style: italic; color: var(--ink-soft);">Os militares entraram porque civis importantes pediram.</p>
+    </section>
+
+    <!-- ============== 25 — duração ============== -->
+    <section class="slide">
+      <p class="big">A ditadura durou…</p>
+      <div style="text-align: center; margin: 20px 0;">
+        <div class="number" style="font-size: 110px;">21</div>
+        <div class="label" style="margin-top: 4px;">Anos</div>
+      </div>
+      <p>Cinco generais ocuparam a presidência.</p>
+      <p style="margin-top: 8px;">Bora conhecer um por um.</p>
+    </section>
+
+    <!-- ============== 26 — Castello ============== -->
+    <section class="slide">
+      <div class="pres-card">
+        <div class="num">1</div>
+        <div class="body">
+          <div class="name">Castello Branco</div>
+          <div class="yrs">1964 — 1967</div>
+        </div>
+      </div>
+      <p style="margin-top: 16px;">O "moderado". Prometeu mandato curto, reformas, volta à democracia.</p>
+      <p class="big" style="margin-top: 12px;">Cumpriu zero.</p>
+    </section>
+
+    <!-- ============== 27 — AIs ============== -->
+    <section class="slide">
+      <div class="eyebrow">O que Castello fez</div>
+      <p>Inventou os <strong>Atos Institucionais</strong>. Em bom português:</p>
+      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">"eu mando, ninguém pergunta."</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>AI-1</strong> · Cassou mandatos. Suspendeu direitos políticos.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>AI-2</strong> · Acabou com todos os partidos.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>AI-3</strong> · Governador não seria mais eleito.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>AI-4</strong> · Nova Constituição feita sob medida.</div>
+      </div>
+    </section>
+
+    <!-- ============== 28 — bipartidarismo ============== -->
+    <section class="slide">
+      <p>Olha essa jogada:</p>
+      <p style="margin-top: 12px;">Acabaram com <strong>todos os partidos</strong> e criaram só dois.</p>
+      <div style="margin-top: 14px; display: flex; gap: 10px;">
+        <div style="flex: 1; padding: 14px; background: var(--paper); border-radius: 10px; text-align: center;">
+          <div style="font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--accent);">ARENA</div>
+          <div style="font-size: 12px; color: var(--ink-soft); margin-top: 4px;">o partido do governo</div>
+        </div>
+        <div style="flex: 1; padding: 14px; background: var(--paper); border-radius: 10px; text-align: center;">
+          <div style="font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--accent);">MDB</div>
+          <div style="font-size: 12px; color: var(--ink-soft); margin-top: 4px;">a oposição "permitida"</div>
+        </div>
+      </div>
+      <p style="margin-top: 14px;">Quer fazer política? Escolhe um.</p>
+      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">Não escolhe? Vira clandestino.</p>
+    </section>
+
+    <!-- ============== 29 — SNI ============== -->
+    <section class="slide">
+      <p>Também criaram o <strong>SNI</strong>.</p>
+      <p style="margin-top: 10px;">Serviço Nacional de Informações.</p>
+      <div class="illu sm" style="margin: 18px auto;">
+        <svg viewBox="0 0 120 80" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <circle cx="60" cy="40" r="20"/>
+          <circle cx="60" cy="40" r="8" fill="#B5342B"/>
+          <path d="M30 40 Q60 15 90 40 Q60 65 30 40" />
+        </svg>
+      </div>
+      <p>A polícia secreta do regime. Espionando civil, militar, padre, professor, jornalista.</p>
+      <p style="margin-top: 10px; font-family: var(--serif); font-style: italic; color: var(--accent);">Todo mundo virou suspeito.</p>
+    </section>
+
+    <!-- ============== 30 — Costa e Silva ============== -->
+    <section class="slide">
+      <div class="pres-card">
+        <div class="num">2</div>
+        <div class="body">
+          <div class="name">Costa e Silva</div>
+          <div class="yrs">1967 — 1969</div>
+        </div>
+      </div>
+      <p style="margin-top: 16px;">Da linha-dura. Mais autoritário. Menos paciência.</p>
+      <p class="big" style="margin-top: 12px;">E em 1968, o Brasil ferveu.</p>
+    </section>
+
+    <!-- ============== 31 ============== -->
+    <section class="slide">
+      <div class="eyebrow">1968 · O ano que não acabou</div>
+      <p>A PM matou um estudante chamado <strong>Edson Luís</strong>, num restaurante popular no Rio.</p>
+      <p style="margin-top: 12px;">O povo foi pra rua.</p>
+      <p class="big" style="margin-top: 12px;">100 mil pessoas marchando no Rio.</p>
+      <p style="margin-top: 10px;">Ficou conhecida como <em>Passeata dos Cem Mil</em>.</p>
+    </section>
+
+    <!-- ============== 32 ============== -->
+    <section class="slide">
+      <p>Greves de operários estouraram em Osasco e Contagem.</p>
+      <p style="margin-top: 12px;">E partes da esquerda decidiram que política normal não dava mais.</p>
+      <p class="big" style="margin-top: 14px;">Começou a luta armada.</p>
+      <p style="margin-top: 10px; color: var(--ink-soft); font-style: italic;">Grupos pegando em arma, assaltando banco, sequestrando embaixador.</p>
+    </section>
+
+    <!-- ============== 33 — AI-5 ============== -->
+    <section class="slide">
+      <div class="eyebrow">13 de dezembro de 1968</div>
+      <p>O regime respondeu fechando tudo.</p>
+      <p class="big" style="margin-top: 14px; color: var(--wrong);">AI-5.</p>
+      <p style="margin-top: 12px;">O documento mais sombrio da história republicana do Brasil.</p>
+    </section>
+
+    <!-- ============== 34 ============== -->
+    <section class="slide">
+      <div class="eyebrow">O que o AI-5 permitia</div>
+      <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 8px;">
+        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Fechar o Congresso.</div>
+        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Cassar qualquer mandato, sem justificativa.</div>
+        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Demitir juiz, professor, funcionário público.</div>
+        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Suspender <em>habeas corpus</em>: prender e sumir com a pessoa.</div>
+        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Censura prévia em tudo: jornal, música, livro, peça.</div>
+        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Sem revisão da Justiça.</div>
+      </div>
+    </section>
+
+    <!-- ============== 35 ============== -->
+    <section class="slide">
+      <p>Traduzindo:</p>
+      <p class="big" style="margin-top: 14px;">o Estado podia fazer qualquer coisa com qualquer pessoa.</p>
+      <p style="margin-top: 14px;">E ninguém podia perguntar nada.</p>
+      <p style="margin-top: 14px; font-family: var(--serif); font-style: italic; color: var(--accent);">Foi aqui que a tortura virou política oficial.</p>
+    </section>
+
+    <!-- ============== 36 — Médici ============== -->
+    <section class="slide">
+      <div class="pres-card">
+        <div class="num">3</div>
+        <div class="body">
+          <div class="name">Médici</div>
+          <div class="yrs">1969 — 1974</div>
+        </div>
+      </div>
+      <p style="margin-top: 16px;">O período <strong>mais duro</strong> da ditadura.</p>
+      <p style="margin-top: 10px;">Dois lados convivendo, ao mesmo tempo, no mesmo país.</p>
+    </section>
+
+    <!-- ============== 37 — milagre ============== -->
+    <section class="slide">
+      <div class="eyebrow">Lado A · O que o povo via</div>
+      <h2>O "Milagre Econômico".</h2>
+      <p style="margin-top: 12px;">A economia explodiu.</p>
+      <div style="text-align: center; margin: 18px 0;">
+        <div class="number" style="font-size: 70px;">11%</div>
+        <div class="label" style="margin-top: 4px;">de PIB ao ano</div>
+      </div>
+      <p style="font-size: 14px; color: var(--ink-soft);">Em 1973 chegou a 14%.</p>
+    </section>
+
+    <!-- ============== 38 ============== -->
+    <section class="slide">
+      <div class="eyebrow">Obras gigantes</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Transamazônica</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Ponte Rio–Niterói</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Usina de Itaipu</div>
+      </div>
+      <p style="margin-top: 14px;">Classe média comprando geladeira, carro, TV.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--accent);">Brasil tri da Copa de 70.</p>
+    </section>
+
+    <!-- ============== 39 — slogan ============== -->
+    <section class="slide">
+      <div class="illu sm" style="margin: 0 auto 18px;">
+        <svg viewBox="0 0 140 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <rect x="20" y="20" width="100" height="40" rx="3"/>
+          <path d="M40 38 L60 38 M70 38 L90 38 M100 38 L110 38"/>
+          <path d="M40 50 L70 50 M80 50 L105 50"/>
+        </svg>
+      </div>
+      <p class="big" style="text-align: center; color: var(--accent);">"Brasil, ame-o ou deixe-o."</p>
+      <p style="margin-top: 16px; text-align: center;">Slogan oficial. Em outdoor, na TV, no rádio.</p>
+      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft); text-align: center; font-size: 14px;">Discordou? Sai do país.</p>
+    </section>
+
+    <!-- ============== 40 — porão ============== -->
+    <section class="slide">
+      <div class="eyebrow">Lado B · O que o povo não via</div>
+      <h2>O porão.</h2>
+      <p style="margin-top: 12px;">Enquanto o povo via Pelé na Copa…</p>
+      <p class="big" style="margin-top: 12px;">…nos porões do regime acontecia o pior do século.</p>
+    </section>
+
+    <!-- ============== 41 — DOI-CODI ============== -->
+    <section class="slide">
+      <p>Foram criados, em 1970, os <strong>DOI-CODI</strong>.</p>
+      <p style="margin-top: 10px;">Centros oficiais de tortura. Em todo o país.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--wrong);">
+        <p style="font-size: 14px;">Pau-de-arara. Choque elétrico nos genitais. Afogamento. Queimadura. Estupro.</p>
+        <p style="font-size: 14px; margin-top: 8px;">Grávidas torturadas. Crianças torturadas <strong>na frente dos pais</strong>.</p>
+      </div>
+    </section>
+
+    <!-- ============== 42 — Herzog ============== -->
+    <section class="slide">
+      <div class="eyebrow">Casos que ficaram</div>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px;">
+        <div class="card-soft">
+          <div class="label" style="margin-bottom: 4px;">Vladimir Herzog</div>
+          <p style="font-size: 15px;">Jornalista. Morto sob tortura em 1975. Forjaram "suicídio" — com foto falsa que o mundo todo viu.</p>
+        </div>
+        <div class="card-soft">
+          <div class="label" style="margin-bottom: 4px;">Manuel Fiel Filho</div>
+          <p style="font-size: 15px;">Operário. Morto em 1976. Mesma versão de "suicídio" forjado.</p>
+        </div>
+        <div class="card-soft">
+          <div class="label" style="margin-bottom: 4px;">Stuart Angel</div>
+          <p style="font-size: 15px;">Estudante. Em 1971, foi <strong>arrastado vivo, amarrado a um jipe</strong>. Filho da estilista Zuzu Angel.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 43 — Araguaia ============== -->
+    <section class="slide">
+      <div class="eyebrow">1972 · Guerrilha do Araguaia</div>
+      <p>Um grupo de cerca de <strong>70 militantes</strong> tentou organizar uma guerrilha no sul do Pará.</p>
+      <p style="margin-top: 10px;">O Exército mandou…</p>
+      <div style="text-align: center; margin: 16px 0;">
+        <div class="number" style="font-size: 64px;">5 mil</div>
+        <div class="label" style="margin-top: 4px;">militares</div>
+      </div>
+      <p>Resultado: extermínio. Corpos enterrados em valas anônimas, na selva.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft); font-size: 14px;">A maioria nunca foi encontrada. Os arquivos completos seguem fechados até hoje.</p>
+    </section>
+
+    <!-- ============== 44 — lição milagre ============== -->
+    <section class="slide">
+      <p class="quote">O Brasil cresceu 11% ao ano. E a maioria empobreceu.</p>
+      <p style="margin-top: 14px;">O salário mínimo perdia poder de compra todo ano.</p>
+      <p style="margin-top: 10px;">A renda dos ricos disparou. A dos pobres caiu.</p>
+      <p class="big" style="margin-top: 12px;">PIB sem distribuição é estatística de luxo de poucos.</p>
+    </section>
+
+    <!-- ============== 45 ============== -->
+    <section class="slide">
+      <p>E tinha outro detalhe escondido:</p>
+      <p style="margin-top: 12px;">O milagre foi pago com <strong>empréstimo internacional</strong>.</p>
+      <p style="margin-top: 10px;">Os EUA emprestavam barato.</p>
+      <p class="big" style="margin-top: 12px;">Até parar de emprestar barato.</p>
+      <p style="margin-top: 12px;">Aí a dívida virou bomba. E explodiu nos anos 80.</p>
+    </section>
+
+    <!-- ============== 46 — Geisel ============== -->
+    <section class="slide">
+      <div class="pres-card">
+        <div class="num">4</div>
+        <div class="body">
+          <div class="name">Geisel</div>
+          <div class="yrs">1974 — 1979</div>
+        </div>
+      </div>
+      <p style="margin-top: 16px;">Gaúcho. Chega já anunciando que ia começar a <strong>afrouxar</strong>.</p>
+      <p class="big" style="margin-top: 12px; color: var(--accent);">"Abertura lenta, gradual e segura."</p>
+    </section>
+
+    <!-- ============== 47 ============== -->
+    <section class="slide">
+      <div class="eyebrow">Por que abrir?</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>1.</strong> O milagre acabou. Crise do petróleo em 73.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>2.</strong> O MDB tava ganhando eleição. Sociedade rejeitando o regime.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>3.</strong> Mortes escandalosas (Herzog) repercutindo lá fora.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>4.</strong> Os militares queriam <em>controlar a saída</em> pra não pagar a conta depois.</div>
+      </div>
+    </section>
+
+    <!-- ============== 48 ============== -->
+    <section class="slide">
+      <p>Mas a linha-dura não queria abrir.</p>
+      <p style="margin-top: 12px;">Quando Herzog morreu sob tortura, Geisel fez algo inédito:</p>
+      <p class="big" style="margin-top: 12px;">demitiu o comandante do II Exército.</p>
+      <p style="margin-top: 12px;">Sinal claro: "agora quem manda sou eu".</p>
+    </section>
+
+    <!-- ============== 49 ============== -->
+    <section class="slide">
+      <div class="eyebrow">1978 · O fim do AI-5</div>
+      <p>Geisel <strong>revoga o AI-5</strong> no fim do mandato.</p>
+      <p style="margin-top: 12px;">E no ABC paulista, um torneiro mecânico começa a liderar greves enormes.</p>
+      <p class="big" style="margin-top: 12px;">O nome dele é Lula.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft);">É ali, naquele galpão, que nasce o sindicalismo novo do Brasil.</p>
+    </section>
+
+    <!-- ============== 50 — Figueiredo ============== -->
+    <section class="slide">
+      <div class="pres-card">
+        <div class="num">5</div>
+        <div class="body">
+          <div class="name">Figueiredo</div>
+          <div class="yrs">1979 — 1985</div>
+        </div>
+      </div>
+      <p style="margin-top: 16px;">O último general-presidente.</p>
+      <p style="margin-top: 10px;">Prometeu na campanha:</p>
+      <p class="big" style="margin-top: 10px; color: var(--accent);">"farei deste país uma democracia."</p>
+    </section>
+
+    <!-- ============== 51 — Anistia ============== -->
+    <section class="slide">
+      <div class="eyebrow">1979 · Lei da Anistia</div>
+      <p>Perdoou os "crimes políticos" entre 1961 e 1979.</p>
+      <p style="margin-top: 12px;">Os exilados voltaram. Brizola, Prestes, Arraes.</p>
+      <p class="big" style="margin-top: 14px;">Mas tinha pegadinha.</p>
+      <p style="margin-top: 10px;">A anistia foi <strong>recíproca</strong>: perdoou também os <em>torturadores</em>.</p>
+    </section>
+
+    <!-- ============== 52 ============== -->
+    <section class="slide">
+      <p>Resultado prático até hoje:</p>
+      <p class="big" style="margin-top: 14px; color: var(--wrong);">Nenhum torturador foi condenado.</p>
+      <p style="margin-top: 14px;">Nenhum.</p>
+      <p style="margin-top: 12px;">Argentina prendeu seus generais.</p>
+      <p>Chile processou o Pinochet.</p>
+      <p style="margin-top: 12px; font-family: var(--serif); font-style: italic; color: var(--accent);">O Brasil escolheu esquecer.</p>
+    </section>
+
+    <!-- ============== 53 — Riocentro ============== -->
+    <section class="slide">
+      <div class="eyebrow">1981 · A bomba que explodiu cedo</div>
+      <p>Dia do Trabalho. Show no Riocentro, Rio. 20 mil pessoas.</p>
+      <p style="margin-top: 12px;">Uma bomba explode num carro no estacionamento, antes do show.</p>
+      <p>Mata um sargento. Fere um capitão.</p>
+      <p class="big" style="margin-top: 12px;">Detalhe:</p>
+      <p style="margin-top: 8px;">eram <strong>eles</strong> que iam pôr a bomba no meio do público.</p>
+      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">Pra jogar a culpa na esquerda e travar a abertura. Explodiu antes da hora.</p>
+    </section>
+
+    <!-- ============== 54 — Diretas Já ============== -->
+    <section class="slide">
+      <div class="eyebrow">1984 · O maior movimento popular do Brasil</div>
+      <h2>Diretas Já!</h2>
+      <p style="margin-top: 14px;">A galera foi pra rua pedir uma coisa só:</p>
+      <p class="big" style="margin-top: 12px;">"queremos votar pra presidente."</p>
+      <p style="margin-top: 12px;">Comícios com <strong>1,5 milhão</strong> de pessoas no Vale do Anhangabaú, em SP.</p>
+      <p style="margin-top: 8px;"><strong>1 milhão</strong> na Candelária, no Rio.</p>
+    </section>
+
+    <!-- ============== 55 ============== -->
+    <section class="slide">
+      <p>Uma emenda foi a votação na Câmara.</p>
+      <p style="margin-top: 12px;">Precisava de 320 votos. Conseguiu…</p>
+      <div style="text-align: center; margin: 18px 0;">
+        <div class="number" style="font-size: 80px; color: var(--wrong);">298</div>
+      </div>
+      <p class="big">Faltaram 22.</p>
+      <p style="margin-top: 12px; font-style: italic; color: var(--ink-soft);">Não teve eleição direta. A galera voltou pra casa.</p>
+    </section>
+
+    <!-- ============== 56 — Tancredo ============== -->
+    <section class="slide">
+      <div class="eyebrow">1985 · Eleição indireta</div>
+      <p>O presidente foi escolhido por um <em>colégio eleitoral</em>. Não pelo povo.</p>
+      <p style="margin-top: 12px;">Venceu <strong>Tancredo Neves</strong>. Mineiro hábil, da oposição.</p>
+      <p class="big" style="margin-top: 14px;">Mas tinha um plot twist.</p>
+    </section>
+
+    <!-- ============== 57 ============== -->
+    <section class="slide">
+      <p>Na véspera da posse, Tancredo passou mal.</p>
+      <p style="margin-top: 12px;">Foi internado.</p>
+      <p class="big" style="margin-top: 12px;">Em 21 de abril de 1985, morreu.</p>
+      <p style="margin-top: 14px;">Assumiu o vice: <strong>José Sarney</strong>.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft);">Que era do <em>partido do regime militar</em> até semanas antes. Tinha trocado de lado pra costurar a transição.</p>
+    </section>
+
+    <!-- ============== 58 ============== -->
+    <section class="slide">
+      <p class="quote">Quem controla a saída, controla a história.</p>
+      <p style="margin-top: 14px;">A ditadura não caiu.</p>
+      <p class="big" style="margin-top: 12px;">Ela fez a transição que ela mesma escolheu fazer.</p>
+      <p style="margin-top: 14px;">Por isso ninguém foi julgado. Os arquivos não foram abertos. A Lei da Anistia blindou os torturadores.</p>
+    </section>
+
+    <!-- ============== 59 — números CNV ============== -->
+    <section class="slide">
+      <div class="eyebrow">Os números oficiais (CNV, 2014)</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
+          <div class="number" style="font-size: 30px;">434</div>
+          <div style="font-size: 13px; color: var(--ink-soft);">mortos e desaparecidos políticos</div>
+        </div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
+          <div class="number" style="font-size: 30px;">+20 mil</div>
+          <div style="font-size: 13px; color: var(--ink-soft);">torturados</div>
+        </div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
+          <div class="number" style="font-size: 30px;">~50 mil</div>
+          <div style="font-size: 13px; color: var(--ink-soft);">presos políticos</div>
+        </div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
+          <div class="number" style="font-size: 30px;">8.350</div>
+          <div style="font-size: 13px; color: var(--ink-soft);">indígenas mortos (estimativa)</div>
+        </div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--wrong);">
+          <div class="number" style="font-size: 30px; color: var(--wrong);">377</div>
+          <div style="font-size: 13px; color: var(--ink-soft);">agentes do Estado identificados — <strong>nenhum punido</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 60 — comparação ============== -->
+    <section class="slide">
+      <p>Os números do Brasil parecem "baixos" comparado a:</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; display: flex; justify-content: space-between;">
+          <span style="font-family: var(--serif); font-size: 16px;">Argentina</span>
+          <span style="font-family: var(--serif); font-weight: 700; color: var(--accent);">30 mil desaparecidos</span>
+        </div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; display: flex; justify-content: space-between;">
+          <span style="font-family: var(--serif); font-size: 16px;">Chile</span>
+          <span style="font-family: var(--serif); font-weight: 700; color: var(--accent);">3 mil mortos</span>
+        </div>
+      </div>
+      <p class="big" style="margin-top: 14px;">Mas não foi "ditadura branda".</p>
+      <p style="margin-top: 10px;">Foi mais <strong>cirúrgica</strong>. Matava menos, mas torturava mais. E durou mais tempo que as outras.</p>
+    </section>
+
+    <!-- ============== 61 — censura ============== -->
+    <section class="slide">
+      <div class="eyebrow">A censura no dia a dia</div>
+      <p>Tudo passava na mesa do censor em Brasília.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Música, novela, jornal, filme, livro, peça de teatro.</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Chico Buarque</strong>: dezenas de músicas barradas. Inventou pseudônimo pra driblar.</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Gil e Caetano</strong>: presos em 68. Exilados em Londres.</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Estadão</strong>: publicava receita de bolo no lugar da matéria censurada.</div>
+      </div>
+    </section>
+
+    <!-- ============== 62 — Globo ============== -->
+    <section class="slide">
+      <p>E a <strong>Globo</strong>?</p>
+      <p style="margin-top: 12px;">Cresceu exatamente nesse período. Com apoio direto do regime.</p>
+      <p style="margin-top: 12px;">Roberto Marinho defendeu o golpe publicamente.</p>
+      <p class="big" style="margin-top: 14px;">Pediu desculpa em 2013.</p>
+      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">49 anos depois.</p>
+    </section>
+
+    <!-- ============== 63 — herança ============== -->
+    <section class="slide">
+      <div class="eyebrow">O que sobrou pra cá</div>
+      <p>A ditadura caiu em 85.</p>
+      <p class="big" style="margin-top: 12px;">Mas as marcas tão até hoje.</p>
+    </section>
+
+    <!-- ============== 64 ============== -->
+    <section class="slide">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
+          <p style="font-size: 14px;"><strong>Dívida externa.</strong> O milagre foi no fiado. Pagamos com a "década perdida" dos anos 80.</p>
+        </div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
+          <p style="font-size: 14px;"><strong>Inflação descontrolada.</strong> Só foi domada com o Plano Real, em 94.</p>
+        </div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
+          <p style="font-size: 14px;"><strong>Desigualdade.</strong> Entramos desiguais. Saímos mais.</p>
+        </div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
+          <p style="font-size: 14px;"><strong>PM truculenta.</strong> A doutrina de "inimigo interno" formou gerações de policiais que ainda tratam pobre como combatente.</p>
+        </div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
+          <p style="font-size: 14px;"><strong>"Deixa pra lá".</strong> Sem responsabilização, militares ainda se sentem à vontade pra falar em "intervir".</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 65 — defensores ============== -->
+    <section class="slide">
+      <div class="eyebrow">"Mas tem quem defenda"</div>
+      <p>Você vai ouvir argumentos. Bora pegar um por um.</p>
+    </section>
+
+    <!-- ============== 66 ============== -->
+    <section class="slide">
+      <div class="card-soft" style="border-left: 3px solid var(--wrong);">
+        <p style="font-family: var(--serif); font-style: italic; font-size: 17px;">"Salvou o Brasil do comunismo."</p>
+      </div>
+      <p style="margin-top: 14px;">Discutível.</p>
+      <p style="margin-top: 10px;">Não tinha base real pra revolução comunista aqui em 1964.</p>
+      <p style="margin-top: 10px;">A guerrilha armada <strong>nasceu como reação ao golpe</strong>, não como causa dele.</p>
+    </section>
+
+    <!-- ============== 67 ============== -->
+    <section class="slide">
+      <div class="card-soft" style="border-left: 3px solid var(--wrong);">
+        <p style="font-family: var(--serif); font-style: italic; font-size: 17px;">"Foi um período de progresso."</p>
+      </div>
+      <p style="margin-top: 14px;">O milagre existiu. Durou 5 anos.</p>
+      <p style="margin-top: 10px;">Veio com concentração de renda brutal, arrocho salarial e dívida.</p>
+      <p class="big" style="margin-top: 12px;">Saldo final: Brasil mais pobre, mais desigual, mais endividado.</p>
+    </section>
+
+    <!-- ============== 68 ============== -->
+    <section class="slide">
+      <div class="card-soft" style="border-left: 3px solid var(--wrong);">
+        <p style="font-family: var(--serif); font-style: italic; font-size: 17px;">"Os mortos eram terroristas."</p>
+      </div>
+      <p style="margin-top: 14px;">Alguns pegaram em arma. A maioria, não.</p>
+      <p style="margin-top: 10px;">Herzog era jornalista. Fiel Filho, operário. Stuart Angel, estudante.</p>
+      <p class="big" style="margin-top: 12px;">E mesmo quem pegou em arma:</p>
+      <p style="margin-top: 8px;">prisão e julgamento é uma coisa. Sequestro, tortura e ocultar cadáver é outra.</p>
+    </section>
+
+    <!-- ============== 69 — fechamento ============== -->
+    <section class="slide">
+      <p class="quote">Reconhecer que o Brasil viveu uma ditadura não é militância. É honestidade.</p>
+      <p style="margin-top: 14px;">Ela fez algumas coisas que funcionaram economicamente por um tempo.</p>
+      <p style="margin-top: 10px;">E cobrou um preço altíssimo em vidas, em liberdades e em dívida.</p>
+    </section>
+
+    <!-- ============== 70 — resumão ============== -->
+    <section class="slide">
+      <div class="eyebrow">Resumindo</div>
+      <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 8px;">
+        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>1964:</strong> golpe com apoio de EUA, mídia, classe média, Igreja, empresariado.</div>
+        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>21 anos.</strong> Cinco generais-presidentes.</div>
+        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>AI-5 (1968):</strong> tortura virou política de Estado.</div>
+        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>Milagre (69–73):</strong> PIB de 11%. Concentração de renda e dívida.</div>
+        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>434 mortos</strong>, 20 mil torturados. Nenhum torturador punido.</div>
+        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>1985:</strong> transição negociada pelos próprios militares.</div>
+      </div>
+    </section>
+
+    <!-- ============== 71 — gancho ============== -->
+    <section class="slide">
+      <div class="eyebrow">Próxima aula</div>
+      <p class="big">Em 1985, o Brasil tem um presidente civil.</p>
+      <p style="margin-top: 14px;">Mas também tem inflação de 200%, dívida impagável e militares ainda fortes nos bastidores.</p>
+      <p style="margin-top: 12px;">E uma promessa enorme:</p>
+      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--accent);">fazer uma Constituição nova. De verdade.</p>
+    </section>
+
+    <!-- ============== 72 ============== -->
+    <section class="slide">
+      <p>É a <strong>Constituição de 1988</strong>.</p>
+      <p style="margin-top: 12px;">A que criou o SUS. Garantiu direitos. Organizou o Brasil que você vive hoje.</p>
+      <p class="big" style="margin-top: 14px;">Mas que também travou algumas coisas.</p>
+      <p style="margin-top: 12px; color: var(--ink-soft);">Tudo isso na próxima.</p>
+      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic; color: var(--accent);">Até lá.</p>
+    </section>
+
+    <!-- ============== 73 — INTRO QUIZ ============== -->
+    <section class="slide quiz-intro">
+      <div class="quiz-icon">?</div>
+      <div class="eyebrow" style="text-align: center;">Hora do quiz</div>
+      <h2>Bora ver o que ficou.</h2>
+      <p style="margin-top: 14px;">Sete perguntas.<br>Se errar, te explico na hora.</p>
+    </section>
+
+    <!-- ============== 74 — QUIZ 1 ============== -->
+    <section class="slide" data-quiz="1">
+      <div class="question-num">Pergunta 1 de 7</div>
+      <div class="question">O que aconteceu em 31 de março de 1964?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. Vargas tinha morrido 10 anos antes, em 1954. Em 64 o presidente eleito era o Jango.">
+          <span class="letter">A</span><span>Getúlio Vargas se suicidou.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">B</span><span>Militares deram um golpe e derrubaram o presidente Jango.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. Eleição direta pra presidente só aconteceu em 1989, depois da redemocratização.">
+          <span class="letter">C</span><span>O Brasil teve sua primeira eleição direta pra presidente.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Isso aí.</span>Em 31 de março de 1964, militares marcharam de Minas pro Rio e em 24 horas derrubaram o presidente eleito João Goulart. Tudo com apoio de EUA, empresariado, mídia e classe média.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> 31/03/1964 foi a data do golpe que derrubou o Jango e começou a ditadura militar.</div>
+    </section>
+
+    <!-- ============== 75 — QUIZ 2 ============== -->
+    <section class="slide" data-quiz="2">
+      <div class="question-num">Pergunta 2 de 7</div>
+      <div class="question">Quanto tempo durou a ditadura militar no Brasil?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não, foi mais. O regime durou mais que isso — uma das ditaduras mais longas da América Latina.">
+          <span class="letter">A</span><span>Cerca de 10 anos.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">B</span><span>21 anos — de 1964 a 1985.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não, foi menos. Mas comparada a outras ditaduras da região, foi a mais longa: maior que a do Chile (17 anos) e que a da Argentina (7).">
+          <span class="letter">C</span><span>30 anos.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Boa.</span>21 anos exatos. De 1964 a 1985. Cinco generais-presidentes em sucessão controlada pelos próprios militares.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Foram 21 anos: do golpe contra Jango em 64 até a posse de Sarney em 85.</div>
+    </section>
+
+    <!-- ============== 76 — QUIZ 3 ============== -->
+    <section class="slide" data-quiz="3">
+      <div class="question-num">Pergunta 3 de 7</div>
+      <div class="question">O que foi o AI-5, decretado em dezembro de 1968?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. O AI-5 fez o oposto. Era o instrumento que dava poder absoluto pro regime — e tirava direitos do cidadão.">
+          <span class="letter">A</span><span>Uma lei que garantia eleições diretas.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. A Constituição de 1988 só veio quase 20 anos depois, já no fim da ditadura.">
+          <span class="letter">B</span><span>A nova Constituição democrática.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">C</span><span>O ato que fechou o Congresso, censurou a imprensa e permitiu prender sem habeas corpus.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Mandou bem.</span>O AI-5 é o documento mais sombrio da história republicana do Brasil. Fechou o Congresso, instituiu censura prévia, suspendeu habeas corpus. Foi a partir dele que a tortura virou política oficial de Estado.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> O AI-5 foi o golpe dentro do golpe: censura total, prisão sem direito de defesa e tortura institucionalizada.</div>
+    </section>
+
+    <!-- ============== 77 — QUIZ 4 ============== -->
+    <section class="slide" data-quiz="4">
+      <div class="question-num">Pergunta 4 de 7</div>
+      <div class="question">O "Milagre Econômico" (1969–1973) entregou crescimento de 11% ao ano. Qual foi o problema?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. O Milagre existiu de verdade. O PIB cresceu mesmo. Obras gigantes foram feitas (Transamazônica, Itaipu, ponte Rio-Niterói).">
+          <span class="letter">A</span><span>Foi mentira. Não houve crescimento.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">B</span><span>Concentrou renda no topo, arrochou o salário e foi pago no fiado — a dívida explodiu nos anos 80.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. A inflação foi alta, mas não foi o único problema. O grave foi quem ganhou e quem perdeu com o crescimento — e a dívida externa que estourou depois.">
+          <span class="letter">C</span><span>Só causou inflação, mais nada.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Exato.</span>O Brasil cresceu 11% ao ano e a maioria empobreceu. A renda dos ricos disparou, a dos pobres caiu. E o milagre foi financiado por empréstimos internacionais. Quando os juros americanos subiram, a dívida virou bomba — a "década perdida" dos anos 80.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> PIB sem distribuição é estatística de luxo de poucos. Foi exatamente isso que aconteceu.</div>
+    </section>
+
+    <!-- ============== 78 — QUIZ 5 ============== -->
+    <section class="slide" data-quiz="5">
+      <div class="question-num">Pergunta 5 de 7</div>
+      <div class="question">Quantos torturadores foram condenados pelos crimes da ditadura?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. Argentina prendeu seus generais. Chile processou Pinochet. O Brasil foi diferente.">
+          <span class="letter">A</span><span>Centenas — assim como na Argentina e no Chile.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não, foi menos ainda. Praticamente um zero arredondado.">
+          <span class="letter">B</span><span>Alguns poucos — uns 10 ou 20.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">C</span><span>Nenhum. A Lei da Anistia de 1979 perdoou os agentes do Estado.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Triste mas correto.</span>Nenhum. A Lei da Anistia de 1979 foi recíproca: perdoou os perseguidos políticos e também os torturadores. A CNV identificou 377 agentes. Nenhum foi punido criminalmente. Por isso falamos em transição "negociada pelos próprios militares".</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Nenhum torturador foi condenado. Graças à Lei da Anistia.</div>
+    </section>
+
+    <!-- ============== 79 — QUIZ 6 ============== -->
+    <section class="slide" data-quiz="6">
+      <div class="question-num">Pergunta 6 de 7</div>
+      <div class="question">O que foi o movimento "Diretas Já!", em 1984?</div>
+      <div class="options">
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">A</span><span>O maior movimento popular da história do Brasil até então, pedindo eleição direta pra presidente.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. Foi exatamente o contrário: era um movimento contra o regime, organizado pela oposição e pelo povo nas ruas.">
+          <span class="letter">B</span><span>Uma campanha do governo militar pra ganhar popularidade.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. O PT foi fundado em 1980, mas o Diretas Já! foi um movimento amplo, que envolveu vários partidos e milhões de pessoas nas ruas.">
+          <span class="letter">C</span><span>Uma campanha eleitoral do PT, recém-fundado.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Boa.</span>Diretas Já! foi o maior movimento popular do Brasil até então. 1,5 milhão de pessoas no Anhangabaú, 1 milhão na Candelária. Pediam o direito de votar pra presidente. A emenda foi à votação na Câmara e <strong>perdeu por 22 votos</strong>. A eleição em 85 foi indireta.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a A.</strong> Foi o maior movimento popular do país até então. E perdeu por 22 votos no Congresso.</div>
+    </section>
+
+    <!-- ============== 80 — QUIZ 7 ============== -->
+    <section class="slide" data-quiz="7">
+      <div class="question-num">Pergunta 7 de 7</div>
+      <div class="question">Por que se diz que a transição da ditadura para a democracia foi "controlada pelos militares"?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. Apesar do Diretas Já! ter sido um movimento enorme, a eleição de 1985 foi indireta — escolhida por um colégio eleitoral, não pelo povo.">
+          <span class="letter">A</span><span>Porque o povo escolheu Tancredo Neves em eleição direta.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">B</span><span>Porque a eleição foi indireta, a Anistia blindou os torturadores e o vice (Sarney) era do partido do regime até semanas antes.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. Tem documentos abertos do Departamento de Estado americano que confirmam o apoio dos EUA ao golpe de 64. E a transição em 85 foi articulada internamente, entre os militares e a elite política brasileira.">
+          <span class="letter">C</span><span>Porque foi imposta pelos Estados Unidos.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Fechou.</span>A transição foi negociada pelos próprios militares: eleição indireta, anistia recíproca (perdoando torturadores), e um vice que tinha trocado de partido às vésperas. Quando Tancredo morre, assume Sarney — alguém ligado ao regime militar até pouco tempo antes. Por isso ninguém foi julgado e os arquivos seguem fechados.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Quem controla a saída controla a história. E foi exatamente isso que os militares fizeram em 85.</div>
+    </section>
+
+    <!-- ============== END ============== -->
+    <section class="slide end">
+      <div class="eyebrow" style="color: var(--accent-soft);">Fim da aula</div>
+      <h2>Você completou!</h2>
+      <div class="score" id="score">0/7</div>
+      <p id="endMsg">Tamo junto.</p>
+      <button class="restart" onclick="restart()">voltar ao início</button>
+    </section>
+
+  </div>
+
+  <div class="tap-zone left" id="tapLeft"></div>
+  <div class="tap-zone right" id="tapRight"></div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  let current = 0;
+  let score = 0;
+  const quizCount = document.querySelectorAll('[data-quiz]').length;
+
+  // build progress segments
+  for (let i = 0; i < total; i++) {
+    const seg = document.createElement('div');
+    seg.className = 'seg';
+    seg.dataset.idx = i;
+    seg.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goTo(i);
+    });
+    progress.appendChild(seg);
+  }
+
+  function updateProgress() {
+    const segs = progress.querySelectorAll('.seg');
+    segs.forEach((s, i) => {
+      s.classList.remove('done', 'current');
+      if (i < current) s.classList.add('done');
+      if (i === current) s.classList.add('current');
+    });
+    counter.textContent = (current + 1) + ' / ' + total;
+  }
+
+  function goTo(idx) {
+    if (idx < 0 || idx >= total) return;
+    slides[current].classList.remove('active');
+    if (idx < current) slides[current].classList.add('prev');
+    else slides[current].classList.remove('prev');
+    current = idx;
+    slides[current].classList.remove('prev');
+    slides[current].classList.add('active');
+    updateProgress();
+    // scroll reset
+    slides[current].scrollTop = 0;
+    if (current === total - 1) showScore();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  document.getElementById('tapRight').addEventListener('click', next);
+  document.getElementById('tapLeft').addEventListener('click', prev);
+
+  // swipe
+  let touchStartX = 0;
+  let touchStartY = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  // drag on progress bar
+  let dragging = false;
+  progress.addEventListener('touchstart', (e) => {
+    dragging = true;
+    handleDrag(e.touches[0].clientX);
+  }, { passive: true });
+  progress.addEventListener('touchmove', (e) => {
+    if (dragging) handleDrag(e.touches[0].clientX);
+  }, { passive: true });
+  progress.addEventListener('touchend', () => { dragging = false; }, { passive: true });
+
+  function handleDrag(clientX) {
+    const rect = progress.getBoundingClientRect();
+    const pct = (clientX - rect.left) / rect.width;
+    const idx = Math.max(0, Math.min(total - 1, Math.floor(pct * total)));
+    if (idx !== current) goTo(idx);
+  }
+
+  // quiz logic
+  document.querySelectorAll('[data-quiz]').forEach(slide => {
+    const options = slide.querySelectorAll('.option');
+    const fbRight = slide.querySelector('[data-fb="right"]');
+    const fbMiss = slide.querySelector('[data-fb="miss"]');
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (slide.dataset.answered) return;
+        slide.dataset.answered = '1';
+        const isCorrect = opt.dataset.correct === 'true';
+        options.forEach(o => {
+          o.classList.add('disabled');
+          if (o.dataset.correct === 'true') o.classList.add('correct');
+        });
+        if (!isCorrect) {
+          opt.classList.add('wrong');
+          const explainText = opt.dataset.explain || '';
+          const span = fbMiss.querySelector('[data-explain-text]');
+          if (span) span.textContent = explainText;
+          fbMiss.classList.add('show');
+        } else {
+          score++;
+          fbRight.classList.add('show');
+        }
+      });
+    });
+  });
+
+  function showScore() {
+    document.getElementById('score').textContent = score + '/' + quizCount;
+    const msg = document.getElementById('endMsg');
+    const pct = score / quizCount;
+    if (pct === 1) msg.textContent = 'Cravou tudo. Pegou a aula no osso.';
+    else if (pct >= 0.7) msg.textContent = 'Mandou muito bem. Tá afiado.';
+    else if (pct >= 0.4) msg.textContent = 'Boa base. Volta nos slides que travou pra fechar.';
+    else msg.textContent = 'Sem stress. Volta no início, lê com calma. A história fica.';
+  }
+
+  function restart() {
+    score = 0;
+    document.querySelectorAll('[data-quiz]').forEach(slide => {
+      delete slide.dataset.answered;
+      slide.querySelectorAll('.option').forEach(o => {
+        o.classList.remove('disabled', 'correct', 'wrong');
+      });
+      slide.querySelectorAll('.feedback').forEach(f => f.classList.remove('show'));
+    });
+    goTo(0);
+  }
+
+  updateProgress();
+</script>
+</body>
+</html>
