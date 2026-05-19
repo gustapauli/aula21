@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Aula 21 — Ditadura Militar: 21 anos de fardas e porões</title>
+<title>Aula 21 — Religião e poder</title>
 <style>
   :root {
     --bg: #F4EFE6;
@@ -170,7 +170,7 @@
   .quote {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 22px;
+    font-size: 21px;
     line-height: 1.35;
     color: var(--ink);
     border-left: 2px solid var(--accent);
@@ -456,29 +456,43 @@
     background: var(--bg-deep);
     color: var(--accent-soft);
   }
-  .stamp.red {
-    background: var(--wrong);
-    color: var(--paper);
-  }
-  .pres-card {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 14px 16px;
+
+  .data-row {
     display: flex;
-    gap: 14px;
-    align-items: center;
-  }
-  .pres-card .num {
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
     font-family: var(--serif);
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--accent);
-    line-height: 1;
   }
-  .pres-card .body { flex: 1; }
-  .pres-card .name { font-family: var(--serif); font-size: 17px; font-weight: 700; }
-  .pres-card .yrs { font-size: 12px; color: var(--ink-soft); letter-spacing: 0.08em; }
+  .data-row:last-child { border-bottom: none; }
+  .data-row .k { font-size: 15px; color: var(--ink); }
+  .data-row .v { font-size: 17px; font-weight: 700; color: var(--accent); }
+
+  table.census {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-family: var(--sans);
+    font-size: 13px;
+  }
+  table.census th, table.census td {
+    padding: 8px 6px;
+    text-align: right;
+    border-bottom: 1px solid var(--line);
+  }
+  table.census th:first-child, table.census td:first-child {
+    text-align: left;
+    font-family: var(--serif);
+    font-size: 14px;
+  }
+  table.census th {
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+  table.census td.now { color: var(--accent); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -492,944 +506,1533 @@
 
   <div class="slides" id="slides">
 
-    <!-- ============== 1 — CAPA ============== -->
+    <!-- 1 CAPA -->
     <section class="slide cover active">
       <div class="eyebrow">História · Aula 21</div>
-      <h1>21 anos de <em>fardas</em>, porões e milagre.</h1>
-      <p style="margin-top: 16px;">Ditadura Militar no Brasil (1964–1985). A história inteira. Sem suavizar.</p>
-      <div class="illu" style="margin-top: 36px;">
+      <h1>Religião e <em>poder</em>.</h1>
+      <p style="margin-top: 16px;">Por que Deus nunca foi assunto privado.</p>
+      <div class="illu" style="margin-top: 32px;">
         <svg viewBox="0 0 240 140" class="draw" fill="none" stroke="#E8C77A" stroke-width="1.5">
-          <!-- quepe militar -->
-          <path d="M70 80 L170 80 L170 95 L70 95 Z"/>
-          <path d="M80 80 Q120 50 160 80"/>
-          <circle cx="120" cy="68" r="4" fill="#E8C77A"/>
-          <!-- linha do tempo -->
-          <path d="M40 120 L200 120" stroke-dasharray="2 3"/>
-          <circle cx="40" cy="120" r="3" fill="#E8C77A"/>
-          <circle cx="200" cy="120" r="3" fill="#E8C77A"/>
-          <text x="32" y="135" font-family="Georgia" font-size="9" fill="#E8C77A">1964</text>
-          <text x="190" y="135" font-family="Georgia" font-size="9" fill="#E8C77A">1985</text>
+          <!-- coroa + templo + livro -->
+          <path d="M30 100 L30 70 L40 80 L50 65 L60 80 L70 70 L70 100 Z"/>
+          <path d="M30 100 L70 100"/>
+          <circle cx="40" cy="75" r="2" fill="#E8C77A"/>
+          <circle cx="60" cy="75" r="2" fill="#E8C77A"/>
+          <!-- templo central -->
+          <path d="M100 110 L100 70 L120 55 L140 70 L140 110 Z"/>
+          <path d="M100 70 L140 70"/>
+          <rect x="115" y="85" width="10" height="25"/>
+          <!-- livro -->
+          <rect x="170" y="65" width="50" height="40" rx="2"/>
+          <path d="M195 65 L195 105"/>
+          <path d="M178 78 L188 78 M178 85 L188 85 M202 78 L212 78 M202 85 L212 85"/>
         </svg>
       </div>
+      <p style="margin-top: 18px; font-style: italic; font-family: var(--serif); color: #E8C77A;">Dos faraós ao Congresso brasileiro.</p>
       <div class="footer-hint">toque na lateral pra avançar <span class="arrow">→</span></div>
     </section>
 
-    <!-- ============== 2 ============== -->
+    <!-- 2 -->
     <section class="slide">
-      <p class="big">Olha só.</p>
-      <p style="margin-top: 18px;">Tem uma frase que resume essa aula inteira.</p>
-      <p class="quote" style="margin-top: 14px; font-size: 19px;">"Não tem ditadura boa. Tem ditadura que te deixa em paz e ditadura que te pega."</p>
-      <p style="margin-top: 12px;">Segura essa.</p>
+      <p class="big">Oi, Lorena.</p>
+      <p style="margin-top: 16px;">Aula passada terminou em 1991. Queda da URSS. E uma tese famosa do Fukuyama.</p>
+      <p>Ele disse que a humanidade tinha "chegado no fim" da história política.</p>
+      <p class="big" style="margin-top: 14px;">Democracia liberal venceu. Acabou.</p>
+      <p>Capitalismo + voto + Estado laico pra todo mundo.</p>
     </section>
 
-    <!-- ============== 3 ============== -->
+    <!-- 3 -->
     <section class="slide">
-      <div class="eyebrow">Antes do golpe</div>
-      <p>Lembra a última aula?</p>
-      <p style="margin-top: 12px;">Vargas tinha acabado de se matar.</p>
-      <p class="big" style="margin-top: 14px;">E o Brasil ficou com uma dúvida no ar.</p>
-      <p style="margin-top: 12px; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--accent);">Sem ele, quem manda agora?</p>
+      <p class="big">Em 30 anos, essa tese virou pó.</p>
+      <p style="margin-top: 16px;">Olha o mundo de 2026.</p>
+      <p style="margin-top: 12px; font-family: var(--serif); font-style: italic; color: var(--accent);">Segura essa lista.</p>
     </section>
 
-    <!-- ============== 4 ============== -->
+    <!-- 4 — Brasil evangélicos -->
     <section class="slide">
-      <p>A resposta demorou 10 anos pra chegar.</p>
-      <p class="big" style="margin-top: 14px;">E veio de farda.</p>
-      <div class="illu sm" style="margin: 22px auto;">
-        <svg viewBox="0 0 120 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
-          <path d="M30 60 L90 60 L90 70 L30 70 Z"/>
-          <path d="M40 60 Q60 35 80 60"/>
-          <circle cx="60" cy="50" r="3" fill="#B8862F"/>
+      <span class="stamp">Brasil</span>
+      <p style="margin-top: 14px;">Evangélicos saltaram de <strong>6%</strong> para <strong>26,9%</strong> da população em 40 anos.</p>
+      <div class="illu sm" style="margin: 16px auto;">
+        <svg viewBox="0 0 160 80" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <rect x="10" y="60" width="20" height="10"/>
+          <text x="14" y="78" font-family="Georgia" font-size="9" fill="#4A4640">1980</text>
+          <rect x="60" y="20" width="20" height="50"/>
+          <text x="64" y="78" font-family="Georgia" font-size="9" fill="#4A4640">2022</text>
+          <text x="110" y="30" font-family="Georgia" font-size="20" fill="#B8862F" font-weight="700">26,9%</text>
         </svg>
       </div>
+      <p class="big">Um em cada quatro brasileiros.</p>
+      <p style="margin-top: 10px;"><strong>129 deputados</strong> e <strong>17 senadores</strong> declarados no Congresso.</p>
     </section>
 
-    <!-- ============== 5 — JK ============== -->
+    <!-- 5 — Israel/Palestina -->
     <section class="slide">
-      <div class="eyebrow">1956 · Quem entra</div>
-      <h2>Juscelino. <em>JK</em>.</h2>
-      <p style="margin-top: 12px;">Mineiro, médico, sorriso largo.</p>
-      <p style="margin-top: 10px;">Slogan da campanha:</p>
-      <p class="big" style="margin-top: 8px; color: var(--accent);">"50 anos em 5."</p>
-      <p style="margin-top: 12px;">Quer dizer: vou acelerar o Brasil. Vou fazer em 5 anos o que outros fariam em 50.</p>
-    </section>
-
-    <!-- ============== 6 ============== -->
-    <section class="slide">
-      <p>E ele acelerou mesmo.</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Construiu <strong>Brasília</strong> em menos de 4 anos. No meio do nada.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Trouxe <strong>Volkswagen, Ford, GM</strong> pra montar carro aqui.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">PIB crescendo <strong>8% ao ano</strong>.</div>
-      </div>
-      <p style="margin-top: 14px; font-family: var(--serif); font-style: italic; color: var(--accent);">O Brasil tava no auge.</p>
-    </section>
-
-    <!-- ============== 7 ============== -->
-    <section class="slide">
-      <p class="big">Mas tinha um detalhe.</p>
-      <p style="margin-top: 14px;">JK pagou esse sonho todo no <strong>cartão de crédito</strong>.</p>
-      <p style="margin-top: 10px;">Inflação alta. Dívida externa explodindo.</p>
-      <p class="quote" style="margin-top: 14px; font-size: 18px;">Crescer no fiado sempre cobra a conta depois. E quem paga raramente é quem festejou.</p>
-    </section>
-
-    <!-- ============== 8 — Jânio ============== -->
-    <section class="slide">
-      <div class="eyebrow">1961 · O sucessor</div>
-      <h2>Jânio Quadros.</h2>
-      <p style="margin-top: 10px;">Símbolo de campanha:</p>
+      <span class="stamp">Israel · Palestina</span>
+      <p style="margin-top: 14px;">A guerra mais sangrenta do Oriente Médio em décadas está rolando agora.</p>
       <div class="illu sm" style="margin: 14px auto;">
-        <svg viewBox="0 0 80 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
-          <rect x="35" y="20" width="10" height="60"/>
-          <path d="M25 80 L55 80 L50 95 L30 95 Z"/>
-          <path d="M28 85 L52 85 M28 89 L52 89 M28 93 L52 93"/>
+        <svg viewBox="0 0 140 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- estrela de davi -->
+          <path d="M30 20 L40 38 L20 38 Z"/>
+          <path d="M30 50 L20 32 L40 32 Z"/>
+          <!-- crescente -->
+          <path d="M105 35 a14 14 0 1 0 0 14 a10 10 0 1 1 0 -14"/>
+          <!-- vs -->
+          <text x="62" y="40" font-family="Georgia" font-style="italic" font-size="11" fill="#B5342B">vs</text>
         </svg>
       </div>
-      <p style="text-align: center; font-family: var(--serif); font-style: italic; font-size: 18px;">Uma vassoura.</p>
-      <p style="margin-top: 10px;">Promessa: varrer a corrupção.</p>
+      <p class="big">Motivada por questão religiosa de <em>2 mil anos</em>.</p>
     </section>
 
-    <!-- ============== 9 ============== -->
+    <!-- 6 — Índia -->
     <section class="slide">
-      <p>Tomou posse em janeiro.</p>
-      <p style="margin-top: 10px;">Em <strong>agosto do mesmo ano</strong>…</p>
-      <p class="big" style="margin-top: 12px;">renunciou.</p>
-      <p style="margin-top: 14px;">Sete meses de mandato. Só isso.</p>
+      <span class="stamp">Índia</span>
+      <p style="margin-top: 14px;">O premiê <strong>Narendra Modi</strong> governa em nome de um projeto explícito de <strong>Estado hindu</strong>.</p>
+      <p style="margin-top: 12px;">Um país oficialmente laico desde 1947.</p>
+      <p class="big" style="margin-top: 14px;">1,4 bilhão de pessoas.</p>
     </section>
 
-    <!-- ============== 10 ============== -->
+    <!-- 7 — Afeganistão -->
+    <section class="slide">
+      <span class="stamp">Afeganistão</span>
+      <p style="margin-top: 14px;">O <strong>Talibã</strong> voltou ao poder em agosto de 2021.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 6px;">
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Mulheres não podem trabalhar.</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Não podem estudar depois dos 12.</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Não podem sair de casa sozinhas.</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Não podem mostrar o rosto.</div>
+      </div>
+      <p class="big" style="margin-top: 14px;">Lei religiosa pura.</p>
+    </section>
+
+    <!-- 8 — EUA -->
+    <section class="slide">
+      <span class="stamp">EUA</span>
+      <p style="margin-top: 14px;">A Suprema Corte derrubou em <strong>2022</strong> o direito ao aborto. Depois de <strong>50 anos</strong> garantido.</p>
+      <p style="margin-top: 12px;">Pressão direta de evangélicos e católicos conservadores.</p>
+      <p class="big" style="margin-top: 14px;">Trump eleito em 2024 com <em>81% do voto evangélico branco</em>.</p>
+    </section>
+
+    <!-- 9 — Rússia -->
+    <section class="slide">
+      <span class="stamp">Rússia</span>
+      <p style="margin-top: 14px;">Putin reabilitou a <strong>Igreja Ortodoxa Russa</strong> como pilar do regime.</p>
+      <p style="margin-top: 12px;">Justifica a invasão da Ucrânia como "defesa do mundo cristão ortodoxo" contra um "ocidente decadente".</p>
+    </section>
+
+    <!-- 10 — fechamento gancho -->
+    <section class="slide">
+      <p class="big">Religião não morreu no século XXI.</p>
+      <p class="big" style="margin-top: 6px; color: var(--accent);">Voltou com força.</p>
+      <p style="margin-top: 16px;">Quem te disser que "religião é coisa privada, não tem nada a ver com política"…</p>
+      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic; font-size: 19px;">não está olhando o mundo de verdade.</p>
+    </section>
+
+    <!-- 11 — Hoje -->
+    <section class="slide">
+      <div class="eyebrow">Hoje</div>
+      <h2>Por que religião <em>sempre foi</em> poder político.</h2>
+      <p style="margin-top: 14px;">Desde os faraós até a Frente Parlamentar Evangélica de hoje.</p>
+      <p style="margin-top: 10px;">Vamos.</p>
+    </section>
+
+    <!-- 12 — religião e poder -->
+    <section class="slide">
+      <div class="eyebrow">Religião e poder, sempre juntos</div>
+      <p>Lembra da Aula 3? Mesopotâmia, Egito.</p>
+      <p style="margin-top: 12px;">Os primeiros reis se apresentavam como <strong>deuses</strong> ou representantes diretos dos deuses.</p>
+    </section>
+
+    <!-- 13 — civilizações -->
+    <section class="slide">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="card-soft">
+          <div class="label" style="margin-bottom: 4px;">Egito</div>
+          <p style="font-family: var(--serif); font-size: 17px;">O faraó <em>era</em> deus.</p>
+        </div>
+        <div class="card-soft">
+          <div class="label" style="margin-bottom: 4px;">Mesopotâmia</div>
+          <p style="font-family: var(--serif); font-size: 17px;">O rei governava em nome dos deuses.</p>
+        </div>
+        <div class="card-soft">
+          <div class="label" style="margin-bottom: 4px;">China</div>
+          <p style="font-family: var(--serif); font-size: 17px;">Imperador tinha o <em>Mandato do Céu</em>.</p>
+        </div>
+        <div class="card-soft">
+          <div class="label" style="margin-bottom: 4px;">Japão</div>
+          <p style="font-family: var(--serif); font-size: 17px;">Imperador era descendente da deusa do sol — oficialmente até <strong>1946</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 — por que? -->
+    <section class="slide">
+      <p>Por que isso aconteceu em civilizações que <strong>não tinham contato entre si</strong>?</p>
+      <p class="big" style="margin-top: 14px;">Porque governar gente é difícil.</p>
+      <p style="margin-top: 12px;">Por que 50 camponeses obedecem a um sujeito que diz "eu mando aqui"?</p>
+      <p style="margin-top: 8px;">Sob a ponta da espada, parte. Mas espada precisa de soldados. E soldados precisam de motivo pra obedecer.</p>
+    </section>
+
+    <!-- 15 — solução -->
+    <section class="slide">
+      <p class="quote">Religião resolve isso de forma elegante: "obedece porque é vontade de Deus".</p>
+      <p style="margin-top: 14px;">Quem desobedece o rei, desobedece o céu.</p>
+      <p class="big" style="margin-top: 12px;">Legitimação automática.</p>
+      <p style="margin-top: 8px;">Sem precisar provar nada.</p>
+    </section>
+
+    <!-- 16 — LIÇÃO 1 -->
+    <section class="slide">
+      <span class="stamp dark">Lição 1</span>
+      <h2 style="margin-top: 14px;">Toda autoridade humana precisa de <em>legitimação</em>.</h2>
+      <p style="margin-top: 14px;">Que não seja só "porque eu mandei".</p>
+      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Religião</div>
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Tradição</div>
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Vontade do povo (democracia)</div>
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Eficiência técnica (tecnocracia)</div>
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Raça superior (nazismo)</div>
+      </div>
+      <p style="margin-top: 14px;">Religião foi, por <strong>milhares de anos</strong>, a fonte número um. Ainda é, em vários lugares.</p>
+    </section>
+
+    <!-- 17 — Cristianismo abertura -->
+    <section class="slide">
+      <div class="number">01</div>
+      <div class="label" style="margin-top: 8px;">Primeiro grande bloco</div>
+      <h2 style="margin-top: 12px;">Cristianismo.</h2>
+      <p style="margin-top: 14px;">De seita perseguida a maior religião do planeta.</p>
+      <div class="illu" style="margin-top: 18px; max-width: 200px;">
+        <svg viewBox="0 0 200 120" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <path d="M100 20 L100 100"/>
+          <path d="M75 50 L125 50"/>
+          <circle cx="100" cy="60" r="40" stroke-dasharray="3 3"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 18 — Jesus -->
+    <section class="slide">
+      <p>No começo, um carpinteiro judeu chamado <strong>Jesus de Nazaré</strong>.</p>
+      <p style="margin-top: 12px;">Província romana da Judeia. Entre 4 a.C. e 30 d.C.</p>
+      <p style="margin-top: 12px;">Pregou por 3 anos. Foi crucificado pelos romanos como <strong>agitador político</strong>.</p>
+      <p style="margin-top: 12px; font-size: 14px; color: var(--ink-soft); font-style: italic;">Crucificação era pena romana específica pra rebeldes. Não pra criminosos comuns. Anota isso.</p>
+    </section>
+
+    <!-- 19 — perseguição -->
+    <section class="slide">
+      <p>Por <strong>300 anos</strong> depois da morte de Jesus, o cristianismo foi seita perseguida.</p>
+      <p style="margin-top: 12px;">Cristãos eram torturados, jogados pros leões, queimados vivos.</p>
+      <p class="big" style="margin-top: 14px;">Cresciam mesmo assim.</p>
+      <p style="margin-top: 12px;">Pregavam algo revolucionário pra época: <strong>igualdade espiritual entre todos</strong>. Escravo e senhor. Mulher e homem. Romano e bárbaro.</p>
+    </section>
+
+    <!-- 20 — Constantino -->
+    <section class="slide">
+      <div class="eyebrow">313 d.C. · ponto de virada</div>
+      <p>O imperador <strong>Constantino</strong> publicou o <strong>Edito de Milão</strong>. Legalizou o cristianismo.</p>
+      <p style="margin-top: 12px;">Por quê? Versão piedosa: teve uma visão antes da batalha.</p>
+      <p style="margin-top: 8px;">Versão realista: cristianismo já era 10 a 20% do império. Constantino viu vantagem política.</p>
+    </section>
+
+    <!-- 21 — Teodósio -->
+    <section class="slide">
+      <p>Em <strong>380</strong>, sob o imperador <strong>Teodósio</strong>…</p>
+      <p class="big" style="margin-top: 14px;">cristianismo virou religião oficial e <em>obrigatória</em> de Roma.</p>
+      <p style="margin-top: 14px;">Em menos de 70 anos, saiu de perseguido a perseguidor.</p>
+      <p style="margin-top: 10px;">Agora os outros cultos é que viraram crime.</p>
+    </section>
+
+    <!-- 22 — lição embutida -->
+    <section class="slide">
+      <p class="quote">Toda revolução vitoriosa, se não tomar muito cuidado, vira no opressor que ela combateu.</p>
+      <p style="margin-top: 14px;">Cristianismo perseguido → cristianismo perseguidor.</p>
+      <p>Revolucionários franceses → Robespierre guilhotinando milhares (Aula 12).</p>
+      <p>Bolcheviques contra o tsar → URSS de Stálin.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft);">Vai voltar.</p>
+    </section>
+
+    <!-- 23 — Igreja vira potência -->
+    <section class="slide">
+      <div class="eyebrow">Séculos V a XV</div>
+      <h2>A Igreja Católica vira <em>potência política</em>.</h2>
+      <p style="margin-top: 14px;">Quando o Império Romano do Ocidente caiu em <strong>476</strong>, a única instituição romana que sobreviveu foi a Igreja.</p>
+      <p style="margin-top: 10px;">Estradas, exército, administração — tudo desabou. Mas os bispos continuaram.</p>
+    </section>
+
+    <!-- 24 — escala -->
+    <section class="slide">
+      <p>Por <strong>mil anos</strong>, a Igreja Católica foi a maior potência política da Europa.</p>
+      <p style="margin-top: 12px;">E provavelmente do mundo.</p>
+      <p class="big" style="margin-top: 14px;">Bora ver a escala.</p>
+    </section>
+
+    <!-- 25 — coroa reis -->
+    <section class="slide">
+      <span class="stamp">1</span>
+      <h3 style="margin-top: 12px;">Coroava e descoroava reis.</h3>
+      <p>Em <strong>800</strong>, o Papa Leão III coroou <strong>Carlos Magno</strong> como imperador.</p>
+      <p style="margin-top: 12px;">Princípio firmado: <em>rei só é legítimo se o Papa abençoar</em>.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 12px; border-left: 3px solid var(--accent);">
+        <p style="font-size: 15px;">Em <strong>1077</strong>, o imperador alemão Henrique IV ficou <strong>3 dias descalço na neve</strong> em Canossa, esperando o Papa Gregório VII perdoá-lo.</p>
+        <p style="font-size: 14px; margin-top: 8px; font-style: italic; color: var(--ink-soft);">O homem mais poderoso da Europa, humilhado, congelando, pedindo perdão a um padre.</p>
+      </div>
+    </section>
+
+    <!-- 26 — Cruzadas -->
+    <section class="slide">
+      <span class="stamp">2</span>
+      <h3 style="margin-top: 12px;">Tinha exército próprio.</h3>
+      <p>As <strong>Cruzadas</strong> (1095-1291). Oito grandes campanhas militares convocadas pelo Papa.</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 140 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <path d="M30 30 L30 60 M20 40 L40 40"/>
+          <path d="M50 45 L110 45" stroke-dasharray="3 3"/>
+          <path d="M103 40 L110 45 L103 50"/>
+          <rect x="115" y="30" width="20" height="30"/>
+        </svg>
+      </div>
+      <p>Pra "libertar" Jerusalém dos muçulmanos. Centenas de milhares marcharam pro Oriente Médio.</p>
+      <p style="margin-top: 10px;">Mataram judeus europeus no caminho. Tomaram Jerusalém em 1099. Perderam, retomaram, perderam de vez.</p>
+    </section>
+
+    <!-- 27 — 4ª cruzada -->
+    <section class="slide">
+      <p>A <strong>4ª Cruzada</strong>, em 1204, em vez de ir pra Jerusalém…</p>
+      <p class="big" style="margin-top: 12px;">saqueou Constantinopla.</p>
+      <p style="margin-top: 12px;">Capital cristã ortodoxa. Por quê? Tinha mais ouro.</p>
+      <p style="margin-top: 12px;">Aprofunda a divisão entre Roma (católica) e Constantinopla (ortodoxa). O <strong>Grande Cisma do Oriente</strong> de <strong>1054</strong>, em que as duas igrejas se excomungaram mutuamente.</p>
+    </section>
+
+    <!-- 28 — latifundiária -->
+    <section class="slide">
+      <span class="stamp">3</span>
+      <h3 style="margin-top: 12px;">Maior latifundiária da Europa.</h3>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="card-soft" style="padding: 14px;">
+          <p style="font-size: 15px;">Possuía <strong>entre 1/3 e metade</strong> de toda a terra cultivável da Europa medieval.</p>
+        </div>
+        <div class="card-soft" style="padding: 14px;">
+          <p style="font-size: 15px;">Cobrava <strong>dízimo</strong> — 10% obrigatório da produção.</p>
+        </div>
+        <div class="card-soft" style="padding: 14px;">
+          <p style="font-size: 15px;">Não pagava imposto pra nenhum rei.</p>
+        </div>
+      </div>
+      <p class="big" style="margin-top: 14px;">Ricaça absoluta.</p>
+    </section>
+
+    <!-- 29 — monopólio do saber -->
+    <section class="slide">
+      <span class="stamp">4</span>
+      <h3 style="margin-top: 12px;">Monopólio do saber.</h3>
+      <p>Só padres sabiam ler.</p>
+      <p>Bíblias eram em <strong>latim</strong> — idioma que ninguém falava mais no cotidiano.</p>
+      <p class="big" style="margin-top: 14px;">Quem queria saber o que Deus dizia, dependia de um padre traduzir.</p>
+      <p style="margin-top: 12px; font-style: italic; color: var(--ink-soft);">Esse monopólio será chave pra entender o que vem.</p>
+    </section>
+
+    <!-- 30 — Inquisição -->
+    <section class="slide">
+      <span class="stamp">5</span>
+      <h3 style="margin-top: 12px;">Inquisição.</h3>
+      <p>Tribunal religioso criado no séc. XIII pra investigar e punir heresia.</p>
+      <p style="margin-top: 12px;">Mais famosa: <strong>Inquisição Espanhola</strong> (1478-1834). Torturou milhares. Executou entre <strong>3 mil e 5 mil pessoas</strong>.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--ink-soft); font-style: italic;">Estimativas modernas mais conservadoras — versões antigas falavam em milhões, mito exagerado.</p>
+    </section>
+
+    <!-- 31 — Galileu -->
+    <section class="slide">
+      <p><strong>Galileu Galilei</strong> foi julgado pela Inquisição Romana em <strong>1633</strong>.</p>
+      <p style="margin-top: 12px;">Crime: defender que a Terra gira em torno do Sol.</p>
+      <p style="margin-top: 12px;">Foi obrigado a se retratar. Ficou em prisão domiciliar até morrer.</p>
+      <div style="margin-top: 16px; padding: 14px; background: var(--paper); border-radius: 12px; border-left: 3px solid var(--accent);">
+        <p style="font-size: 15px;">A Igreja só admitiu oficialmente que Galileu estava certo em <strong>1992</strong>.</p>
+        <p class="big" style="margin-top: 6px;">Demorou 359 anos.</p>
+      </div>
+    </section>
+
+    <!-- 32 — resumo Igreja -->
+    <section class="slide">
+      <p>Do século V ao XV, a Igreja Católica era simultaneamente:</p>
+      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Religião oficial</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Autoridade política suprema</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Maior proprietária rural</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Sistema judicial paralelo</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Monopólio educacional</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Exército</div>
+      </div>
+      <p class="big" style="margin-top: 14px;">Não era "religião" de domingo. Era o <em>Estado</em>.</p>
+    </section>
+
+    <!-- 33 — Reforma abre -->
+    <section class="slide">
+      <div class="eyebrow">31 de outubro de 1517</div>
+      <h2>O terremoto: a <em>Reforma Protestante</em>.</h2>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 160 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- porta da igreja -->
+          <rect x="50" y="20" width="60" height="80"/>
+          <path d="M55 25 L105 25 M55 30 L105 30 M55 35 L105 35 M55 40 L105 40"/>
+          <!-- prego -->
+          <circle cx="80" cy="50" r="2" fill="#B8862F"/>
+        </svg>
+      </div>
+      <p>Um monge agostiniano alemão escreveu 95 teses criticando práticas da Igreja.</p>
+      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic;">Nome dele: <strong>Martinho Lutero</strong> (1483-1546).</p>
+    </section>
+
+    <!-- 34 — indulgências -->
+    <section class="slide">
+      <p>A reclamação imediata: <strong>venda de indulgências</strong>.</p>
+      <p style="margin-top: 12px;">A Igreja vendia documentos que supostamente reduziam o tempo da alma no <strong>purgatório</strong>.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 12px; border-left: 3px solid var(--accent);">
+        <p style="font-size: 15px;">Comprou indulgência? Sua alma sobe mais rápido.</p>
+        <p style="font-size: 15px; margin-top: 6px;">Comprou pelo pai morto? Ele sobe mais rápido.</p>
+      </div>
+      <p style="margin-top: 12px;">A grana ia pra Roma — pra construir a <strong>Basílica de São Pedro</strong>.</p>
+    </section>
+
+    <!-- 35 — Lutero radicaliza -->
+    <section class="slide">
+      <p>Lutero achou aquilo uma palhaçada. Argumentou: <strong>salvação não se compra, vem só da fé</strong>.</p>
+      <p style="margin-top: 12px;">Quando a Igreja tentou silenciá-lo, foi se radicalizando.</p>
+      <p class="big" style="margin-top: 14px;">Atacou pilares maiores.</p>
+    </section>
+
+    <!-- 36 — pontos da reforma -->
+    <section class="slide">
+      <div class="eyebrow">As bombas teológicas</div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Bíblia traduzida pra língua do povo. Não só latim.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Não precisa de padre intermediário. Cada cristão fala com Deus direto.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Salvação <strong>só pela fé</strong>. Não por indulgências.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Só a Bíblia é autoridade. Não decretos papais.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Padres podem casar.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Sem purgatório. Sem culto a santos. Sem culto a Maria.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 37 — Gutenberg -->
+    <section class="slide">
+      <p>Lutero traduziu o Novo Testamento pro <strong>alemão</strong> em 11 semanas.</p>
+      <p style="margin-top: 12px;">Foi possível por causa de uma invenção, na mesma época:</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 140 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <rect x="30" y="20" width="80" height="50"/>
+          <path d="M30 30 L110 30"/>
+          <path d="M40 40 L100 40 M40 48 L100 48 M40 56 L100 56 M40 64 L80 64"/>
+        </svg>
+      </div>
+      <p class="big">A imprensa de Gutenberg (1450).</p>
+      <p style="margin-top: 10px;">De repente, a Bíblia em alemão estava nas mãos de todo mundo que sabia ler.</p>
+    </section>
+
+    <!-- 38 — excomunhão -->
+    <section class="slide">
+      <p>Em <strong>1521</strong>, o Papa excomungou Lutero.</p>
+      <p style="margin-top: 12px;">Lutero pegou o documento da excomunhão e <strong>queimou em praça pública</strong>.</p>
+      <p style="margin-top: 12px;">Foi convocado a se retratar diante do imperador Carlos V, na Dieta de Worms. Recusou.</p>
+      <p style="margin-top: 12px;">Foi protegido por príncipes alemães que viram <strong>oportunidade política</strong>: rompendo com Roma, ficavam com as terras da Igreja e parariam de pagar pro Papa.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft);">Geopolítica vestindo roupa de teologia.</p>
+    </section>
+
+    <!-- 39 — Calvino -->
+    <section class="slide">
+      <div class="eyebrow">Outros reformadores</div>
+      <p><strong>João Calvino</strong> (francês, em Genebra). Versão mais austera.</p>
+      <p style="margin-top: 12px;"><strong>Predestinação</strong>: Deus já escolheu quem se salva. Suas obras não mudam nada.</p>
+      <p style="margin-top: 12px;">Mas trabalho e sucesso material são <em>sinais</em> de que você é dos eleitos.</p>
+      <p style="margin-top: 14px;">Vai influenciar EUA e a "ética protestante do trabalho" (tese de <strong>Max Weber</strong>, 1905, ligando calvinismo ao capitalismo).</p>
+    </section>
+
+    <!-- 40 — Henrique VIII -->
+    <section class="slide">
+      <p><strong>Henrique VIII</strong>, rei da Inglaterra, criou a <strong>Igreja Anglicana</strong> em 1534.</p>
+      <p class="big" style="margin-top: 14px;">Motivo central: divórcio.</p>
+      <p style="margin-top: 12px;">Queria se separar de Catarina de Aragão pra casar com Ana Bolena. O Papa não autorizou.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--accent);">"Ok, então eu mesmo sou o chefe da igreja na Inglaterra."</p>
+      <p style="margin-top: 12px;">Confiscou os bens da Igreja Católica. Mandou matar quem não aceitasse — incluindo o próprio chanceler <strong>Thomas More</strong>, decapitado em 1535.</p>
+    </section>
+
+    <!-- 41 — Anglicanismo hoje -->
+    <section class="slide">
+      <p>Anglicanismo nasceu <strong>por divórcio real</strong>. Não por teologia profunda.</p>
+      <p class="big" style="margin-top: 14px;">Até hoje, o chefe da Igreja Anglicana é o monarca britânico.</p>
+      <p style="margin-top: 12px;">Hoje: <strong>Rei Charles III</strong>.</p>
+    </section>
+
+    <!-- 42 — Contrarreforma -->
+    <section class="slide">
+      <div class="eyebrow">Resposta da Igreja</div>
+      <h3>A Contrarreforma.</h3>
+      <p>Concílio de Trento (1545-1563). Endureceu doutrina.</p>
+      <p style="margin-top: 12px;">Criou a <strong>Companhia de Jesus</strong> (jesuítas, fundada por <strong>Inácio de Loyola</strong> em 1540).</p>
+      <p style="margin-top: 10px;">Tropa de elite intelectual, que ia evangelizar onde a Igreja perdia terreno — Ásia, América.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft);">Foram chave no Brasil colonial (Aula 24).</p>
+    </section>
+
+    <!-- 43 — mapa religioso -->
+    <section class="slide">
+      <div class="eyebrow">Em 100 anos, Europa rachou</div>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 12px;">
+        <div class="card-soft" style="border-left: 3px solid var(--accent);">
+          <div class="label" style="margin-bottom: 4px;">Norte</div>
+          <p style="font-family: var(--serif); font-size: 16px;">Alemanha do norte, Holanda, Inglaterra, Escócia, escandinavos → <em>protestante</em>.</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--accent);">
+          <div class="label" style="margin-bottom: 4px;">Sul</div>
+          <p style="font-family: var(--serif); font-size: 16px;">Itália, Espanha, Portugal, França → <em>católica</em>.</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--accent);">
+          <div class="label" style="margin-bottom: 4px;">Leste</div>
+          <p style="font-family: var(--serif); font-size: 16px;">→ <em>ortodoxa</em>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 44 — Guerra 30 anos -->
+    <section class="slide">
+      <p>E veio guerra. Muita guerra.</p>
+      <p class="big" style="margin-top: 14px;">A Guerra dos Trinta Anos (1618-1648).</p>
+      <p style="margin-top: 12px;">Católicos vs protestantes alemães, misturado com geopolítica europeia.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 12px; border-left: 3px solid var(--wrong);">
+        <p style="font-size: 15px;">Matou <strong>8 milhões de pessoas</strong>.</p>
+        <p style="font-size: 15px; margin-top: 4px;">Cerca de 20% da população alemã.</p>
+      </div>
+    </section>
+
+    <!-- 45 — Vestfália -->
+    <section class="slide">
+      <p>Foi tão devastadora que terminou com a <strong>Paz de Vestfália</strong> (1648).</p>
+      <p style="margin-top: 12px;">Princípio novo: <em>cada Estado decide sua própria religião</em>.</p>
+      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic; color: var(--accent);">"cuius regio, eius religio"</p>
+      <p style="margin-top: 12px;">"De quem é a região, dele é a religião."</p>
+      <p class="big" style="margin-top: 14px;">Nascimento dos Estados soberanos modernos.</p>
+      <p style="margin-top: 8px;">Base das relações internacionais até hoje.</p>
+    </section>
+
+    <!-- 46 — LIÇÃO 2 -->
+    <section class="slide">
+      <span class="stamp dark">Lição 2</span>
+      <h2 style="margin-top: 14px;">A imprensa foi o <em>algoritmo</em> do século XVI.</h2>
+      <p style="margin-top: 14px;">Antes: a Igreja controlava a informação (Bíblia em latim, copista monástico).</p>
+      <p style="margin-top: 10px;">Depois: Lutero espalhou as 95 teses traduzidas pra alemão em semanas. Ninguém conseguiu parar.</p>
+      <p class="quote" style="margin-top: 14px;">Tecnologia de informação muda equilíbrios de poder.</p>
+      <p style="margin-top: 12px;">Hoje você vive um Gutenberg mil vezes mais rápido — internet, redes sociais, IA.</p>
+      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">Aula 41 vai voltar nessa.</p>
+    </section>
+
+    <!-- 47 — cristianismo hoje -->
+    <section class="slide">
+      <div class="eyebrow">Cristianismo hoje, em números</div>
+      <p style="font-size: 13px; color: var(--ink-soft); font-style: italic;">Pew Research, 2025 (dados de 2020)</p>
+      <div style="margin-top: 12px;">
+        <div class="data-row"><span class="k">Cristãos no mundo</span><span class="v">2,3 bi</span></div>
+        <div class="data-row"><span class="k">% da humanidade</span><span class="v">28,8%</span></div>
+        <div class="data-row"><span class="k">Católicos</span><span class="v">1,42 bi</span></div>
+        <div class="data-row"><span class="k">Protestantes</span><span class="v">900M-1bi</span></div>
+        <div class="data-row"><span class="k">Ortodoxos</span><span class="v">260M</span></div>
+      </div>
+      <p style="margin-top: 14px;">Maior religião do planeta. Mas a única dos cinco grandes blocos cujo percentual está caindo.</p>
+    </section>
+
+    <!-- 48 — Papa Leão XIV -->
+    <section class="slide">
+      <p>Sob o Papa, hoje:</p>
+      <p class="big" style="margin-top: 12px;">Leão XIV.</p>
+      <p style="margin-top: 12px;">Robert Prevost, americano-peruano. Eleito em maio de 2025, depois da morte do Papa Francisco em abril de 2025.</p>
+      <p style="margin-top: 12px; font-family: var(--serif); font-style: italic; color: var(--accent);">Primeiro Papa americano da história.</p>
+    </section>
+
+    <!-- 49 — sul global -->
+    <section class="slide">
+      <p>O crescimento cristão <strong>não está no ocidente</strong>.</p>
+      <p style="margin-top: 12px;">Europa esvazia igrejas. África e Ásia enchem.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="card-soft" style="padding: 12px;">
+          <div class="label" style="margin-bottom: 4px;">1900</div>
+          <p style="font-size: 15px;">80% dos cristãos viviam na Europa e América do Norte.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <div class="label" style="margin-bottom: 4px;">2020</div>
+          <p style="font-size: 15px;">Mais de 60% vivem no Sul Global.</p>
+        </div>
+      </div>
+      <p class="big" style="margin-top: 14px;">O centro de gravidade mudou de continente.</p>
+    </section>
+
+    <!-- 50 — Islã abertura -->
+    <section class="slide">
+      <div class="number">02</div>
+      <div class="label" style="margin-top: 8px;">Segundo grande bloco</div>
+      <h2 style="margin-top: 12px;">Islamismo.</h2>
+      <p style="margin-top: 14px;">A segunda maior religião do mundo. E a que mais cresce.</p>
+      <div class="illu" style="margin-top: 18px; max-width: 180px;">
+        <svg viewBox="0 0 160 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <path d="M100 50 a30 30 0 1 0 0 14 a22 22 0 1 1 0 -14"/>
+          <path d="M55 50 L70 45 L65 50 L70 55 Z" fill="#B8862F"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 51 — Maomé -->
+    <section class="slide">
+      <p><strong>Maomé</strong> (Muhammad, 570-632 d.C.).</p>
+      <p style="margin-top: 10px;">Comerciante árabe da cidade de Meca, na Arábia.</p>
+      <p style="margin-top: 12px;">Aos 40 anos, em <strong>610</strong>, segundo a tradição, recebeu as primeiras revelações do <strong>anjo Gabriel</strong>, que lhe ditou o que viria a ser o <strong>Alcorão</strong>.</p>
+    </section>
+
+    <!-- 52 — mensagem -->
+    <section class="slide">
+      <div class="eyebrow">Mensagem central</div>
+      <p>Há um só Deus — em árabe, <strong>Alá</strong>.</p>
+      <p style="margin-top: 12px;">Maomé é seu profeta final, depois de uma linha que inclui:</p>
+      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Abraão</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Moisés</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Jesus</div>
+      </div>
+      <p style="margin-top: 14px; font-size: 14px; color: var(--ink-soft); font-style: italic;">Sim. O islamismo reconhece Jesus como profeta. Não como filho de Deus. Essa diferença é crítica.</p>
+    </section>
+
+    <!-- 53 — primos teológicos -->
+    <section class="slide">
+      <div class="eyebrow">Anota uma coisa importantíssima</div>
+      <p class="big">Judaísmo, cristianismo e islamismo são as três <em>religiões abraâmicas</em>.</p>
+      <p style="margin-top: 14px;">Adoram o <strong>mesmo Deus</strong> (o Deus de Abraão). Reconhecem vários profetas comuns.</p>
+      <p style="margin-top: 12px;">Os três povos são <strong>primos teológicos</strong>.</p>
+      <p style="margin-top: 8px;">Que se massacram há 1.400 anos.</p>
+      <p class="quote" style="margin-top: 14px;">O conflito Israel-Palestina-mundo árabe é briga de família, no sentido literal.</p>
+    </section>
+
+    <!-- 54 — Hégira -->
+    <section class="slide">
+      <p>Maomé pregou em Meca. Foi perseguido. Fugiu pra Medina em <strong>622</strong>.</p>
+      <p style="margin-top: 10px;">Data que marca o ano 1 do calendário islâmico — a <strong>Hégira</strong>.</p>
+      <p style="margin-top: 12px;">Em Medina, organizou uma comunidade político-religiosa armada.</p>
+      <p style="margin-top: 12px;">Voltou pra Meca em 630, conquistou a cidade.</p>
+      <p style="margin-top: 12px;">Quando morreu em 632, tinha unificado boa parte da Península Arábica.</p>
+    </section>
+
+    <!-- 55 — diferença chave -->
+    <section class="slide">
+      <div class="eyebrow">Parte crucial</div>
+      <p>Ao contrário de Jesus, que <strong>não governou</strong>…</p>
+      <p style="margin-top: 12px;">Maomé foi profeta <strong>E</strong> chefe de Estado <strong>E</strong> general.</p>
+      <p class="big" style="margin-top: 14px;">No islamismo, desde a origem, não existe separação entre religião e Estado.</p>
+    </section>
+
+    <!-- 56 — César -->
+    <section class="slide">
+      <p>No cristianismo, Jesus disse:</p>
+      <p class="quote" style="margin-top: 12px;">Daí a César o que é de César, e a Deus o que é de Deus.</p>
+      <p style="margin-top: 14px;">Separando religião e poder político.</p>
+      <p class="big" style="margin-top: 14px;">No islã essa frase não existe.</p>
+      <p style="margin-top: 10px;">Isso explica muita coisa.</p>
+    </section>
+
+    <!-- 57 — expansão -->
+    <section class="slide">
+      <div class="eyebrow">Expansão fulminante (632-750)</div>
+      <p>Em <strong>100 anos</strong> depois da morte de Maomé, exércitos árabes conquistaram:</p>
+      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Toda a Península Arábica</div>
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Síria, Palestina, Egito, Mesopotâmia</div>
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Império Persa inteiro</div>
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Norte da África, do Egito ao Marrocos</div>
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Boa parte da Espanha (Al-Andalus, por 800 anos)</div>
+      </div>
+    </section>
+
+    <!-- 58 — Tours -->
+    <section class="slide">
+      <p>Avançaram até a <strong>França</strong>.</p>
+      <p style="margin-top: 12px;">Foram parados na <strong>Batalha de Tours</strong>, em <strong>732</strong>, pelo francês <strong>Carlos Martel</strong>.</p>
+      <p class="big" style="margin-top: 14px;">Em 100 anos, o islã saiu de uma cidade comercial de deserto…</p>
+      <p style="margin-top: 8px;">…pra imperar em área maior do que o Império Romano em seu auge.</p>
+      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">Velocidade absurda.</p>
+    </section>
+
+    <!-- 59 — Cisma sunita/xiita -->
+    <section class="slide">
+      <div class="eyebrow">656-661 · O cisma</div>
+      <h2>Sunitas vs Xiitas.</h2>
+      <p style="margin-top: 14px;">Explica a maioria dos conflitos do Oriente Médio até hoje.</p>
+      <p style="margin-top: 12px;">Logo depois da morte de Maomé, muçulmanos se dividiram sobre quem deveria sucedê-lo como <strong>califa</strong>.</p>
+    </section>
+
+    <!-- 60 — os dois lados -->
+    <section class="slide">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="card-soft" style="border-left: 3px solid var(--accent);">
+          <div class="label" style="margin-bottom: 6px;">Sunitas</div>
+          <p style="font-size: 15px;">Sucessor escolhido pela comunidade, entre os mais capazes. Não precisa ser parente de Maomé.</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--wrong);">
+          <div class="label" style="margin-bottom: 6px;">Xiitas</div>
+          <p style="font-size: 15px;">Sucessor tem que ser da família direta de Maomé. <strong>Ali</strong>, primo e genro do profeta, era o único legítimo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 61 — Karbala -->
+    <section class="slide">
+      <p>Em <strong>661</strong>, Ali foi assassinado.</p>
+      <p style="margin-top: 12px;">Em <strong>680</strong>, seu filho <strong>Hussein</strong> foi morto na <strong>Batalha de Karbala</strong> (atual Iraque).</p>
+      <p style="margin-top: 12px;">Evento traumático que os xiitas reencenam todo ano no <strong>Dia de Ashura</strong>, com auto-flagelação ritual.</p>
+      <p class="quote" style="margin-top: 14px;">A morte de Hussein é, pros xiitas, o que a crucificação de Jesus é pros cristãos.</p>
+    </section>
+
+    <!-- 62 — hoje -->
+    <section class="slide">
+      <div class="eyebrow">Hoje</div>
+      <div style="margin-top: 8px;">
+        <div class="data-row"><span class="k">Sunitas</span><span class="v">85-90%</span></div>
+        <div class="data-row"><span class="k">Xiitas</span><span class="v">10-15%</span></div>
+      </div>
+      <p style="margin-top: 14px;"><strong>Sunitas</strong>: Arábia Saudita, Egito, Turquia, Indonésia, Paquistão.</p>
+      <p style="margin-top: 10px;"><strong>Xiitas</strong>: maioria no Irã (90%+), Iraque (60%+), Bahrein, Azerbaijão.</p>
+    </section>
+
+    <!-- 63 — guerra fria do OM -->
+    <section class="slide">
+      <p class="big">Arábia Saudita (sunita) vs Irã (xiita).</p>
+      <p style="margin-top: 14px;">É a <em>Guerra Fria do Oriente Médio</em>.</p>
+      <p style="margin-top: 12px;">A guerra do Iêmen, a guerra civil síria, as tensões no Iraque, no Líbano — tudo passa por essa fratura.</p>
+      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft);">Aula 22 desenrola isso fundo.</p>
+    </section>
+
+    <!-- 64 — islã hoje números -->
+    <section class="slide">
+      <div class="eyebrow">Islamismo hoje</div>
+      <div style="margin-top: 12px;">
+        <div class="data-row"><span class="k">Muçulmanos no mundo</span><span class="v">2,0 bi</span></div>
+        <div class="data-row"><span class="k">% da humanidade</span><span class="v">25,6%</span></div>
+      </div>
+      <p style="margin-top: 14px;">É a religião que <strong>mais cresce</strong>.</p>
+      <p style="margin-top: 10px;">Projeção do Pew: <em>deve ultrapassar o cristianismo antes do fim do século XXI</em>.</p>
+    </section>
+
+    <!-- 65 — Indonésia -->
+    <section class="slide">
+      <p>Maior país muçulmano não é árabe.</p>
+      <p class="big" style="margin-top: 14px;">É a Indonésia.</p>
+      <p style="margin-top: 12px;">270 milhões de habitantes. ~87% muçulmanos.</p>
+      <p style="margin-top: 12px;">Em seguida: Paquistão, Índia (200M muçulmanos, mesmo sendo minoria), Bangladesh.</p>
+      <p style="margin-top: 14px; font-family: var(--serif); font-style: italic; color: var(--accent);">Só 20% dos muçulmanos do mundo são árabes.</p>
+      <p style="margin-top: 8px;">Pra muita gente, isso é surpresa.</p>
+    </section>
+
+    <!-- 66 — fundamentalismo -->
+    <section class="slide">
+      <div class="eyebrow">Fundamentalismo islâmico</div>
+      <p>Nasce no século XX. Quer aplicar literalmente a lei religiosa — a <strong>sharia</strong> — sobre o Estado.</p>
+      <p style="margin-top: 12px;">Várias raízes:</p>
+      <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;"><strong>Wahabismo</strong> saudita (séc. XVIII). Ultraconservador. Petrodólares financiaram madrassas pelo mundo islâmico inteiro.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;"><strong>Irmandade Muçulmana</strong> (Egito, 1928). Resposta ao colonialismo europeu.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;"><strong>Revolução Iraniana (1979)</strong>. <strong>Aiatolá Khomeini</strong> derrubou o xá. Primeiro Estado moderno governado por clero islâmico.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;"><strong>Mujahidin afegãos (1979-1989)</strong>. Armados pela CIA e Arábia Saudita. Geraram Al-Qaeda, Talibã, ISIS.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 67 — disclaimer importante -->
+    <section class="slide">
+      <div class="eyebrow">Precisa ser dito</div>
+      <p>A <strong>maioria absoluta dos muçulmanos não é fundamentalista</strong>. Não apoia terrorismo. Não quer Estado teocrático.</p>
+      <p style="margin-top: 12px;">É como dizer que todo cristão é igual a pastor da Universal — caricatura empobrecedora.</p>
+      <p class="quote" style="margin-top: 14px;">Generalizar pra todo muçulmano é injusto. Fingir que o problema não existe é hipocrisia.</p>
+      <p style="margin-top: 10px;">Os dois extremos erram.</p>
+    </section>
+
+    <!-- 68 — Judaísmo abertura -->
+    <section class="slide">
+      <div class="number">03</div>
+      <div class="label" style="margin-top: 8px;">Terceiro grande bloco</div>
+      <h2 style="margin-top: 12px;">Judaísmo.</h2>
+      <p style="margin-top: 14px;">Pequeno em número. <em>Desproporcional</em> em influência.</p>
+      <div class="illu" style="margin-top: 18px; max-width: 160px;">
+        <svg viewBox="0 0 120 120" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <path d="M60 20 L82 60 L38 60 Z"/>
+          <path d="M60 100 L38 60 L82 60 Z"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 69 — números pequenos -->
+    <section class="slide">
+      <p class="big">15 milhões de judeus no mundo.</p>
+      <p style="margin-top: 14px;"><strong>0,2%</strong> da população mundial.</p>
+      <p style="margin-top: 12px;">Pra você ter dimensão:</p>
+      <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 6px;">
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Tem mais mórmons do que judeus.</div>
+        <div style="padding: 8px 12px; background: var(--paper); border-radius: 8px; font-size: 14px;">Tem mais sikhs do que judeus.</div>
+      </div>
+      <p class="big" style="margin-top: 14px;">Numericamente, são pequenos.</p>
+    </section>
+
+    <!-- 70 — influência -->
+    <section class="slide">
+      <p>Mas a influência cultural, científica e política é <strong>enorme</strong>.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 12px; border-left: 3px solid var(--accent);">
+        <p class="big" style="font-size: 22px;">~20% de todos os Nobel da história.</p>
+        <p style="font-size: 14px; margin-top: 6px; font-style: italic; color: var(--ink-soft);">Sendo 0,2% da humanidade. Concentração 100x maior que a média.</p>
+      </div>
+      <p style="margin-top: 14px; font-size: 14px;">Einstein, Freud, Marx, Kafka, Hannah Arendt, Bob Dylan, Spielberg, Zuckerberg, Larry Page, Sergey Brin, Jonas Salk, Kissinger…</p>
+      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">Lista interminável.</p>
+    </section>
+
+    <!-- 71 — por quê? -->
     <section class="slide">
       <p>Por quê?</p>
-      <p style="margin-top: 12px;">A versão mais aceita é que ele deu uma blefada.</p>
-      <p style="margin-top: 10px;">Achou que o Congresso ia implorar pra ele voltar, com mais poderes.</p>
-      <p class="big" style="margin-top: 12px;">O Congresso disse "tchau".</p>
-      <p style="margin-top: 10px; color: var(--ink-soft); font-style: italic;">Blefe que deu errado feio.</p>
+      <p style="margin-top: 12px;">Perseguição histórica que forçou foco em educação. Judeus eram proibidos de possuir terra na Europa medieval — viraram médicos, banqueiros, comerciantes, intelectuais.</p>
+      <p style="margin-top: 12px;">Tradição talmúdica de debate e estudo desde criança. Rede comunitária forte.</p>
+      <p class="quote" style="margin-top: 14px;">Não é "raça superior". É história específica produzindo padrão específico.</p>
     </section>
 
-    <!-- ============== 11 — Jango ============== -->
+    <!-- 72 — perseguição -->
     <section class="slide">
-      <div class="eyebrow">E quem era o vice?</div>
-      <h2><em>João Goulart.</em> O Jango.</h2>
-      <p style="margin-top: 12px;">Gaúcho. Ligado aos sindicatos. Herdeiro político de Vargas.</p>
-      <p style="margin-top: 12px;">Detalhe que pegou mal:</p>
-      <p class="big" style="margin-top: 10px; color: var(--accent);">Tava na China comunista.</p>
-      <p style="margin-top: 10px;">Em viagem oficial. Bem na hora que o Jânio renunciou.</p>
+      <div class="eyebrow">2 mil anos de perseguição</div>
+      <p>Por quê? Quatro motivos principais.</p>
     </section>
 
-    <!-- ============== 12 ============== -->
+    <!-- 73 — recusa assimilar -->
     <section class="slide">
-      <p>Os militares de direita olharam pra isso e travaram.</p>
-      <p style="margin-top: 12px;">"Esse cara é <strong>comunista</strong>. Não pode assumir."</p>
-      <div class="illu sm" style="margin: 18px auto;">
-        <svg viewBox="0 0 120 60" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
-          <circle cx="60" cy="30" r="20"/>
-          <path d="M45 15 L75 45 M75 15 L45 45"/>
+      <span class="stamp">1</span>
+      <h3 style="margin-top: 12px;">Recusaram se assimilar.</h3>
+      <p>Em qualquer país, eram a comunidade que <strong>não se misturava</strong>.</p>
+      <p style="margin-top: 12px;">Idioma próprio (hebraico, depois iídiche). Leis alimentares próprias (kosher). Casavam entre si.</p>
+      <p style="margin-top: 10px;">Isso gera atrito.</p>
+    </section>
+
+    <!-- 74 — deicídio -->
+    <section class="slide">
+      <span class="stamp">2</span>
+      <h3 style="margin-top: 12px;">A acusação cristã de "deicídio".</h3>
+      <p>Por séculos, a Igreja Católica ensinou que os judeus eram "o povo que matou Cristo".</p>
+      <p style="margin-top: 12px;">Virou base teológica do antissemitismo europeu.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 12px; border-left: 3px solid var(--accent);">
+        <p style="font-size: 15px;">A Igreja só renunciou oficialmente a essa acusação em <strong>1965</strong>, no Concílio Vaticano II.</p>
+      </div>
+    </section>
+
+    <!-- 75 — função econômica -->
+    <section class="slide">
+      <span class="stamp">3</span>
+      <h3 style="margin-top: 12px;">Função econômica explosiva.</h3>
+      <p>Cristãos medievais eram proibidos de cobrar juros (usura).</p>
+      <p style="margin-top: 12px;">Os judeus viraram banqueiros e cobradores de dívidas.</p>
+      <p class="quote" style="margin-top: 14px;">Quem te empresta dinheiro fica fácil de odiar.</p>
+    </section>
+
+    <!-- 76 — bode expiatório -->
+    <section class="slide">
+      <span class="stamp">4</span>
+      <h3 style="margin-top: 12px;">Bode expiatório útil.</h3>
+      <p>Crise econômica? Peste negra? Derrota militar?</p>
+      <p class="big" style="margin-top: 12px;">A culpa é dos judeus.</p>
+      <p style="margin-top: 12px;">Mil anos de massacres (pogroms): França, Inglaterra (expulsos em 1290), Espanha (expulsos em 1492), Rússia, Polônia, Alemanha.</p>
+      <p style="margin-top: 12px;">Antes de Hitler, já tinha havido centenas de massacres antissemitas.</p>
+    </section>
+
+    <!-- 77 — Sionismo -->
+    <section class="slide">
+      <div class="eyebrow">1897 · Sionismo</div>
+      <p>Frente ao crescente antissemitismo, um jornalista judeu austro-húngaro publicou em 1896 um livro: <em>"O Estado Judeu"</em>.</p>
+      <p style="margin-top: 12px;">Nome: <strong>Theodor Herzl</strong>.</p>
+      <p style="margin-top: 12px;">Defendia: judeus deviam ter um país próprio.</p>
+      <p style="margin-top: 12px;">Em <strong>1897</strong>, organizou o <strong>1º Congresso Sionista</strong> em Basileia.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--ink-soft);">Movimento se chamou sionismo (de Sião, nome bíblico de Jerusalém).</p>
+    </section>
+
+    <!-- 78 — Palestina -->
+    <section class="slide">
+      <p>Onde criar esse Estado?</p>
+      <p style="margin-top: 12px;">A escolha óbvia, por motivos religiosos e históricos, era a <strong>Palestina</strong>.</p>
+      <p style="margin-top: 12px;">Região onde os judeus viveram na Antiguidade até serem dispersos pelos romanos em <strong>70 d.C.</strong> (destruição do Segundo Templo).</p>
+      <p style="margin-top: 12px;">Na época, era território do <strong>Império Otomano</strong>. População majoritariamente árabe muçulmana.</p>
+    </section>
+
+    <!-- 79 — Balfour -->
+    <section class="slide">
+      <div class="eyebrow">1917 · Declaração Balfour</div>
+      <p>Durante a Primeira Guerra, o Reino Unido publicou a Declaração Balfour.</p>
+      <p style="margin-top: 12px;">Comprometia-se a apoiar a criação de um "lar nacional judeu" na Palestina.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 12px; border-left: 3px solid var(--wrong);">
+        <p style="font-size: 15px;">Detalhe: os ingleses, na mesma época, prometeram aos árabes apoiar um Estado árabe independente na <strong>mesma região</strong>.</p>
+        <p class="big" style="font-size: 18px; margin-top: 8px;">Prometeram a mesma terra a dois povos.</p>
+      </div>
+      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft);">A semente da tragédia foi plantada ali.</p>
+    </section>
+
+    <!-- 80 — Partilha -->
+    <section class="slide">
+      <p>Em <strong>1947</strong>, a recém-criada <strong>ONU</strong> votou um plano de partilha.</p>
+      <p style="margin-top: 12px;">Dividir a Palestina em dois Estados, um judeu e um árabe, com Jerusalém internacionalizada.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--correct); font-size: 15px;">Os judeus aceitaram.</div>
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--wrong); font-size: 15px;">Os árabes não.</div>
+      </div>
+    </section>
+
+    <!-- 81 — 1948 -->
+    <section class="slide">
+      <div class="eyebrow">14 de maio de 1948</div>
+      <p><strong>David Ben-Gurion</strong> proclamou o <strong>Estado de Israel</strong>.</p>
+      <p style="margin-top: 12px;">No dia seguinte, 5 países árabes invadiram (Egito, Jordânia, Síria, Líbano, Iraque).</p>
+      <p style="margin-top: 12px;">Israel venceu — e expandiu além do previsto na partilha.</p>
+      <p style="margin-top: 12px;">Cerca de <strong>700 mil árabes palestinos</strong> foram expulsos ou fugiram.</p>
+      <p style="margin-top: 12px; font-family: var(--serif); font-style: italic; color: var(--accent);">Os palestinos chamam esse evento de <strong>Nakba</strong> — "catástrofe".</p>
+      <p style="margin-top: 10px;">É a ferida fundamental do conflito israelo-palestino.</p>
+    </section>
+
+    <!-- 82 — para Aula 22 -->
+    <section class="slide">
+      <p>A história a partir daí — 5 guerras, ocupação da Cisjordânia em 1967, intifadas, Oslo, Hamas, 7 de outubro de 2023, guerra em Gaza…</p>
+      <p style="margin-top: 12px; font-style: italic; color: var(--ink-soft);">Fica pra Aula 22.</p>
+      <p class="big" style="margin-top: 14px;">Aqui o ponto é:</p>
+      <p style="margin-top: 10px;">Judaísmo é religião pequena demograficamente. Mas Israel-Palestina é hoje um dos vetores mais explosivos da política mundial — <strong>com origem religiosa direta</strong>.</p>
+    </section>
+
+    <!-- 83 — Hinduísmo abertura -->
+    <section class="slide">
+      <div class="number">04</div>
+      <div class="label" style="margin-top: 8px;">Quarto bloco</div>
+      <h2 style="margin-top: 12px;">Hinduísmo.</h2>
+      <p style="margin-top: 14px;">O Oriente que o ocidente quase ignora.</p>
+      <div class="illu" style="margin-top: 18px; max-width: 160px;">
+        <svg viewBox="0 0 120 120" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <circle cx="60" cy="60" r="35"/>
+          <path d="M60 25 L65 50 L88 45 L72 65 L88 78 L62 73 L60 95 L58 73 L32 78 L48 65 L32 45 L55 50 Z"/>
         </svg>
       </div>
-      <p>Os três ministros militares <strong>vetaram</strong> a posse.</p>
     </section>
 
-    <!-- ============== 13 ============== -->
+    <!-- 84 — números -->
     <section class="slide">
-      <p class="big">O Brasil quase entrou em guerra civil.</p>
-      <p style="margin-top: 14px;">No Rio Grande do Sul, o cunhado de Jango — <strong>Leonel Brizola</strong> — montou uma rede de rádios.</p>
-      <p style="margin-top: 10px;">Chamou de <em>Campanha da Legalidade</em>. Tropas dispostas a defender a Constituição na bala.</p>
+      <p class="big">1,2 bilhão de pessoas.</p>
+      <p style="margin-top: 12px;"><strong>15%</strong> da população mundial. Praticamente concentrado na <strong>Índia</strong>.</p>
+      <p style="margin-top: 14px;">Sem fundador único. Sem livro sagrado único. Sem hierarquia centralizada.</p>
+      <p style="margin-top: 12px;">É menos uma "religião" no sentido ocidental e mais um <strong>sistema cultural-religioso milenar</strong> que evoluiu por 4 mil anos.</p>
     </section>
 
-    <!-- ============== 14 ============== -->
+    <!-- 85 — características -->
     <section class="slide">
-      <div class="eyebrow">Solução de meio-termo</div>
-      <p>Jango toma posse…</p>
-      <p class="big" style="margin-top: 12px;">…mas sem poder de verdade.</p>
-      <p style="margin-top: 12px;">Inventaram um <strong>parlamentarismo de gambiarra</strong>: ele era presidente, mas quem mandava era um primeiro-ministro.</p>
-      <p style="margin-top: 12px;">Em 1963, um plebiscito devolveu o poder pleno pra ele.</p>
-    </section>
-
-    <!-- ============== 15 ============== -->
-    <section class="slide">
-      <p>E aí o Jango pisou no acelerador.</p>
-      <p style="margin-top: 12px;">Em março de 1964, na Central do Brasil, no Rio, diante de <strong>150 mil pessoas</strong>, anunciou as…</p>
-      <p class="big" style="margin-top: 12px; color: var(--accent);">Reformas de Base.</p>
-    </section>
-
-    <!-- ============== 16 ============== -->
-    <section class="slide">
-      <div class="eyebrow">O pacote</div>
-      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Agrária.</strong> Pegar terra improdutiva e redistribuir.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Urbana.</strong> Regularizar moradia.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Bancária.</strong> Nacionalizar bancos.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Educacional.</strong> Pra todos.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;"><strong>Tributária.</strong> Mexer nos impostos.</div>
-      </div>
-    </section>
-
-    <!-- ============== 17 ============== -->
-    <section class="slide">
-      <p>Pra esquerda, era o básico.</p>
-      <p style="margin-top: 12px;">Pra direita, classe média, Igreja, empresariado e militares…</p>
-      <p class="big" style="margin-top: 12px;">…era "Cuba no Brasil".</p>
-      <p style="margin-top: 12px; color: var(--ink-soft); font-style: italic;">Lembra: era plena Guerra Fria. Cuba tinha virado comunista cinco anos antes. Os EUA tavam paranoicos.</p>
-    </section>
-
-    <!-- ============== 18 ============== -->
-    <section class="slide">
-      <p>Seis dias depois do discurso do Jango…</p>
-      <p style="margin-top: 12px;">Em São Paulo, <strong>500 mil pessoas</strong> marcharam contra ele.</p>
-      <p style="margin-top: 10px;">Foi a <em>Marcha da Família com Deus pela Liberdade</em>.</p>
-      <p class="big" style="margin-top: 14px;">Pediram, abertamente:</p>
-      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--wrong);">"Militares, entrem."</p>
-    </section>
-
-    <!-- ============== 19 ============== -->
-    <section class="slide">
-      <p class="quote" style="font-size: 19px;">Quando os dois lados acham que estão prestes a perder tudo, ninguém negocia.</p>
-      <p style="margin-top: 14px;">Polarização extrema é antessala de ruptura.</p>
-      <p class="big" style="margin-top: 14px;">E a ruptura veio 12 dias depois.</p>
-    </section>
-
-    <!-- ============== 20 — GOLPE ============== -->
-    <section class="slide">
-      <div class="number" style="font-size: 64px;">31.03.1964</div>
-      <div class="label" style="margin-top: 10px;">A data</div>
-      <h2 style="margin-top: 14px;">O golpe.</h2>
-      <p style="margin-top: 14px;">À noite, um general de Minas — <strong>Olímpio Mourão</strong> — antecipou o movimento e marchou pro Rio.</p>
-      <p style="margin-top: 10px;">Outros comandos aderiram.</p>
-    </section>
-
-    <!-- ============== 21 ============== -->
-    <section class="slide">
-      <p class="big">Em 24 horas, tava tudo decidido.</p>
-      <p style="margin-top: 14px;">Jango fugiu pro Rio Grande, depois pro Uruguai.</p>
-      <p style="margin-top: 10px;">Brizola tentou resistir.</p>
-      <p style="margin-top: 8px; color: var(--ink-soft); font-style: italic;">Ninguém apareceu.</p>
-    </section>
-
-    <!-- ============== 22 ============== -->
-    <section class="slide">
-      <div class="eyebrow">Detalhe que ninguém pode esquecer</div>
-      <p>Os Estados Unidos <strong>apoiaram</strong>.</p>
-      <p style="margin-top: 12px;">Tinha uma esquadra americana posicionada no nosso litoral. Pronta pra dar apoio se precisasse.</p>
-      <p class="big" style="margin-top: 12px;">Chamava "Operação Brother Sam".</p>
-      <p style="margin-top: 10px;">Documentos abertos depois confirmaram tudo.</p>
-    </section>
-
-    <!-- ============== 23 — golpe ou revolução ============== -->
-    <section class="slide">
-      <p>Os militares chamaram de <em>"Revolução"</em> por 40 anos.</p>
-      <p class="big" style="margin-top: 12px;">Mas foi golpe.</p>
-      <p style="margin-top: 14px;">Revolução é quando muda a estrutura, derruba uma classe, sobe outra.</p>
-      <p style="margin-top: 10px;">Golpe é quando uma facção das Forças Armadas tira um presidente eleito.</p>
-      <p style="margin-top: 10px; font-style: italic; color: var(--accent);">Foi exatamente isso.</p>
-    </section>
-
-    <!-- ============== 24 ============== -->
-    <section class="slide">
-      <div class="eyebrow">Quem apoiou (importante)</div>
-      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
-        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Empresariado</div>
-        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Mídia (Globo, Estadão, JB)</div>
-        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Classe média</div>
-        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Igreja católica conservadora</div>
-        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 15px;">Governadores (Lacerda, Magalhães, Ademar)</div>
-      </div>
-      <p style="margin-top: 14px; font-style: italic; color: var(--ink-soft);">Os militares entraram porque civis importantes pediram.</p>
-    </section>
-
-    <!-- ============== 25 — duração ============== -->
-    <section class="slide">
-      <p class="big">A ditadura durou…</p>
-      <div style="text-align: center; margin: 20px 0;">
-        <div class="number" style="font-size: 110px;">21</div>
-        <div class="label" style="margin-top: 4px;">Anos</div>
-      </div>
-      <p>Cinco generais ocuparam a presidência.</p>
-      <p style="margin-top: 8px;">Bora conhecer um por um.</p>
-    </section>
-
-    <!-- ============== 26 — Castello ============== -->
-    <section class="slide">
-      <div class="pres-card">
-        <div class="num">1</div>
-        <div class="body">
-          <div class="name">Castello Branco</div>
-          <div class="yrs">1964 — 1967</div>
+      <div class="eyebrow">Características</div>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+        <div class="card-soft" style="padding: 12px;">
+          <div class="label" style="margin-bottom: 4px;">Politeísmo de fachada</div>
+          <p style="font-size: 14px;">Milhões de deuses (Brahma, Vishnu, Shiva, Krishna, Ganesha, Kali) — mas todos manifestações de uma única realidade última (Brahman).</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <div class="label" style="margin-bottom: 4px;">Carma e reencarnação</div>
+          <p style="font-size: 14px;">Suas ações determinam sua próxima existência.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <div class="label" style="margin-bottom: 4px;">Vaca é sagrada</div>
+          <p style="font-size: 14px;">Em vários estados indianos, abater vaca é crime. Linchamentos de muçulmanos suspeitos de transportar carne bovina mataram dezenas nos últimos 10 anos.</p>
         </div>
       </div>
-      <p style="margin-top: 16px;">O "moderado". Prometeu mandato curto, reformas, volta à democracia.</p>
-      <p class="big" style="margin-top: 12px;">Cumpriu zero.</p>
     </section>
 
-    <!-- ============== 27 — AIs ============== -->
+    <!-- 86 — castas -->
     <section class="slide">
-      <div class="eyebrow">O que Castello fez</div>
-      <p>Inventou os <strong>Atos Institucionais</strong>. Em bom português:</p>
-      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">"eu mando, ninguém pergunta."</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>AI-1</strong> · Cassou mandatos. Suspendeu direitos políticos.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>AI-2</strong> · Acabou com todos os partidos.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>AI-3</strong> · Governador não seria mais eleito.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>AI-4</strong> · Nova Constituição feita sob medida.</div>
+      <div class="eyebrow">Sistema de castas</div>
+      <p>A sociedade indiana foi dividida em <strong>4 castas hereditárias</strong>:</p>
+      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Brâmanes</strong> — sacerdotes</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Kshatriyas</strong> — guerreiros</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Vaishyas</strong> — comerciantes</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Shudras</strong> — trabalhadores</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);"><strong>Dalits</strong> — "intocáveis", fora do sistema</div>
+      </div>
+      <p style="margin-top: 14px; font-size: 14px;">Você nasce na casta, morre nela, casa dentro dela.</p>
+      <p style="margin-top: 8px;">Abolido pela Constituição de 1950. <strong>Na prática, persiste</strong>.</p>
+    </section>
+
+    <!-- 87 — Modi -->
+    <section class="slide">
+      <div class="eyebrow">O caso indiano contemporâneo</div>
+      <p>Índia fundada em 1947 como <strong>Estado laico</strong>, sob Nehru e o partido Congresso (de Gandhi).</p>
+      <p style="margin-top: 12px;">Ideia: abrigar todas as religiões em pé de igualdade — incluindo os <strong>200 milhões de muçulmanos</strong>.</p>
+      <p style="margin-top: 14px;">Em <strong>2014</strong>, <strong>Narendra Modi</strong> foi eleito primeiro-ministro.</p>
+      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic; color: var(--accent);">Modi é hindu nacionalista declarado.</p>
+    </section>
+
+    <!-- 88 — Hindutva -->
+    <section class="slide">
+      <p>A ideologia se chama <strong>Hindutva</strong> — "hinduidade".</p>
+      <p class="quote" style="margin-top: 14px;">A Índia é, essencialmente, um país hindu. Muçulmanos e cristãos são "estrangeiros culturais".</p>
+    </section>
+
+    <!-- 89 — sob Modi -->
+    <section class="slide">
+      <div class="eyebrow">Sob Modi</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;"><strong>Caxemira</strong> (única província de maioria muçulmana) teve autonomia revogada em <strong>2019</strong>.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Lei de cidadania (2019) facilita naturalização pra hindus, sikhs, budistas, cristãos — <strong>excluindo muçulmanos</strong>.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Discurso anti-muçulmano se normalizou. Linchamentos por "vacas sagradas" se multiplicaram.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Em janeiro de 2024, inaugurou o <strong>Templo de Ram</strong> em Ayodhya — construído onde existia uma mesquita demolida por turba hindu em 1992.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============== 28 — bipartidarismo ============== -->
+    <!-- 90 — democracia -->
     <section class="slide">
-      <p>Olha essa jogada:</p>
-      <p style="margin-top: 12px;">Acabaram com <strong>todos os partidos</strong> e criaram só dois.</p>
-      <div style="margin-top: 14px; display: flex; gap: 10px;">
-        <div style="flex: 1; padding: 14px; background: var(--paper); border-radius: 10px; text-align: center;">
-          <div style="font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--accent);">ARENA</div>
-          <div style="font-size: 12px; color: var(--ink-soft); margin-top: 4px;">o partido do governo</div>
-        </div>
-        <div style="flex: 1; padding: 14px; background: var(--paper); border-radius: 10px; text-align: center;">
-          <div style="font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--accent);">MDB</div>
-          <div style="font-size: 12px; color: var(--ink-soft); margin-top: 4px;">a oposição "permitida"</div>
-        </div>
-      </div>
-      <p style="margin-top: 14px;">Quer fazer política? Escolhe um.</p>
-      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">Não escolhe? Vira clandestino.</p>
+      <p class="big">A maior democracia do mundo está em transição clara pra Estado hindu de fato.</p>
+      <p style="margin-top: 16px;">1,4 bilhão de pessoas.</p>
+      <p style="margin-top: 12px;">Algo impensável quando Gandhi morreu em 1948 — pelas mãos de um hindu nacionalista, exatamente por querer que a Índia fosse laica.</p>
     </section>
 
-    <!-- ============== 29 — SNI ============== -->
+    <!-- 91 — Budismo -->
     <section class="slide">
-      <p>Também criaram o <strong>SNI</strong>.</p>
-      <p style="margin-top: 10px;">Serviço Nacional de Informações.</p>
-      <div class="illu sm" style="margin: 18px auto;">
-        <svg viewBox="0 0 120 80" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
-          <circle cx="60" cy="40" r="20"/>
-          <circle cx="60" cy="40" r="8" fill="#B5342B"/>
-          <path d="M30 40 Q60 15 90 40 Q60 65 30 40" />
+      <div class="number">05</div>
+      <div class="label" style="margin-top: 8px;">Quinto bloco</div>
+      <h2 style="margin-top: 12px;">Budismo.</h2>
+      <p style="margin-top: 14px;">~500 milhões de pessoas. 7% da humanidade.</p>
+      <div class="illu" style="margin-top: 18px; max-width: 140px;">
+        <svg viewBox="0 0 120 120" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <circle cx="60" cy="60" r="40"/>
+          <path d="M60 40 L60 80 M40 60 L80 60 M48 48 L72 72 M48 72 L72 48"/>
         </svg>
       </div>
-      <p>A polícia secreta do regime. Espionando civil, militar, padre, professor, jornalista.</p>
-      <p style="margin-top: 10px; font-family: var(--serif); font-style: italic; color: var(--accent);">Todo mundo virou suspeito.</p>
     </section>
 
-    <!-- ============== 30 — Costa e Silva ============== -->
+    <!-- 92 — Buda -->
     <section class="slide">
-      <div class="pres-card">
-        <div class="num">2</div>
-        <div class="body">
-          <div class="name">Costa e Silva</div>
-          <div class="yrs">1967 — 1969</div>
-        </div>
-      </div>
-      <p style="margin-top: 16px;">Da linha-dura. Mais autoritário. Menos paciência.</p>
-      <p class="big" style="margin-top: 12px;">E em 1968, o Brasil ferveu.</p>
+      <p>Fundado por <strong>Siddhartha Gautama</strong> — o <strong>Buda</strong>, "o iluminado".</p>
+      <p style="margin-top: 12px;">Príncipe indiano que abandonou os palácios por volta de <strong>500 a.C.</strong> pra buscar resposta pro sofrimento humano.</p>
+      <p class="quote" style="margin-top: 14px;">O sofrimento vem do desejo. Eliminar o desejo, elimina-se o sofrimento.</p>
+      <p style="margin-top: 12px;">Caminho: as 4 Nobres Verdades e o Caminho Óctuplo.</p>
     </section>
 
-    <!-- ============== 31 ============== -->
+    <!-- 93 — curiosidade -->
     <section class="slide">
-      <div class="eyebrow">1968 · O ano que não acabou</div>
-      <p>A PM matou um estudante chamado <strong>Edson Luís</strong>, num restaurante popular no Rio.</p>
-      <p style="margin-top: 12px;">O povo foi pra rua.</p>
-      <p class="big" style="margin-top: 12px;">100 mil pessoas marchando no Rio.</p>
-      <p style="margin-top: 10px;">Ficou conhecida como <em>Passeata dos Cem Mil</em>.</p>
+      <p>Curiosidade que importa:</p>
+      <p class="big" style="margin-top: 12px;">O budismo praticamente desapareceu da Índia.</p>
+      <p style="margin-top: 12px;">Mas se espalhou pra China, Japão, Coreia, Tibet, Sudeste Asiático.</p>
+      <p style="margin-top: 14px;">É a <strong>única grande religião sem deus criador no centro</strong>.</p>
+      <p style="margin-top: 8px;">O que importa é o caminho ético-meditativo pra acabar com o sofrimento.</p>
     </section>
 
-    <!-- ============== 32 ============== -->
+    <!-- 94 — Myanmar -->
     <section class="slide">
-      <p>Greves de operários estouraram em Osasco e Contagem.</p>
-      <p style="margin-top: 12px;">E partes da esquerda decidiram que política normal não dava mais.</p>
-      <p class="big" style="margin-top: 14px;">Começou a luta armada.</p>
-      <p style="margin-top: 10px; color: var(--ink-soft); font-style: italic;">Grupos pegando em arma, assaltando banco, sequestrando embaixador.</p>
+      <div class="eyebrow">Imagem ocidental vs realidade</div>
+      <p>Budismo passou imagem de religião super pacífica.</p>
+      <p class="big" style="margin-top: 12px;">Não é toda a verdade.</p>
+      <p style="margin-top: 14px;">Em <strong>Myanmar</strong>, monges budistas têm liderado perseguição violenta contra a minoria muçulmana <strong>rohingya</strong>.</p>
+      <p style="margin-top: 10px;">Mais de <strong>800 mil rohingyas</strong> fugiram em 2017. ONU classificou como <em>limpeza étnica</em>.</p>
+      <p style="margin-top: 12px;">No <strong>Sri Lanka</strong>, monges radicais participaram da guerra civil contra a minoria tâmil hindu.</p>
+      <p class="quote" style="margin-top: 14px;">Nenhuma religião é imune ao uso violento. Anota.</p>
     </section>
 
-    <!-- ============== 33 — AI-5 ============== -->
+    <!-- 95 — Brasil abertura -->
     <section class="slide">
-      <div class="eyebrow">13 de dezembro de 1968</div>
-      <p>O regime respondeu fechando tudo.</p>
-      <p class="big" style="margin-top: 14px; color: var(--wrong);">AI-5.</p>
-      <p style="margin-top: 12px;">O documento mais sombrio da história republicana do Brasil.</p>
-    </section>
-
-    <!-- ============== 34 ============== -->
-    <section class="slide">
-      <div class="eyebrow">O que o AI-5 permitia</div>
-      <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 8px;">
-        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Fechar o Congresso.</div>
-        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Cassar qualquer mandato, sem justificativa.</div>
-        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Demitir juiz, professor, funcionário público.</div>
-        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Suspender <em>habeas corpus</em>: prender e sumir com a pessoa.</div>
-        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Censura prévia em tudo: jornal, música, livro, peça.</div>
-        <div style="padding: 11px 14px; background: var(--paper); border-radius: 8px; font-size: 14px; border-left: 3px solid var(--wrong);">Sem revisão da Justiça.</div>
-      </div>
-    </section>
-
-    <!-- ============== 35 ============== -->
-    <section class="slide">
-      <p>Traduzindo:</p>
-      <p class="big" style="margin-top: 14px;">o Estado podia fazer qualquer coisa com qualquer pessoa.</p>
-      <p style="margin-top: 14px;">E ninguém podia perguntar nada.</p>
-      <p style="margin-top: 14px; font-family: var(--serif); font-style: italic; color: var(--accent);">Foi aqui que a tortura virou política oficial.</p>
-    </section>
-
-    <!-- ============== 36 — Médici ============== -->
-    <section class="slide">
-      <div class="pres-card">
-        <div class="num">3</div>
-        <div class="body">
-          <div class="name">Médici</div>
-          <div class="yrs">1969 — 1974</div>
-        </div>
-      </div>
-      <p style="margin-top: 16px;">O período <strong>mais duro</strong> da ditadura.</p>
-      <p style="margin-top: 10px;">Dois lados convivendo, ao mesmo tempo, no mesmo país.</p>
-    </section>
-
-    <!-- ============== 37 — milagre ============== -->
-    <section class="slide">
-      <div class="eyebrow">Lado A · O que o povo via</div>
-      <h2>O "Milagre Econômico".</h2>
-      <p style="margin-top: 12px;">A economia explodiu.</p>
-      <div style="text-align: center; margin: 18px 0;">
-        <div class="number" style="font-size: 70px;">11%</div>
-        <div class="label" style="margin-top: 4px;">de PIB ao ano</div>
-      </div>
-      <p style="font-size: 14px; color: var(--ink-soft);">Em 1973 chegou a 14%.</p>
-    </section>
-
-    <!-- ============== 38 ============== -->
-    <section class="slide">
-      <div class="eyebrow">Obras gigantes</div>
-      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Transamazônica</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Ponte Rio–Niterói</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 15px;">Usina de Itaipu</div>
-      </div>
-      <p style="margin-top: 14px;">Classe média comprando geladeira, carro, TV.</p>
-      <p style="margin-top: 10px; font-style: italic; color: var(--accent);">Brasil tri da Copa de 70.</p>
-    </section>
-
-    <!-- ============== 39 — slogan ============== -->
-    <section class="slide">
-      <div class="illu sm" style="margin: 0 auto 18px;">
-        <svg viewBox="0 0 140 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
-          <rect x="20" y="20" width="100" height="40" rx="3"/>
-          <path d="M40 38 L60 38 M70 38 L90 38 M100 38 L110 38"/>
-          <path d="M40 50 L70 50 M80 50 L105 50"/>
+      <div class="eyebrow">E o Brasil?</div>
+      <h2>A reviravolta de uma <em>geração</em>.</h2>
+      <p style="margin-top: 14px;">O Brasil viveu a transformação religiosa mais rápida em um país de porte continental na história moderna.</p>
+      <div class="illu sm" style="margin: 16px auto;">
+        <svg viewBox="0 0 160 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <path d="M30 60 L30 20" stroke-dasharray="3 3"/>
+          <rect x="20" y="40" width="20" height="20" fill="#B8862F" opacity="0.3"/>
+          <rect x="60" y="20" width="20" height="40"/>
+          <rect x="100" y="35" width="20" height="25" fill="#B8862F" opacity="0.6"/>
+          <path d="M10 60 L150 60"/>
         </svg>
       </div>
-      <p class="big" style="text-align: center; color: var(--accent);">"Brasil, ame-o ou deixe-o."</p>
-      <p style="margin-top: 16px; text-align: center;">Slogan oficial. Em outdoor, na TV, no rádio.</p>
-      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft); text-align: center; font-size: 14px;">Discordou? Sai do país.</p>
     </section>
 
-    <!-- ============== 40 — porão ============== -->
+    <!-- 96 — Censo tabela -->
     <section class="slide">
-      <div class="eyebrow">Lado B · O que o povo não via</div>
-      <h2>O porão.</h2>
-      <p style="margin-top: 12px;">Enquanto o povo via Pelé na Copa…</p>
-      <p class="big" style="margin-top: 12px;">…nos porões do regime acontecia o pior do século.</p>
+      <div class="eyebrow">Censo 2022 (junho de 2025)</div>
+      <table class="census">
+        <tr><th></th><th>1980</th><th>2010</th><th>2022</th></tr>
+        <tr><td>Católicos</td><td>89,2%</td><td>65,1%</td><td class="now">56,7%</td></tr>
+        <tr><td>Evangélicos</td><td>6,6%</td><td>21,7%</td><td class="now">26,9%</td></tr>
+        <tr><td>Sem religião</td><td>1,6%</td><td>7,9%</td><td class="now">9,3%</td></tr>
+        <tr><td>Espíritas</td><td>1,3%</td><td>2,0%</td><td class="now">1,8%</td></tr>
+        <tr><td>Umbanda/Cand.</td><td>0,6%</td><td>0,3%</td><td class="now">1,0%</td></tr>
+      </table>
     </section>
 
-    <!-- ============== 41 — DOI-CODI ============== -->
+    <!-- 97 — números absolutos -->
     <section class="slide">
-      <p>Foram criados, em 1970, os <strong>DOI-CODI</strong>.</p>
-      <p style="margin-top: 10px;">Centros oficiais de tortura. Em todo o país.</p>
-      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--wrong);">
-        <p style="font-size: 14px;">Pau-de-arara. Choque elétrico nos genitais. Afogamento. Queimadura. Estupro.</p>
-        <p style="font-size: 14px; margin-top: 8px;">Grávidas torturadas. Crianças torturadas <strong>na frente dos pais</strong>.</p>
+      <div class="eyebrow">Em números absolutos, hoje</div>
+      <div style="margin-top: 12px;">
+        <div class="data-row"><span class="k">Católicos</span><span class="v">100,2 M</span></div>
+        <div class="data-row"><span class="k">Evangélicos</span><span class="v">47,4 M</span></div>
+        <div class="data-row"><span class="k">Sem religião</span><span class="v">16,4 M</span></div>
+        <div class="data-row"><span class="k">Umbanda/Candomblé</span><span class="v">1,8 M</span></div>
       </div>
     </section>
 
-    <!-- ============== 42 — Herzog ============== -->
+    <!-- 98 — leitura 1 -->
     <section class="slide">
-      <div class="eyebrow">Casos que ficaram</div>
-      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px;">
-        <div class="card-soft">
-          <div class="label" style="margin-bottom: 4px;">Vladimir Herzog</div>
-          <p style="font-size: 15px;">Jornalista. Morto sob tortura em 1975. Forjaram "suicídio" — com foto falsa que o mundo todo viu.</p>
+      <span class="stamp">1</span>
+      <p style="margin-top: 14px;">Em 50 anos, o Brasil deixou de ser país massivamente católico.</p>
+      <p class="big" style="margin-top: 12px;">Em 1970: 92%.</p>
+      <p class="big" style="margin-top: 6px; color: var(--accent);">Em 2022: 56,7%.</p>
+      <p style="margin-top: 14px;">Continua sendo o maior país católico do mundo em números absolutos. Mas perdeu um terço da participação em duas gerações.</p>
+    </section>
+
+    <!-- 99 — leitura 2 -->
+    <section class="slide">
+      <span class="stamp">2</span>
+      <p style="margin-top: 14px;">Evangélicos <strong>quadruplicaram</strong> em 40 anos.</p>
+      <p style="margin-top: 12px;">De 6,6% (1980) pra 26,9% (2022).</p>
+      <p style="margin-top: 12px;">Em ritmo recente: 1 ponto percentual a cada 2 anos.</p>
+      <p class="big" style="margin-top: 14px;">Se a tendência continuar, em 15-20 anos o Brasil pode ter mais evangélicos que católicos.</p>
+      <p style="margin-top: 10px; font-size: 13px; font-style: italic; color: var(--ink-soft);">Censo 2022 mostra primeira desaceleração desde 1960.</p>
+    </section>
+
+    <!-- 100 — por que evangélicos cresceram -->
+    <section class="slide">
+      <div class="eyebrow">Por que evangélicos cresceram tanto?</div>
+      <p>Não foi acaso. Foi convergência de fatores.</p>
+      <p class="big" style="margin-top: 12px;">Bora ver os seis principais.</p>
+    </section>
+
+    <!-- 101 — fator 1 -->
+    <section class="slide">
+      <span class="stamp">1</span>
+      <h3 style="margin-top: 12px;">Igreja Católica abandonou os pobres na prática.</h3>
+      <p>Apesar da Teologia da Libertação dos anos 60-80, na maioria das paróquias a Igreja é <strong>distante, ritualística, hierárquica</strong>.</p>
+      <p style="margin-top: 12px;">Padre vem uma vez por mês na periferia. Faz missa formal. Vai embora.</p>
+      <p class="quote" style="margin-top: 14px;">Quem cuida do pobre na hora da crise? Muitas vezes, o pastor evangélico do lado.</p>
+    </section>
+
+    <!-- 102 — fator 2 -->
+    <section class="slide">
+      <span class="stamp">2</span>
+      <h3 style="margin-top: 12px;">Capilaridade extrema.</h3>
+      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Mais <strong>templos evangélicos</strong> no Brasil do que agências bancárias.</p>
         </div>
-        <div class="card-soft">
-          <div class="label" style="margin-bottom: 4px;">Manuel Fiel Filho</div>
-          <p style="font-size: 15px;">Operário. Morto em 1976. Mesma versão de "suicídio" forjado.</p>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">Mais <strong>pastor evangélico</strong> do que médico clínico geral.</p>
         </div>
-        <div class="card-soft">
-          <div class="label" style="margin-bottom: 4px;">Stuart Angel</div>
-          <p style="font-size: 15px;">Estudante. Em 1971, foi <strong>arrastado vivo, amarrado a um jipe</strong>. Filho da estilista Zuzu Angel.</p>
-        </div>
+      </div>
+      <p style="margin-top: 14px;">Onde o Estado não chega, o evangélico chega.</p>
+      <p style="margin-top: 10px;">Ajuda em desemprego, alcoolismo, depressão, violência doméstica. <strong>Serviço social paralelo.</strong></p>
+    </section>
+
+    <!-- 103 — fator 3 -->
+    <section class="slide">
+      <span class="stamp">3</span>
+      <h3 style="margin-top: 12px;">Teologia da prosperidade.</h3>
+      <p>Pregação típica das igrejas neopentecostais (Universal, Renascer, Mundial, Internacional da Graça):</p>
+      <div style="margin-top: 12px; padding: 14px; background: var(--paper); border-radius: 12px; border-left: 3px solid var(--accent);">
+        <p style="font-family: var(--serif); font-size: 17px; font-style: italic;">"Deus quer que você seja rico. Pague o dízimo, abençoado. Tenha fé, prospere."</p>
+      </div>
+      <p style="margin-top: 14px;">Extremamente sedutora pra quem está na base da pirâmide social.</p>
+      <p style="margin-top: 10px;"><strong>Inverte o catolicismo tradicional</strong>, que valorizava pobreza como virtude.</p>
+    </section>
+
+    <!-- 104 — fator 4 -->
+    <section class="slide">
+      <span class="stamp">4</span>
+      <h3 style="margin-top: 12px;">Linguagem direta.</h3>
+      <p>Evangélico não usa latim. Não usa intermediário (santo, padre, papa).</p>
+      <p style="margin-top: 12px;">Lê a Bíblia em português. Fala com Deus direto. "Recebe palavra de Deus" pessoalmente.</p>
+      <p class="quote" style="margin-top: 14px;">Reformou o que Lutero reformou em 1517. Agora na favela brasileira em 1980.</p>
+    </section>
+
+    <!-- 105 — fator 5 -->
+    <section class="slide">
+      <span class="stamp">5</span>
+      <h3 style="margin-top: 12px;">Mídia.</h3>
+      <p>As principais igrejas evangélicas brasileiras compraram emissoras de TV e rádio.</p>
+      <p style="margin-top: 12px;"><strong>Record TV</strong> é da Igreja Universal (Edir Macedo).</p>
+      <p style="margin-top: 12px;">Mais rádios evangélicas no Brasil do que qualquer outro segmento.</p>
+      <p class="big" style="margin-top: 14px;">Domínio midiático massivo.</p>
+      <p style="margin-top: 8px;">Especialmente em cidades pequenas.</p>
+    </section>
+
+    <!-- 106 — fator 6 -->
+    <section class="slide">
+      <span class="stamp">6</span>
+      <h3 style="margin-top: 12px;">A Igreja Católica não reagiu.</h3>
+      <p>Ficou olhando, perdendo, sem estratégia clara, por 30 anos.</p>
+      <p style="margin-top: 12px;">Quando reagiu — com a Renovação Carismática Católica, padres-cantores como <strong>Padre Marcelo Rossi</strong> — já era tarde.</p>
+    </section>
+
+    <!-- 107 — Frente Parlamentar -->
+    <section class="slide">
+      <div class="eyebrow">O peso político</div>
+      <h2>Frente Parlamentar Evangélica.</h2>
+      <p style="margin-top: 12px; font-size: 14px; color: var(--ink-soft); font-style: italic;">Legislatura 2023-2026</p>
+      <div style="margin-top: 12px;">
+        <div class="data-row"><span class="k">Deputados federais declarados</span><span class="v">129</span></div>
+        <div class="data-row"><span class="k">Senadores declarados</span><span class="v">17</span></div>
+        <div class="data-row"><span class="k">Apoiadores na Câmara</span><span class="v">220+</span></div>
+        <div class="data-row"><span class="k">Apoiadores no Senado</span><span class="v">60+</span></div>
+        <div class="data-row"><span class="k">Projetos monitorados</span><span class="v">9 mil</span></div>
       </div>
     </section>
 
-    <!-- ============== 43 — Araguaia ============== -->
+    <!-- 108 — pauta -->
     <section class="slide">
-      <div class="eyebrow">1972 · Guerrilha do Araguaia</div>
-      <p>Um grupo de cerca de <strong>70 militantes</strong> tentou organizar uma guerrilha no sul do Pará.</p>
-      <p style="margin-top: 10px;">O Exército mandou…</p>
-      <div style="text-align: center; margin: 16px 0;">
-        <div class="number" style="font-size: 64px;">5 mil</div>
-        <div class="label" style="margin-top: 4px;">militares</div>
-      </div>
-      <p>Resultado: extermínio. Corpos enterrados em valas anônimas, na selva.</p>
-      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft); font-size: 14px;">A maioria nunca foi encontrada. Os arquivos completos seguem fechados até hoje.</p>
-    </section>
-
-    <!-- ============== 44 — lição milagre ============== -->
-    <section class="slide">
-      <p class="quote">O Brasil cresceu 11% ao ano. E a maioria empobreceu.</p>
-      <p style="margin-top: 14px;">O salário mínimo perdia poder de compra todo ano.</p>
-      <p style="margin-top: 10px;">A renda dos ricos disparou. A dos pobres caiu.</p>
-      <p class="big" style="margin-top: 12px;">PIB sem distribuição é estatística de luxo de poucos.</p>
-    </section>
-
-    <!-- ============== 45 ============== -->
-    <section class="slide">
-      <p>E tinha outro detalhe escondido:</p>
-      <p style="margin-top: 12px;">O milagre foi pago com <strong>empréstimo internacional</strong>.</p>
-      <p style="margin-top: 10px;">Os EUA emprestavam barato.</p>
-      <p class="big" style="margin-top: 12px;">Até parar de emprestar barato.</p>
-      <p style="margin-top: 12px;">Aí a dívida virou bomba. E explodiu nos anos 80.</p>
-    </section>
-
-    <!-- ============== 46 — Geisel ============== -->
-    <section class="slide">
-      <div class="pres-card">
-        <div class="num">4</div>
-        <div class="body">
-          <div class="name">Geisel</div>
-          <div class="yrs">1974 — 1979</div>
-        </div>
-      </div>
-      <p style="margin-top: 16px;">Gaúcho. Chega já anunciando que ia começar a <strong>afrouxar</strong>.</p>
-      <p class="big" style="margin-top: 12px; color: var(--accent);">"Abertura lenta, gradual e segura."</p>
-    </section>
-
-    <!-- ============== 47 ============== -->
-    <section class="slide">
-      <div class="eyebrow">Por que abrir?</div>
-      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>1.</strong> O milagre acabou. Crise do petróleo em 73.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>2.</strong> O MDB tava ganhando eleição. Sociedade rejeitando o regime.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>3.</strong> Mortes escandalosas (Herzog) repercutindo lá fora.</div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14px;"><strong>4.</strong> Os militares queriam <em>controlar a saída</em> pra não pagar a conta depois.</div>
-      </div>
-    </section>
-
-    <!-- ============== 48 ============== -->
-    <section class="slide">
-      <p>Mas a linha-dura não queria abrir.</p>
-      <p style="margin-top: 12px;">Quando Herzog morreu sob tortura, Geisel fez algo inédito:</p>
-      <p class="big" style="margin-top: 12px;">demitiu o comandante do II Exército.</p>
-      <p style="margin-top: 12px;">Sinal claro: "agora quem manda sou eu".</p>
-    </section>
-
-    <!-- ============== 49 ============== -->
-    <section class="slide">
-      <div class="eyebrow">1978 · O fim do AI-5</div>
-      <p>Geisel <strong>revoga o AI-5</strong> no fim do mandato.</p>
-      <p style="margin-top: 12px;">E no ABC paulista, um torneiro mecânico começa a liderar greves enormes.</p>
-      <p class="big" style="margin-top: 12px;">O nome dele é Lula.</p>
-      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft);">É ali, naquele galpão, que nasce o sindicalismo novo do Brasil.</p>
-    </section>
-
-    <!-- ============== 50 — Figueiredo ============== -->
-    <section class="slide">
-      <div class="pres-card">
-        <div class="num">5</div>
-        <div class="body">
-          <div class="name">Figueiredo</div>
-          <div class="yrs">1979 — 1985</div>
-        </div>
-      </div>
-      <p style="margin-top: 16px;">O último general-presidente.</p>
-      <p style="margin-top: 10px;">Prometeu na campanha:</p>
-      <p class="big" style="margin-top: 10px; color: var(--accent);">"farei deste país uma democracia."</p>
-    </section>
-
-    <!-- ============== 51 — Anistia ============== -->
-    <section class="slide">
-      <div class="eyebrow">1979 · Lei da Anistia</div>
-      <p>Perdoou os "crimes políticos" entre 1961 e 1979.</p>
-      <p style="margin-top: 12px;">Os exilados voltaram. Brizola, Prestes, Arraes.</p>
-      <p class="big" style="margin-top: 14px;">Mas tinha pegadinha.</p>
-      <p style="margin-top: 10px;">A anistia foi <strong>recíproca</strong>: perdoou também os <em>torturadores</em>.</p>
-    </section>
-
-    <!-- ============== 52 ============== -->
-    <section class="slide">
-      <p>Resultado prático até hoje:</p>
-      <p class="big" style="margin-top: 14px; color: var(--wrong);">Nenhum torturador foi condenado.</p>
-      <p style="margin-top: 14px;">Nenhum.</p>
-      <p style="margin-top: 12px;">Argentina prendeu seus generais.</p>
-      <p>Chile processou o Pinochet.</p>
-      <p style="margin-top: 12px; font-family: var(--serif); font-style: italic; color: var(--accent);">O Brasil escolheu esquecer.</p>
-    </section>
-
-    <!-- ============== 53 — Riocentro ============== -->
-    <section class="slide">
-      <div class="eyebrow">1981 · A bomba que explodiu cedo</div>
-      <p>Dia do Trabalho. Show no Riocentro, Rio. 20 mil pessoas.</p>
-      <p style="margin-top: 12px;">Uma bomba explode num carro no estacionamento, antes do show.</p>
-      <p>Mata um sargento. Fere um capitão.</p>
-      <p class="big" style="margin-top: 12px;">Detalhe:</p>
-      <p style="margin-top: 8px;">eram <strong>eles</strong> que iam pôr a bomba no meio do público.</p>
-      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">Pra jogar a culpa na esquerda e travar a abertura. Explodiu antes da hora.</p>
-    </section>
-
-    <!-- ============== 54 — Diretas Já ============== -->
-    <section class="slide">
-      <div class="eyebrow">1984 · O maior movimento popular do Brasil</div>
-      <h2>Diretas Já!</h2>
-      <p style="margin-top: 14px;">A galera foi pra rua pedir uma coisa só:</p>
-      <p class="big" style="margin-top: 12px;">"queremos votar pra presidente."</p>
-      <p style="margin-top: 12px;">Comícios com <strong>1,5 milhão</strong> de pessoas no Vale do Anhangabaú, em SP.</p>
-      <p style="margin-top: 8px;"><strong>1 milhão</strong> na Candelária, no Rio.</p>
-    </section>
-
-    <!-- ============== 55 ============== -->
-    <section class="slide">
-      <p>Uma emenda foi a votação na Câmara.</p>
-      <p style="margin-top: 12px;">Precisava de 320 votos. Conseguiu…</p>
-      <div style="text-align: center; margin: 18px 0;">
-        <div class="number" style="font-size: 80px; color: var(--wrong);">298</div>
-      </div>
-      <p class="big">Faltaram 22.</p>
-      <p style="margin-top: 12px; font-style: italic; color: var(--ink-soft);">Não teve eleição direta. A galera voltou pra casa.</p>
-    </section>
-
-    <!-- ============== 56 — Tancredo ============== -->
-    <section class="slide">
-      <div class="eyebrow">1985 · Eleição indireta</div>
-      <p>O presidente foi escolhido por um <em>colégio eleitoral</em>. Não pelo povo.</p>
-      <p style="margin-top: 12px;">Venceu <strong>Tancredo Neves</strong>. Mineiro hábil, da oposição.</p>
-      <p class="big" style="margin-top: 14px;">Mas tinha um plot twist.</p>
-    </section>
-
-    <!-- ============== 57 ============== -->
-    <section class="slide">
-      <p>Na véspera da posse, Tancredo passou mal.</p>
-      <p style="margin-top: 12px;">Foi internado.</p>
-      <p class="big" style="margin-top: 12px;">Em 21 de abril de 1985, morreu.</p>
-      <p style="margin-top: 14px;">Assumiu o vice: <strong>José Sarney</strong>.</p>
-      <p style="margin-top: 10px; font-style: italic; color: var(--ink-soft);">Que era do <em>partido do regime militar</em> até semanas antes. Tinha trocado de lado pra costurar a transição.</p>
-    </section>
-
-    <!-- ============== 58 ============== -->
-    <section class="slide">
-      <p class="quote">Quem controla a saída, controla a história.</p>
-      <p style="margin-top: 14px;">A ditadura não caiu.</p>
-      <p class="big" style="margin-top: 12px;">Ela fez a transição que ela mesma escolheu fazer.</p>
-      <p style="margin-top: 14px;">Por isso ninguém foi julgado. Os arquivos não foram abertos. A Lei da Anistia blindou os torturadores.</p>
-    </section>
-
-    <!-- ============== 59 — números CNV ============== -->
-    <section class="slide">
-      <div class="eyebrow">Os números oficiais (CNV, 2014)</div>
-      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
-          <div class="number" style="font-size: 30px;">434</div>
-          <div style="font-size: 13px; color: var(--ink-soft);">mortos e desaparecidos políticos</div>
-        </div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
-          <div class="number" style="font-size: 30px;">+20 mil</div>
-          <div style="font-size: 13px; color: var(--ink-soft);">torturados</div>
-        </div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
-          <div class="number" style="font-size: 30px;">~50 mil</div>
-          <div style="font-size: 13px; color: var(--ink-soft);">presos políticos</div>
-        </div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
-          <div class="number" style="font-size: 30px;">8.350</div>
-          <div style="font-size: 13px; color: var(--ink-soft);">indígenas mortos (estimativa)</div>
-        </div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--wrong);">
-          <div class="number" style="font-size: 30px; color: var(--wrong);">377</div>
-          <div style="font-size: 13px; color: var(--ink-soft);">agentes do Estado identificados — <strong>nenhum punido</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============== 60 — comparação ============== -->
-    <section class="slide">
-      <p>Os números do Brasil parecem "baixos" comparado a:</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; display: flex; justify-content: space-between;">
-          <span style="font-family: var(--serif); font-size: 16px;">Argentina</span>
-          <span style="font-family: var(--serif); font-weight: 700; color: var(--accent);">30 mil desaparecidos</span>
-        </div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; display: flex; justify-content: space-between;">
-          <span style="font-family: var(--serif); font-size: 16px;">Chile</span>
-          <span style="font-family: var(--serif); font-weight: 700; color: var(--accent);">3 mil mortos</span>
-        </div>
-      </div>
-      <p class="big" style="margin-top: 14px;">Mas não foi "ditadura branda".</p>
-      <p style="margin-top: 10px;">Foi mais <strong>cirúrgica</strong>. Matava menos, mas torturava mais. E durou mais tempo que as outras.</p>
-    </section>
-
-    <!-- ============== 61 — censura ============== -->
-    <section class="slide">
-      <div class="eyebrow">A censura no dia a dia</div>
-      <p>Tudo passava na mesa do censor em Brasília.</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Música, novela, jornal, filme, livro, peça de teatro.</div>
-        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Chico Buarque</strong>: dezenas de músicas barradas. Inventou pseudônimo pra driblar.</div>
-        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Gil e Caetano</strong>: presos em 68. Exilados em Londres.</div>
-        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Estadão</strong>: publicava receita de bolo no lugar da matéria censurada.</div>
-      </div>
-    </section>
-
-    <!-- ============== 62 — Globo ============== -->
-    <section class="slide">
-      <p>E a <strong>Globo</strong>?</p>
-      <p style="margin-top: 12px;">Cresceu exatamente nesse período. Com apoio direto do regime.</p>
-      <p style="margin-top: 12px;">Roberto Marinho defendeu o golpe publicamente.</p>
-      <p class="big" style="margin-top: 14px;">Pediu desculpa em 2013.</p>
-      <p style="margin-top: 8px; font-style: italic; color: var(--ink-soft);">49 anos depois.</p>
-    </section>
-
-    <!-- ============== 63 — herança ============== -->
-    <section class="slide">
-      <div class="eyebrow">O que sobrou pra cá</div>
-      <p>A ditadura caiu em 85.</p>
-      <p class="big" style="margin-top: 12px;">Mas as marcas tão até hoje.</p>
-    </section>
-
-    <!-- ============== 64 ============== -->
-    <section class="slide">
+      <div class="eyebrow">Pauta central</div>
       <div style="display: flex; flex-direction: column; gap: 8px;">
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
-          <p style="font-size: 14px;"><strong>Dívida externa.</strong> O milagre foi no fiado. Pagamos com a "década perdida" dos anos 80.</p>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Anti-aborto</strong>, mesmo em casos legais</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Anti-LGBT</strong>, especialmente "ideologia de gênero" nas escolas</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Anti-descriminalização</strong> de drogas</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Isenções fiscais</strong> pra igrejas e pastores</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;"><strong>Escola pública</strong> sem "doutrinação"</div>
+      </div>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--ink-soft); font-style: italic;">Liderança: Silas Malafaia, Edir Macedo, Magno Malta, Marco Feliciano, Damares Alves, Eduardo Cunha.</p>
+    </section>
+
+    <!-- 109 — Bolsonaro -->
+    <section class="slide">
+      <p class="big">Bolsonaro foi eleito em 2018 com cerca de 70% do voto evangélico.</p>
+      <p style="margin-top: 14px;">Em 2022, mesma proporção.</p>
+      <p style="margin-top: 14px;">Marqueteiros já consideram o voto evangélico um dos blocos mais leais e mobilizáveis do eleitorado brasileiro.</p>
+      <p style="margin-top: 10px;">Mais do que voto católico. Mais do que voto regional. Mais do que voto de classe.</p>
+      <p class="quote" style="margin-top: 14px;">Sua decisão eleitoral em 2026, Lorena, vai esbarrar nisso de algum jeito.</p>
+    </section>
+
+    <!-- 110 — laicidade -->
+    <section class="slide">
+      <div class="eyebrow">A questão fundamental</div>
+      <p>O Estado brasileiro é <strong>laico</strong> (Constituição de 1988, artigo 19).</p>
+      <p style="margin-top: 12px;">Significa <strong>separação entre Estado e religião</strong>.</p>
+      <p class="big" style="margin-top: 14px;">Não significa Estado ateu.</p>
+      <p style="margin-top: 12px;">Significa que a religião do governante não pode virar lei pra quem não compartilha aquela religião.</p>
+    </section>
+
+    <!-- 111 — argumento público -->
+    <section class="slide">
+      <p>Cidadãos religiosos podem (e devem) participar da política. É direito básico.</p>
+      <p style="margin-top: 12px;">Mas as leis aprovadas precisam se justificar por <strong>argumento público acessível a todos</strong>.</p>
+      <p style="margin-top: 12px;">Não por "está na Bíblia" ou "está no Alcorão".</p>
+      <p class="quote" style="margin-top: 14px;">Se uma lei só faz sentido pra quem é cristão, ela viola o princípio da laicidade.</p>
+    </section>
+
+    <!-- 112 — LIÇÃO 3 -->
+    <section class="slide">
+      <span class="stamp dark">Lição 3</span>
+      <h2 style="margin-top: 14px;">A laicidade protege <em>todos</em>.</h2>
+      <p style="margin-top: 14px;">Inclusive os religiosos.</p>
+      <p style="margin-top: 12px;">Não é contra a religião. É contra a <strong>imposição</strong> de uma religião sobre outras.</p>
+    </section>
+
+    <!-- 113 — pergunta teste -->
+    <section class="slide">
+      <p class="big">A pergunta certa:</p>
+      <p class="quote" style="margin-top: 14px;">Você apoiaria a mesma regra se a religião majoritária no poder fosse outra que não a sua?</p>
+      <p style="margin-top: 14px;">Se a resposta é não…</p>
+      <p style="margin-top: 8px;">você não está defendendo princípio. Está defendendo seu lado.</p>
+    </section>
+
+    <!-- 114 — vale pros dois -->
+    <section class="slide">
+      <p>Vale pra esquerda e pra direita.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">O liberal de esquerda que defende laicidade contra evangélicos, mas tolera invasões espiritualizadas de movimentos sociais — também é incoerente.</p>
         </div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
-          <p style="font-size: 14px;"><strong>Inflação descontrolada.</strong> Só foi domada com o Plano Real, em 94.</p>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;">O evangélico que quer Bíblia na escola pública hoje — reclamaria se o ensino virasse alcorão amanhã.</p>
         </div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
-          <p style="font-size: 14px;"><strong>Desigualdade.</strong> Entramos desiguais. Saímos mais.</p>
-        </div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
-          <p style="font-size: 14px;"><strong>PM truculenta.</strong> A doutrina de "inimigo interno" formou gerações de policiais que ainda tratam pobre como combatente.</p>
-        </div>
-        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
-          <p style="font-size: 14px;"><strong>"Deixa pra lá".</strong> Sem responsabilização, militares ainda se sentem à vontade pra falar em "intervir".</p>
-        </div>
+      </div>
+      <p class="big" style="margin-top: 14px;">Princípio é princípio.</p>
+      <p style="margin-top: 6px;">Vale igual, ou não vale.</p>
+    </section>
+
+    <!-- 115 — Resumo abre -->
+    <section class="slide">
+      <div class="eyebrow">Resumindo a aula</div>
+      <h2>O que ficou.</h2>
+    </section>
+
+    <!-- 116 — resumo 1 -->
+    <section class="slide">
+      <p class="big">Religião e poder político sempre andaram juntos.</p>
+      <p style="margin-top: 14px;">Faraós eram deuses. Reis medievais eram coroados pelo Papa. Imperadores chineses tinham "mandato do céu".</p>
+      <p class="quote" style="margin-top: 14px;">Religião serve como legitimação de autoridade que o poder bruto sozinho não consegue.</p>
+    </section>
+
+    <!-- 117 — resumo cristianismo -->
+    <section class="slide">
+      <span class="stamp">Cristianismo</span>
+      <p style="margin-top: 14px;"><strong>2,3 bi · 28,8%</strong> da humanidade.</p>
+      <p style="margin-top: 12px;">Seita perseguida → religião oficial de Roma em 380 → dominou Europa por mil anos via Igreja Católica.</p>
+      <p style="margin-top: 12px;">Reforma Protestante (1517, Lutero) racha tudo. Abre espaço pra modernidade, capitalismo.</p>
+      <p style="margin-top: 12px;">Catolicismo no Brasil: 92% em 1970 → 56,7% em 2022.</p>
+    </section>
+
+    <!-- 118 — resumo islã -->
+    <section class="slide">
+      <span class="stamp">Islamismo</span>
+      <p style="margin-top: 14px;"><strong>2,0 bi · 25,6%</strong>. Religião que mais cresce.</p>
+      <p style="margin-top: 12px;">Sem separação estrutural entre religião e Estado desde a origem.</p>
+      <p style="margin-top: 12px;">Sunitas (~85-90%) vs Xiitas (~10-15%) — divisão que explica os principais conflitos do Oriente Médio.</p>
+      <p style="margin-top: 12px;">Maioria dos muçulmanos <strong>não é árabe</strong>. Maior país muçulmano: Indonésia.</p>
+    </section>
+
+    <!-- 119 — resumo judaísmo -->
+    <section class="slide">
+      <span class="stamp">Judaísmo</span>
+      <p style="margin-top: 14px;"><strong>15 milhões · 0,2%</strong>.</p>
+      <p style="margin-top: 12px;">Religião pequena. Influência cultural-científica desproporcional.</p>
+      <p style="margin-top: 12px;">2 mil anos de perseguição → Holocausto → fundação de Israel (1948).</p>
+      <p style="margin-top: 12px;">Tragédia israelo-palestina nasce da promessa britânica de mesma terra a dois povos.</p>
+    </section>
+
+    <!-- 120 — resumo hindu+budismo -->
+    <section class="slide">
+      <span class="stamp">Hindu + Budismo</span>
+      <p style="margin-top: 14px;"><strong>Hinduísmo</strong>: 1,2 bi, 15%. Sob Modi, a Índia (maior democracia do mundo) entra em transição pra Estado hindu de fato.</p>
+      <p style="margin-top: 14px;"><strong>Budismo</strong>: 500 M, 7%. Única grande religião sem deus criador no centro.</p>
+      <p style="margin-top: 12px;">Imagem de "religião pacífica" não cobre tudo — Myanmar, Sri Lanka.</p>
+    </section>
+
+    <!-- 121 — resumo Brasil -->
+    <section class="slide">
+      <span class="stamp">Brasil</span>
+      <p style="margin-top: 14px;">Transformação religiosa mais rápida da era moderna.</p>
+      <p style="margin-top: 12px;">Católicos: 92% (1970) → 56,7% (2022).</p>
+      <p style="margin-top: 8px;">Evangélicos: 6,6% (1980) → 26,9% (2022).</p>
+      <p style="margin-top: 12px;">Frente Parlamentar Evangélica: 129 deputados + 17 senadores. Monitora 9 mil projetos.</p>
+      <p style="margin-top: 12px;">Bolsonaro tirou ~70% do voto evangélico em 2018 e 2022.</p>
+    </section>
+
+    <!-- 122 — lição maior -->
+    <section class="slide">
+      <div class="eyebrow">A lição maior</div>
+      <p class="big">Religião não é assunto privado.</p>
+      <p style="margin-top: 12px;">Nunca foi.</p>
+      <p style="margin-top: 14px;">Determina como bilhões de pessoas votam, em quê confiam, com quem casam, como educam filhos, como tratam pobreza, sexualidade, drogas, fim de vida, guerra.</p>
+    </section>
+
+    <!-- 123 — cegueira voluntária -->
+    <section class="slide">
+      <p class="quote">Ignorar religião pra "entender o mundo" é cegueira voluntária.</p>
+      <p style="margin-top: 14px;">O secular urbano de classe média que acha religião "coisa do passado" não consegue explicar:</p>
+    </section>
+
+    <!-- 124 — lista -->
+    <section class="slide">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Por que Trump foi eleito com 81% do voto evangélico branco</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Por que Modi governa 1,4 bilhão de indianos</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Por que Israel e Hamas estão em guerra</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Por que Bolsonaro venceu em 2018</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Por que o Talibã controla o Afeganistão</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Por que Putin invoca cristandade ortodoxa contra a Ucrânia</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Por que a Suprema Corte americana derrubou o aborto em 2022</div>
       </div>
     </section>
 
-    <!-- ============== 65 — defensores ============== -->
+    <!-- 125 — Fukuyama errou -->
     <section class="slide">
-      <div class="eyebrow">"Mas tem quem defenda"</div>
-      <p>Você vai ouvir argumentos. Bora pegar um por um.</p>
+      <p class="big">A modernidade não eliminou a religião.</p>
+      <p style="margin-top: 6px; color: var(--accent); font-family: var(--serif); font-style: italic; font-size: 24px;">Transformou.</p>
+      <p style="margin-top: 14px;">Religião institucional clássica perde nos países ricos urbanos. Mas religião militante politicamente engajada ganha em quase todo o resto do mundo.</p>
+      <p style="margin-top: 12px;">E cresce nos próprios países ricos como reação à secularização.</p>
+      <p class="quote" style="margin-top: 14px;">Fukuyama errou. Fé continua sendo uma das forças mais poderosas que movem seres humanos.</p>
     </section>
 
-    <!-- ============== 66 ============== -->
+    <!-- 126 — último ponto -->
     <section class="slide">
-      <div class="card-soft" style="border-left: 3px solid var(--wrong);">
-        <p style="font-family: var(--serif); font-style: italic; font-size: 17px;">"Salvou o Brasil do comunismo."</p>
+      <div class="eyebrow">Guarda bem firme</div>
+      <p class="big">Não é "religião" que faz violência ou paz.</p>
+      <p style="margin-top: 14px;">São <strong>pessoas usando religião</strong> pra justificar o que querem fazer.</p>
+    </section>
+
+    <!-- 127 — exemplos texto sagrado -->
+    <section class="slide">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="card-soft" style="padding: 14px;">
+          <p style="font-size: 14px;">A mesma <strong>Bíblia</strong> foi usada pra justificar abolição da escravidão <em>e</em> pra justificar escravidão.</p>
+        </div>
+        <div class="card-soft" style="padding: 14px;">
+          <p style="font-size: 14px;">O mesmo <strong>Alcorão</strong> é usado por terroristas do ISIS <em>e</em> por médicos sem fronteiras muçulmanos salvando vidas em zona de guerra.</p>
+        </div>
       </div>
-      <p style="margin-top: 14px;">Discutível.</p>
-      <p style="margin-top: 10px;">Não tinha base real pra revolução comunista aqui em 1964.</p>
-      <p style="margin-top: 10px;">A guerrilha armada <strong>nasceu como reação ao golpe</strong>, não como causa dele.</p>
+      <p class="quote" style="margin-top: 14px;">O texto sagrado é apenas matéria-prima. Quem decide o uso é o humano.</p>
     </section>
 
-    <!-- ============== 67 ============== -->
+    <!-- 128 — desconfia -->
     <section class="slide">
-      <div class="card-soft" style="border-left: 3px solid var(--wrong);">
-        <p style="font-family: var(--serif); font-style: italic; font-size: 17px;">"Foi um período de progresso."</p>
-      </div>
-      <p style="margin-top: 14px;">O milagre existiu. Durou 5 anos.</p>
-      <p style="margin-top: 10px;">Veio com concentração de renda brutal, arrocho salarial e dívida.</p>
-      <p class="big" style="margin-top: 12px;">Saldo final: Brasil mais pobre, mais desigual, mais endividado.</p>
+      <p>Quando você ouvir alguém dizer "a religião X é violenta por natureza"…</p>
+      <p class="big" style="margin-top: 14px;">desconfie.</p>
+      <p style="margin-top: 14px;">A história mostra que <strong>toda grande religião</strong> já foi pacífica e violenta em diferentes momentos.</p>
+      <p style="margin-top: 8px;">Dependendo de quem segurava a caneta da interpretação.</p>
     </section>
 
-    <!-- ============== 68 ============== -->
+    <!-- 129 — gancho próxima -->
     <section class="slide">
-      <div class="card-soft" style="border-left: 3px solid var(--wrong);">
-        <p style="font-family: var(--serif); font-style: italic; font-size: 17px;">"Os mortos eram terroristas."</p>
-      </div>
-      <p style="margin-top: 14px;">Alguns pegaram em arma. A maioria, não.</p>
-      <p style="margin-top: 10px;">Herzog era jornalista. Fiel Filho, operário. Stuart Angel, estudante.</p>
-      <p class="big" style="margin-top: 12px;">E mesmo quem pegou em arma:</p>
-      <p style="margin-top: 8px;">prisão e julgamento é uma coisa. Sequestro, tortura e ocultar cadáver é outra.</p>
+      <div class="eyebrow">Próxima aula (22)</div>
+      <h2>Mundo islâmico e <em>Oriente Médio</em>.</h2>
+      <p style="margin-top: 14px;">Vou destrinchar de uma vez por todas a região mais complicada do mundo.</p>
+      <p style="margin-top: 12px;">Sunita vs Xiita. Petróleo desde 1908. Arábia Saudita vs Irã.</p>
+      <p style="margin-top: 12px;"><strong>Israel-Palestina por inteiro</strong>: das 5 guerras à intifada, Oslo (1993), 7 de outubro de 2023, guerra em Gaza.</p>
+      <p style="margin-top: 12px;">Hezbollah, Hamas, Houthis, ISIS — quem banca cada um.</p>
+      <p style="margin-top: 14px; font-family: var(--serif); font-style: italic; color: var(--accent);">Vai ser densa. Já te aviso.</p>
+      <p style="margin-top: 10px; color: var(--ink-soft);">Até lá.</p>
     </section>
 
-    <!-- ============== 69 — fechamento ============== -->
-    <section class="slide">
-      <p class="quote">Reconhecer que o Brasil viveu uma ditadura não é militância. É honestidade.</p>
-      <p style="margin-top: 14px;">Ela fez algumas coisas que funcionaram economicamente por um tempo.</p>
-      <p style="margin-top: 10px;">E cobrou um preço altíssimo em vidas, em liberdades e em dívida.</p>
-    </section>
-
-    <!-- ============== 70 — resumão ============== -->
-    <section class="slide">
-      <div class="eyebrow">Resumindo</div>
-      <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 8px;">
-        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>1964:</strong> golpe com apoio de EUA, mídia, classe média, Igreja, empresariado.</div>
-        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>21 anos.</strong> Cinco generais-presidentes.</div>
-        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>AI-5 (1968):</strong> tortura virou política de Estado.</div>
-        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>Milagre (69–73):</strong> PIB de 11%. Concentração de renda e dívida.</div>
-        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>434 mortos</strong>, 20 mil torturados. Nenhum torturador punido.</div>
-        <div style="padding: 10px 12px; background: var(--paper); border-radius: 8px; font-size: 13px;"><strong>1985:</strong> transição negociada pelos próprios militares.</div>
-      </div>
-    </section>
-
-    <!-- ============== 71 — gancho ============== -->
-    <section class="slide">
-      <div class="eyebrow">Próxima aula</div>
-      <p class="big">Em 1985, o Brasil tem um presidente civil.</p>
-      <p style="margin-top: 14px;">Mas também tem inflação de 200%, dívida impagável e militares ainda fortes nos bastidores.</p>
-      <p style="margin-top: 12px;">E uma promessa enorme:</p>
-      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--accent);">fazer uma Constituição nova. De verdade.</p>
-    </section>
-
-    <!-- ============== 72 ============== -->
-    <section class="slide">
-      <p>É a <strong>Constituição de 1988</strong>.</p>
-      <p style="margin-top: 12px;">A que criou o SUS. Garantiu direitos. Organizou o Brasil que você vive hoje.</p>
-      <p class="big" style="margin-top: 14px;">Mas que também travou algumas coisas.</p>
-      <p style="margin-top: 12px; color: var(--ink-soft);">Tudo isso na próxima.</p>
-      <p style="margin-top: 8px; font-family: var(--serif); font-style: italic; color: var(--accent);">Até lá.</p>
-    </section>
-
-    <!-- ============== 73 — INTRO QUIZ ============== -->
+    <!-- 130 — QUIZ INTRO -->
     <section class="slide quiz-intro">
       <div class="quiz-icon">?</div>
       <div class="eyebrow" style="text-align: center;">Hora do quiz</div>
       <h2>Bora ver o que ficou.</h2>
-      <p style="margin-top: 14px;">Sete perguntas.<br>Se errar, te explico na hora.</p>
+      <p style="margin-top: 14px;">Seis perguntas rápidas.<br>Se errar, eu te explico na hora.</p>
     </section>
 
-    <!-- ============== 74 — QUIZ 1 ============== -->
+    <!-- 131 — QUIZ 1 -->
     <section class="slide" data-quiz="1">
-      <div class="question-num">Pergunta 1 de 7</div>
-      <div class="question">O que aconteceu em 31 de março de 1964?</div>
+      <div class="question-num">Pergunta 1 de 6</div>
+      <div class="question">Por que religião foi, por milênios, ferramenta tão eficiente de poder político?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. Vargas tinha morrido 10 anos antes, em 1954. Em 64 o presidente eleito era o Jango.">
-          <span class="letter">A</span><span>Getúlio Vargas se suicidou.</span>
+        <button class="option" data-correct="false" data-explain="Não. Religião não criou exércitos — o exército veio antes. O ponto é outro: ela legitima a obediência.">
+          <span class="letter">A</span><span>Porque criou os primeiros exércitos organizados.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">B</span><span>Militares deram um golpe e derrubaram o presidente Jango.</span>
+          <span class="letter">B</span><span>Porque legitima a autoridade: "obedece porque é vontade de Deus".</span>
         </button>
-        <button class="option" data-correct="false" data-explain="Não. Eleição direta pra presidente só aconteceu em 1989, depois da redemocratização.">
-          <span class="letter">C</span><span>O Brasil teve sua primeira eleição direta pra presidente.</span>
+        <button class="option" data-correct="false" data-explain="Não. Religião não nasceu pra educar, nem isso explica seu uso político. O que explica é a legitimação da obediência.">
+          <span class="letter">C</span><span>Porque ensinava as crianças a ler e escrever.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Isso aí.</span>Em 31 de março de 1964, militares marcharam de Minas pro Rio e em 24 horas derrubaram o presidente eleito João Goulart. Tudo com apoio de EUA, empresariado, mídia e classe média.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> 31/03/1964 foi a data do golpe que derrubou o Jango e começou a ditadura militar.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Mandou bem.</span>Exato. Toda autoridade humana precisa de legitimação além da força bruta. Religião resolve isso de forma elegante — quem desobedece o rei, desobedece o céu. Faraós, reis medievais, imperadores chineses: todos usaram esse mecanismo.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Religião serve como legitimação que o poder bruto sozinho não consegue dar. "Obedece porque é vontade de Deus."</div>
     </section>
 
-    <!-- ============== 75 — QUIZ 2 ============== -->
+    <!-- 132 — QUIZ 2 -->
     <section class="slide" data-quiz="2">
-      <div class="question-num">Pergunta 2 de 7</div>
-      <div class="question">Quanto tempo durou a ditadura militar no Brasil?</div>
+      <div class="question-num">Pergunta 2 de 6</div>
+      <div class="question">O que destravou a Reforma Protestante de Lutero em 1517?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não, foi mais. O regime durou mais que isso — uma das ditaduras mais longas da América Latina.">
-          <span class="letter">A</span><span>Cerca de 10 anos.</span>
+        <button class="option" data-correct="false" data-explain="Não. A monarquia inglesa só rompeu com Roma depois — em 1534, com Henrique VIII. Isso é consequência, não causa.">
+          <span class="letter">A</span><span>O apoio da monarquia inglesa contra o Papa.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. As Cruzadas terminaram em 1291 — mais de 200 anos antes de Lutero. Não tem relação direta.">
+          <span class="letter">B</span><span>A volta das Cruzadas pra Jerusalém.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">B</span><span>21 anos — de 1964 a 1985.</span>
-        </button>
-        <button class="option" data-correct="false" data-explain="Não, foi menos. Mas comparada a outras ditaduras da região, foi a mais longa: maior que a do Chile (17 anos) e que a da Argentina (7).">
-          <span class="letter">C</span><span>30 anos.</span>
+          <span class="letter">C</span><span>A imprensa de Gutenberg, que permitiu Bíblia em alemão circular em massa.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Boa.</span>21 anos exatos. De 1964 a 1985. Cinco generais-presidentes em sucessão controlada pelos próprios militares.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Foram 21 anos: do golpe contra Jango em 64 até a posse de Sarney em 85.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Exato.</span>A imprensa foi o "algoritmo" do século XVI. Antes dela, a Igreja controlava a informação — Bíblia em latim, copista monástico. Depois dela, Lutero traduziu o Novo Testamento pro alemão em 11 semanas, e ninguém conseguiu parar. Tecnologia de informação muda equilíbrios de poder.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Sem a imprensa, Lutero seria mais um herege isolado. Com ela, virou movimento de massa.</div>
     </section>
 
-    <!-- ============== 76 — QUIZ 3 ============== -->
+    <!-- 133 — QUIZ 3 -->
     <section class="slide" data-quiz="3">
-      <div class="question-num">Pergunta 3 de 7</div>
-      <div class="question">O que foi o AI-5, decretado em dezembro de 1968?</div>
+      <div class="question-num">Pergunta 3 de 6</div>
+      <div class="question">Por que a divisão sunita-xiita explica tantos conflitos no Oriente Médio?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. O AI-5 fez o oposto. Era o instrumento que dava poder absoluto pro regime — e tirava direitos do cidadão.">
-          <span class="letter">A</span><span>Uma lei que garantia eleições diretas.</span>
-        </button>
-        <button class="option" data-correct="false" data-explain="Não. A Constituição de 1988 só veio quase 20 anos depois, já no fim da ditadura.">
-          <span class="letter">B</span><span>A nova Constituição democrática.</span>
+        <button class="option" data-correct="false" data-explain="Não. Eles não adoram deuses diferentes — adoram o mesmo Alá. A briga é sobre quem deveria ter sucedido Maomé como líder político-religioso.">
+          <span class="letter">A</span><span>Porque adoram deuses diferentes.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">C</span><span>O ato que fechou o Congresso, censurou a imprensa e permitiu prender sem habeas corpus.</span>
+          <span class="letter">B</span><span>Porque é a fratura entre Arábia Saudita (sunita) e Irã (xiita), eixo geopolítico da região.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. O cisma é antigo (séc. VII) e tem causas religiosas e políticas internas — não vem da divisão da Palestina, que aconteceu em 1947.">
+          <span class="letter">C</span><span>Porque foi criada pelos britânicos na divisão da Palestina em 1947.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Mandou bem.</span>O AI-5 é o documento mais sombrio da história republicana do Brasil. Fechou o Congresso, instituiu censura prévia, suspendeu habeas corpus. Foi a partir dele que a tortura virou política oficial de Estado.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> O AI-5 foi o golpe dentro do golpe: censura total, prisão sem direito de defesa e tortura institucionalizada.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Isso.</span>Arábia Saudita vs Irã é a Guerra Fria do Oriente Médio. Guerra do Iêmen, guerra civil síria, tensões no Iraque e no Líbano — tudo passa por essa fratura que nasceu em 656-661, com a disputa sobre quem deveria suceder Maomé.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Sunitas (85-90%) e xiitas (10-15%) adoram o mesmo Deus. A briga é sobre sucessão de Maomé — e virou eixo geopolítico da região.</div>
     </section>
 
-    <!-- ============== 77 — QUIZ 4 ============== -->
+    <!-- 134 — QUIZ 4 -->
     <section class="slide" data-quiz="4">
-      <div class="question-num">Pergunta 4 de 7</div>
-      <div class="question">O "Milagre Econômico" (1969–1973) entregou crescimento de 11% ao ano. Qual foi o problema?</div>
+      <div class="question-num">Pergunta 4 de 6</div>
+      <div class="question">Qual a "ferida fundamental" do conflito israelo-palestino?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. O Milagre existiu de verdade. O PIB cresceu mesmo. Obras gigantes foram feitas (Transamazônica, Itaipu, ponte Rio-Niterói).">
-          <span class="letter">A</span><span>Foi mentira. Não houve crescimento.</span>
+        <button class="option" data-correct="false" data-explain="Não. As Cruzadas são bem anteriores e não estão na origem direta do conflito atual.">
+          <span class="letter">A</span><span>As Cruzadas medievais cristãs tentando retomar Jerusalém.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">B</span><span>Concentrou renda no topo, arrochou o salário e foi pago no fiado — a dívida explodiu nos anos 80.</span>
+          <span class="letter">B</span><span>A promessa britânica da mesma terra a dois povos + a Nakba de 1948 (700 mil palestinos expulsos).</span>
         </button>
-        <button class="option" data-correct="false" data-explain="Não. A inflação foi alta, mas não foi o único problema. O grave foi quem ganhou e quem perdeu com o crescimento — e a dívida externa que estourou depois.">
-          <span class="letter">C</span><span>Só causou inflação, mais nada.</span>
+        <button class="option" data-correct="false" data-explain="Não. A Guerra Fria entrou no conflito depois, mas não está na origem dele. A semente foi plantada na Primeira Guerra, pelos britânicos.">
+          <span class="letter">C</span><span>A Guerra Fria entre EUA e URSS disputando o Oriente Médio.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Exato.</span>O Brasil cresceu 11% ao ano e a maioria empobreceu. A renda dos ricos disparou, a dos pobres caiu. E o milagre foi financiado por empréstimos internacionais. Quando os juros americanos subiram, a dívida virou bomba — a "década perdida" dos anos 80.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> PIB sem distribuição é estatística de luxo de poucos. Foi exatamente isso que aconteceu.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Exato.</span>Em 1917, os ingleses publicaram a Declaração Balfour prometendo "lar nacional judeu" na Palestina. Ao mesmo tempo, prometiam aos árabes apoio a um Estado árabe na mesma região. Prometeram a mesma terra a dois povos. Em 1948, com a criação de Israel, 700 mil palestinos foram expulsos — a Nakba.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> A semente foi plantada em 1917 (Balfour) e estourou em 1948 (criação de Israel + Nakba).</div>
     </section>
 
-    <!-- ============== 78 — QUIZ 5 ============== -->
+    <!-- 135 — QUIZ 5 -->
     <section class="slide" data-quiz="5">
-      <div class="question-num">Pergunta 5 de 7</div>
-      <div class="question">Quantos torturadores foram condenados pelos crimes da ditadura?</div>
+      <div class="question-num">Pergunta 5 de 6</div>
+      <div class="question">No Brasil, evangélicos foram de 6,6% em 1980 pra 26,9% em 2022. Qual NÃO é um dos motivos centrais?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. Argentina prendeu seus generais. Chile processou Pinochet. O Brasil foi diferente.">
-          <span class="letter">A</span><span>Centenas — assim como na Argentina e no Chile.</span>
+        <button class="option" data-correct="false" data-explain="É motivo, sim. Mais templos evangélicos do que agências bancárias. Mais pastor evangélico do que clínico geral. Onde o Estado não chega, o evangélico chega.">
+          <span class="letter">A</span><span>Capilaridade extrema — mais templos do que agências bancárias.</span>
         </button>
-        <button class="option" data-correct="false" data-explain="Não, foi menos ainda. Praticamente um zero arredondado.">
-          <span class="letter">B</span><span>Alguns poucos — uns 10 ou 20.</span>
+        <button class="option" data-correct="false" data-explain="É motivo, sim. A teologia da prosperidade ('Deus quer que você seja rico') é muito sedutora pra quem está na base da pirâmide social.">
+          <span class="letter">B</span><span>Teologia da prosperidade, que inverte o catolicismo tradicional.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">C</span><span>Nenhum. A Lei da Anistia de 1979 perdoou os agentes do Estado.</span>
+          <span class="letter">C</span><span>Imigração massiva de evangélicos americanos pro Brasil nos anos 80.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Triste mas correto.</span>Nenhum. A Lei da Anistia de 1979 foi recíproca: perdoou os perseguidos políticos e também os torturadores. A CNV identificou 377 agentes. Nenhum foi punido criminalmente. Por isso falamos em transição "negociada pelos próprios militares".</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Nenhum torturador foi condenado. Graças à Lei da Anistia.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Boa.</span>Essa é a falsa. O crescimento evangélico no Brasil é endógeno — capilaridade nas periferias, teologia da prosperidade, linguagem direta, domínio midiático (Record TV) e ausência de reação da Igreja Católica. Não foi imigração.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A falsa é a C.</strong> Não houve imigração massiva de evangélicos americanos. O crescimento é puramente brasileiro — capilaridade, prosperidade, mídia, vácuo deixado pela Igreja Católica.</div>
     </section>
 
-    <!-- ============== 79 — QUIZ 6 ============== -->
+    <!-- 136 — QUIZ 6 -->
     <section class="slide" data-quiz="6">
-      <div class="question-num">Pergunta 6 de 7</div>
-      <div class="question">O que foi o movimento "Diretas Já!", em 1984?</div>
+      <div class="question-num">Pergunta 6 de 6</div>
+      <div class="question">O que significa, na prática, dizer que o Estado brasileiro é "laico"?</div>
       <div class="options">
-        <button class="option" data-correct="true" data-explain="">
-          <span class="letter">A</span><span>O maior movimento popular da história do Brasil até então, pedindo eleição direta pra presidente.</span>
+        <button class="option" data-correct="false" data-explain="Não. Laico não significa ateu. Significa neutro entre religiões — o Estado não impõe nenhuma, mas garante o direito de todas existirem.">
+          <span class="letter">A</span><span>Que o Estado é ateu e desestimula qualquer religião.</span>
         </button>
-        <button class="option" data-correct="false" data-explain="Não. Foi exatamente o contrário: era um movimento contra o regime, organizado pela oposição e pelo povo nas ruas.">
-          <span class="letter">B</span><span>Uma campanha do governo militar pra ganhar popularidade.</span>
-        </button>
-        <button class="option" data-correct="false" data-explain="Não. O PT foi fundado em 1980, mas o Diretas Já! foi um movimento amplo, que envolveu vários partidos e milhões de pessoas nas ruas.">
-          <span class="letter">C</span><span>Uma campanha eleitoral do PT, recém-fundado.</span>
-        </button>
-      </div>
-      <div class="feedback right" data-fb="right"><span class="head">Boa.</span>Diretas Já! foi o maior movimento popular do Brasil até então. 1,5 milhão de pessoas no Anhangabaú, 1 milhão na Candelária. Pediam o direito de votar pra presidente. A emenda foi à votação na Câmara e <strong>perdeu por 22 votos</strong>. A eleição em 85 foi indireta.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a A.</strong> Foi o maior movimento popular do país até então. E perdeu por 22 votos no Congresso.</div>
-    </section>
-
-    <!-- ============== 80 — QUIZ 7 ============== -->
-    <section class="slide" data-quiz="7">
-      <div class="question-num">Pergunta 7 de 7</div>
-      <div class="question">Por que se diz que a transição da ditadura para a democracia foi "controlada pelos militares"?</div>
-      <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. Apesar do Diretas Já! ter sido um movimento enorme, a eleição de 1985 foi indireta — escolhida por um colégio eleitoral, não pelo povo.">
-          <span class="letter">A</span><span>Porque o povo escolheu Tancredo Neves em eleição direta.</span>
+        <button class="option" data-correct="false" data-explain="Não. Cidadãos religiosos podem (e devem) participar da política. O que não pode é a religião do governante virar lei pra todos.">
+          <span class="letter">B</span><span>Que pessoas religiosas não podem participar da política.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">B</span><span>Porque a eleição foi indireta, a Anistia blindou os torturadores e o vice (Sarney) era do partido do regime até semanas antes.</span>
-        </button>
-        <button class="option" data-correct="false" data-explain="Não. Tem documentos abertos do Departamento de Estado americano que confirmam o apoio dos EUA ao golpe de 64. E a transição em 85 foi articulada internamente, entre os militares e a elite política brasileira.">
-          <span class="letter">C</span><span>Porque foi imposta pelos Estados Unidos.</span>
+          <span class="letter">C</span><span>Que a religião do governante não pode virar lei pra quem não compartilha aquela religião.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Fechou.</span>A transição foi negociada pelos próprios militares: eleição indireta, anistia recíproca (perdoando torturadores), e um vice que tinha trocado de partido às vésperas. Quando Tancredo morre, assume Sarney — alguém ligado ao regime militar até pouco tempo antes. Por isso ninguém foi julgado e os arquivos seguem fechados.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Quem controla a saída controla a história. E foi exatamente isso que os militares fizeram em 85.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Mandou bem.</span>Laicidade protege todos, inclusive religiosos. É contra a imposição de uma religião sobre outras. O teste é simples: você apoiaria a mesma regra se a religião majoritária no poder fosse outra que não a sua? Se não, está defendendo seu lado, não princípio.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Estado laico = neutro entre religiões. Cidadãos religiosos podem fazer política, mas as leis precisam se justificar por argumento público, não por "está na Bíblia".</div>
     </section>
 
-    <!-- ============== END ============== -->
+    <!-- 137 — TELA FINAL -->
     <section class="slide end">
-      <div class="eyebrow" style="color: var(--accent-soft);">Fim da aula</div>
-      <h2>Você completou!</h2>
-      <div class="score" id="score">0/7</div>
-      <p id="endMsg">Tamo junto.</p>
-      <button class="restart" onclick="restart()">voltar ao início</button>
+      <div class="eyebrow" style="color: var(--accent-soft); text-align: center;">Acabou</div>
+      <h2>Fim da Aula 21.</h2>
+      <div class="score" id="score">0/6</div>
+      <p id="finalMsg">Mandou bem.</p>
+      <button class="restart" id="restartBtn">Voltar ao início</button>
+      <p style="margin-top: 28px; font-size: 13px; color: rgba(251,247,239,0.5); font-style: italic;">Próxima: Mundo islâmico e Oriente Médio.</p>
     </section>
 
   </div>
@@ -1439,13 +2042,14 @@
 </div>
 
 <script>
+(function(){
   const slides = document.querySelectorAll('.slide');
   const total = slides.length;
   const progress = document.getElementById('progress');
   const counter = document.getElementById('counter');
   let current = 0;
   let score = 0;
-  const quizCount = document.querySelectorAll('[data-quiz]').length;
+  let answered = {};
 
   // build progress segments
   for (let i = 0; i < total; i++) {
@@ -1458,53 +2062,72 @@
     });
     progress.appendChild(seg);
   }
+  const segs = progress.querySelectorAll('.seg');
 
-  function updateProgress() {
-    const segs = progress.querySelectorAll('.seg');
-    segs.forEach((s, i) => {
-      s.classList.remove('done', 'current');
-      if (i < current) s.classList.add('done');
-      if (i === current) s.classList.add('current');
+  function render() {
+    slides.forEach((s, i) => {
+      s.classList.remove('active', 'prev');
+      if (i === current) s.classList.add('active');
+      else if (i < current) s.classList.add('prev');
+    });
+    segs.forEach((seg, i) => {
+      seg.classList.remove('done', 'current');
+      if (i < current) seg.classList.add('done');
+      else if (i === current) seg.classList.add('current');
     });
     counter.textContent = (current + 1) + ' / ' + total;
+
+    // se for tela final, atualiza score
+    if (slides[current].classList.contains('end')) {
+      document.getElementById('score').textContent = score + '/6';
+      const msg = document.getElementById('finalMsg');
+      if (score === 6) msg.textContent = 'Gabaritou. Tá afiada.';
+      else if (score >= 4) msg.textContent = 'Boa. Pegou o essencial.';
+      else if (score >= 2) msg.textContent = 'Vale revisar alguns slides.';
+      else msg.textContent = 'Volta no começo, vai render mais.';
+    }
   }
 
+  function next() {
+    if (current < total - 1) {
+      current++;
+      render();
+    }
+  }
+  function prev() {
+    if (current > 0) {
+      current--;
+      render();
+    }
+  }
   function goTo(idx) {
-    if (idx < 0 || idx >= total) return;
-    slides[current].classList.remove('active');
-    if (idx < current) slides[current].classList.add('prev');
-    else slides[current].classList.remove('prev');
-    current = idx;
-    slides[current].classList.remove('prev');
-    slides[current].classList.add('active');
-    updateProgress();
-    // scroll reset
-    slides[current].scrollTop = 0;
-    if (current === total - 1) showScore();
+    if (idx >= 0 && idx < total) {
+      current = idx;
+      render();
+    }
   }
 
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
-
-  document.getElementById('tapRight').addEventListener('click', next);
   document.getElementById('tapLeft').addEventListener('click', prev);
+  document.getElementById('tapRight').addEventListener('click', next);
 
   // swipe
-  let touchStartX = 0;
-  let touchStartY = 0;
-  document.addEventListener('touchstart', (e) => {
+  let touchStartX = 0, touchStartY = 0, touchStartT = 0;
+  document.querySelector('.app').addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
+    touchStartT = Date.now();
   }, { passive: true });
-  document.addEventListener('touchend', (e) => {
+  document.querySelector('.app').addEventListener('touchend', (e) => {
     const dx = e.changedTouches[0].clientX - touchStartX;
     const dy = e.changedTouches[0].clientY - touchStartY;
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-      if (dx < 0) next(); else prev();
+    const dt = Date.now() - touchStartT;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) && dt < 500) {
+      if (dx < 0) next();
+      else prev();
     }
   }, { passive: true });
 
-  // drag on progress bar
+  // arrastar na barra de progresso
   let dragging = false;
   progress.addEventListener('touchstart', (e) => {
     dragging = true;
@@ -1514,65 +2137,57 @@
     if (dragging) handleDrag(e.touches[0].clientX);
   }, { passive: true });
   progress.addEventListener('touchend', () => { dragging = false; }, { passive: true });
-
-  function handleDrag(clientX) {
+  function handleDrag(x) {
     const rect = progress.getBoundingClientRect();
-    const pct = (clientX - rect.left) / rect.width;
-    const idx = Math.max(0, Math.min(total - 1, Math.floor(pct * total)));
-    if (idx !== current) goTo(idx);
+    const pct = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+    const idx = Math.floor(pct * total);
+    goTo(Math.min(idx, total - 1));
   }
 
-  // quiz logic
-  document.querySelectorAll('[data-quiz]').forEach(slide => {
-    const options = slide.querySelectorAll('.option');
-    const fbRight = slide.querySelector('[data-fb="right"]');
-    const fbMiss = slide.querySelector('[data-fb="miss"]');
-    options.forEach(opt => {
+  // quiz
+  document.querySelectorAll('[data-quiz]').forEach((quizSlide) => {
+    const qid = quizSlide.dataset.quiz;
+    const opts = quizSlide.querySelectorAll('.option');
+    opts.forEach((opt) => {
       opt.addEventListener('click', () => {
-        if (slide.dataset.answered) return;
-        slide.dataset.answered = '1';
+        if (answered[qid]) return;
+        answered[qid] = true;
         const isCorrect = opt.dataset.correct === 'true';
-        options.forEach(o => {
-          o.classList.add('disabled');
-          if (o.dataset.correct === 'true') o.classList.add('correct');
-        });
-        if (!isCorrect) {
-          opt.classList.add('wrong');
-          const explainText = opt.dataset.explain || '';
-          const span = fbMiss.querySelector('[data-explain-text]');
-          if (span) span.textContent = explainText;
-          fbMiss.classList.add('show');
-        } else {
+        if (isCorrect) {
+          opt.classList.add('correct');
           score++;
-          fbRight.classList.add('show');
+          quizSlide.querySelector('[data-fb="right"]').classList.add('show');
+        } else {
+          opt.classList.add('wrong');
+          // marca a certa
+          opts.forEach(o => {
+            if (o.dataset.correct === 'true') o.classList.add('correct');
+          });
+          const missFb = quizSlide.querySelector('[data-fb="miss"]');
+          const explainSlot = missFb.querySelector('[data-explain-text]');
+          if (explainSlot) explainSlot.textContent = opt.dataset.explain || '';
+          missFb.classList.add('show');
         }
+        opts.forEach(o => o.classList.add('disabled'));
       });
     });
   });
 
-  function showScore() {
-    document.getElementById('score').textContent = score + '/' + quizCount;
-    const msg = document.getElementById('endMsg');
-    const pct = score / quizCount;
-    if (pct === 1) msg.textContent = 'Cravou tudo. Pegou a aula no osso.';
-    else if (pct >= 0.7) msg.textContent = 'Mandou muito bem. Tá afiado.';
-    else if (pct >= 0.4) msg.textContent = 'Boa base. Volta nos slides que travou pra fechar.';
-    else msg.textContent = 'Sem stress. Volta no início, lê com calma. A história fica.';
-  }
-
-  function restart() {
+  // restart
+  document.getElementById('restartBtn').addEventListener('click', () => {
+    current = 0;
     score = 0;
-    document.querySelectorAll('[data-quiz]').forEach(slide => {
-      delete slide.dataset.answered;
-      slide.querySelectorAll('.option').forEach(o => {
-        o.classList.remove('disabled', 'correct', 'wrong');
-      });
-      slide.querySelectorAll('.feedback').forEach(f => f.classList.remove('show'));
+    answered = {};
+    document.querySelectorAll('.option').forEach(o => {
+      o.classList.remove('correct', 'wrong', 'disabled');
     });
-    goTo(0);
-  }
+    document.querySelectorAll('.feedback').forEach(f => f.classList.remove('show'));
+    render();
+  });
 
-  updateProgress();
+  render();
+})();
 </script>
+
 </body>
 </html>
